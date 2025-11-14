@@ -8,6 +8,7 @@ Günlük burç yorumlarını toplayan ve kategorize eden otomasyon sistemi.
 - Yorumları otomatik olarak aşk, para ve sağlık kategorilerine ayırma
 - Orijinal metinleri koruyarak kopyalama
 - Tek komutla tam pipeline çalıştırma
+- GitHub Actions ile otomatik günlük veri çekme (her gün 11:00)
 
 ## Kurulum
 
@@ -93,6 +94,10 @@ Milliyet, Hürriyet, NTV, Habertürk, Elle, Onedio, Mynet, TwitBurc, Vogue, Gün
 
 ```
 AIstrolog/
+├── .github/
+│   └── workflows/
+│       ├── daily_scrape.yml      # Günlük otomatik scraping
+│       └── test.yml              # Push'larda test
 ├── scraper.py                    # Burç verilerini çeker
 ├── categorize_horoscopes.py      # Kategorize eder
 ├── run_pipeline.py               # İkisini birden çalıştırır
@@ -102,6 +107,16 @@ AIstrolog/
     ├── daily_raw_*.json          # Ham veri
     └── processed_*.json          # İşlenmiş veri
 ```
+
+## CI/CD
+
+Proje GitHub Actions kullanarak otomatik çalışır:
+
+**Günlük Scraping:** Her gün saat 11:00'de otomatik olarak burç verileri çekilir ve kategorize edilir.
+
+**Test Pipeline:** Her push'ta kod kalitesi kontrol edilir ve import testleri çalıştırılır.
+
+Manuel tetikleme için GitHub Actions sekmesinden "Daily Horoscope Scraping" workflow'unu çalıştırabilirsiniz.
 
 ## Gereksinimler
 
