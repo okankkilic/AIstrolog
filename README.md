@@ -8,7 +8,7 @@ Günlük burç yorumlarını toplayan ve kategorize eden otomasyon sistemi.
 - Yorumları otomatik olarak aşk, para ve sağlık kategorilerine ayırma
 - Orijinal metinleri koruyarak kopyalama
 - Tek komutla tam pipeline çalıştırma
-- GitHub Actions ile otomatik günlük veri çekme (her gün 11:00)
+- GitHub Actions ile otomatik günlük veri çekme (her gün 05:00)
 
 ## Kurulum
 
@@ -112,7 +112,7 @@ AIstrolog/
 
 Proje GitHub Actions kullanarak otomatik çalışır:
 
-**Günlük Scraping:** Her gün saat 11:00'de otomatik olarak burç verileri çekilir ve kategorize edilir.
+**Günlük Scraping:** Her gün saat 05:00'de otomatik olarak burç verileri çekilir ve kategorize edilir.
 
 **Test Pipeline:** Her push'ta kod kalitesi kontrol edilir ve import testleri çalıştırılır.
 
