@@ -1,0 +1,47 @@
+name: Daily Horoscope Scraping and Categorization
+
+on:
+  schedule:
+    # Her gün saat 08:00 UTC (11:00 Türkiye saati)
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Manuel tetikleme için
+
+jobs:
+  scrape-and-categorize:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        ref: kocerayk/data_scraping
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run scraping and categorization pipeline
+      run: |
+        python run_pipeline.py
+    
+    - name: Configure Git
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+    
+    - name: Commit and push if changes
+      run: |
+        git add data/
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          DATE=$(date +%Y-%m-%d)
+          git commit -m "Daily horoscope data - $DATE"
+          git push
+        fi
