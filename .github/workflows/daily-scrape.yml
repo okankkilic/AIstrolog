@@ -2,8 +2,8 @@ name: Daily Horoscope Scraping
 
 on:
   schedule:
-    # Her gün sabah 05:00 UTC (Türkiye saati 08:00)
-    - cron: '0 5 * * *'
+    # Her gün sabah 05:00 Türkiye saati (02:00 UTC)
+    - cron: '0 2 * * *'
   workflow_dispatch: # Manuel çalıştırma için
 
 jobs:
