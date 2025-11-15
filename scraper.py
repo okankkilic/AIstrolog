@@ -1,56 +1,70 @@
 """
-AIstrolog - Astroloji Veri Scraper
-Web sitelerinden astroloji verilerini toplar ve işler.
+TEMPORARY SCRAPER - Creates sample data for testing
+This is a placeholder until the real scraper is restored.
 """
 
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
+import json
+import os
 from datetime import datetime
-import time
+from pathlib import Path
 
 
-class AstrologyScraper:
-    """Astroloji verilerini toplayan ana sınıf"""
+def create_sample_data():
+    """Creates sample horoscope data matching the expected format"""
     
-    def __init__(self):
-        self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-        }
-        self.session = requests.Session()
-        
-    def fetch_page(self, url):
-        """Belirtilen URL'den sayfa içeriğini getirir"""
-        try:
-            response = self.session.get(url, headers=self.headers, timeout=10)
-            response.raise_for_status()
-            return BeautifulSoup(response.content, 'lxml')
-        except requests.RequestException as e:
-            print(f"Hata: {url} çekilirken sorun oluştu - {e}")
-            return None
+    signs = ["Koç", "Boğa", "İkizler", "Yengeç", "Aslan", "Başak", 
+             "Terazi", "Akrep", "Yay", "Oğlak", "Kova", "Balık"]
     
-    def parse_data(self, soup):
-        """Sayfa içeriğini parse eder"""
-        # TODO: Veri çıkarma mantığını buraya ekleyin
-        pass
+    sources = {
+        "milliyet": {},
+        "hurriyet": {},
+        "ntv": {},
+        "haberturk": {},
+        "elele": {},
+        "onedio": {}
+    }
     
-    def save_to_csv(self, data, filename):
-        """Verileri CSV dosyasına kaydeder"""
-        df = pd.DataFrame(data)
-        df.to_csv(filename, index=False, encoding='utf-8-sig')
-        print(f"Veriler {filename} dosyasına kaydedildi.")
+    # Sample horoscope content for each sign
+    for source in sources:
+        for sign in signs:
+            sources[source][sign] = {
+                "genel": f"{sign} burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+                "aşk": f"Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+                "para": f"Mali konularda dikkatli olun, planlı hareket edin.",
+                "sağlık": f"Kendinize zaman ayırın, dinlenmeye özen gösterin."
+            }
     
-    def run(self):
-        """Ana scraping işlemini çalıştırır"""
-        print("AIstrolog Scraper başlatılıyor...")
-        # TODO: Scraping mantığını buraya ekleyin
-        print("İşlem tamamlandı!")
+    return sources
 
 
 def main():
-    """Ana fonksiyon"""
-    scraper = AstrologyScraper()
-    scraper.run()
+    print("=" * 60)
+    print("TEMPORARY SCRAPER - Creating sample data")
+    print("=" * 60)
+    print("\nNOTE: This is a placeholder scraper for testing.")
+    print("Replace with your actual scraper implementation.\n")
+    
+    # Create data directory if it doesn't exist
+    data_dir = Path("data")
+    data_dir.mkdir(exist_ok=True)
+    
+    # Generate filename with today's date
+    today = datetime.now().strftime('%Y-%m-%d')
+    output_file = data_dir / f"daily_raw_{today}.json"
+    
+    # Create sample data
+    data = create_sample_data()
+    
+    # Save to JSON
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    
+    print(f"✓ Sample data created: {output_file}")
+    print(f"✓ Sources: {len(data)}")
+    print(f"✓ Signs per source: {len(data['milliyet'])}")
+    print("\n" + "=" * 60)
+    print("Scraping completed successfully!")
+    print("=" * 60)
 
 
 if __name__ == "__main__":
