@@ -979,3 +979,521 @@
 2025-11-14 13:59:24,857 - INFO - Çıktı dosyası: data\daily_raw_2025-11-14.json
 2025-11-14 13:59:24,858 - INFO - ============================================================
 2025-11-14 13:59:24,858 - INFO - Scraping işlemi başarıyla tamamlandı!
+2025-11-15 11:41:22,734 - INFO - AIstrolog Scraper başlatılıyor...
+2025-11-15 11:41:22,735 - INFO - Tarih: 2025-11-15 11:41:22
+2025-11-15 11:41:22,735 - INFO - ============================================================
+2025-11-15 11:41:22,735 - INFO - Tüm sitelerde scraping başlatılıyor...
+2025-11-15 11:41:22,735 - INFO - ============================================================
+2025-11-15 11:41:22,735 - INFO - Milliyet scrape başladı...
+2025-11-15 11:41:23,186 - INFO - Milliyet - Koç tamamlandı
+2025-11-15 11:41:25,828 - INFO - Milliyet - Boğa tamamlandı
+2025-11-15 11:41:30,931 - INFO - Milliyet - İkizler tamamlandı
+2025-11-15 11:41:34,029 - INFO - Milliyet - Yengeç tamamlandı
+2025-11-15 11:41:39,171 - INFO - Milliyet - Aslan tamamlandı
+2025-11-15 11:41:43,164 - INFO - Milliyet - Başak tamamlandı
+2025-11-15 11:41:49,062 - INFO - Milliyet - Terazi tamamlandı
+2025-11-15 11:41:50,798 - INFO - Milliyet - Akrep tamamlandı
+2025-11-15 11:41:54,433 - INFO - Milliyet - Yay tamamlandı
+2025-11-15 11:41:58,517 - INFO - Milliyet - Oğlak tamamlandı
+2025-11-15 11:42:03,459 - INFO - Milliyet - Kova tamamlandı
+2025-11-15 11:42:06,546 - INFO - Milliyet - Balık tamamlandı
+2025-11-15 11:42:09,198 - INFO - Milliyet scrape tamamlandı
+2025-11-15 11:42:09,200 - INFO - Hurriyet scrape başladı...
+2025-11-15 11:42:09,674 - INFO - Hurriyet - Koç tamamlandı
+2025-11-15 11:42:11,429 - INFO - Hurriyet - Boğa tamamlandı
+2025-11-15 11:42:13,689 - INFO - Hurriyet - İkizler tamamlandı
+2025-11-15 11:42:16,923 - INFO - Hurriyet - Yengeç tamamlandı
+2025-11-15 11:42:19,954 - INFO - Hurriyet - Aslan tamamlandı
+2025-11-15 11:42:21,960 - INFO - Hurriyet - Başak tamamlandı
+2025-11-15 11:42:24,470 - INFO - Hurriyet - Terazi tamamlandı
+2025-11-15 11:42:27,828 - INFO - Hurriyet - Akrep tamamlandı
+2025-11-15 11:42:30,036 - INFO - Hurriyet - Yay tamamlandı
+2025-11-15 11:42:31,872 - INFO - Hurriyet - Oğlak tamamlandı
+2025-11-15 11:42:33,577 - INFO - Hurriyet - Kova tamamlandı
+2025-11-15 11:42:36,379 - INFO - Hurriyet - Balık tamamlandı
+2025-11-15 11:42:37,720 - INFO - Hurriyet scrape tamamlandı
+2025-11-15 11:42:37,722 - INFO - NTV scrape başladı...
+2025-11-15 11:42:38,215 - INFO - NTV - Gallery bulundu: https://www.ntv.com.tr/galeri/astroloji-ve-burclar/gunluk-burc-yorumlari-24-temmuz-2025,H-EnQlEIMU2UR5oYK9nTJw
+2025-11-15 11:42:38,836 - INFO - NTV - Koç tamamlandı
+2025-11-15 11:42:40,639 - INFO - NTV - Boğa tamamlandı
+2025-11-15 11:42:43,012 - INFO - NTV - İkizler tamamlandı
+2025-11-15 11:42:45,981 - INFO - NTV - Yengeç tamamlandı
+2025-11-15 11:42:48,066 - INFO - NTV - Aslan tamamlandı
+2025-11-15 11:42:50,442 - INFO - NTV - Başak tamamlandı
+2025-11-15 11:42:52,730 - INFO - NTV - Terazi tamamlandı
+2025-11-15 11:42:54,387 - INFO - NTV - Akrep tamamlandı
+2025-11-15 11:42:57,205 - INFO - NTV - Yay tamamlandı
+2025-11-15 11:43:00,147 - INFO - NTV - Oğlak tamamlandı
+2025-11-15 11:43:02,040 - INFO - NTV - Kova tamamlandı
+2025-11-15 11:43:05,024 - INFO - NTV - Balık tamamlandı
+2025-11-15 11:43:06,691 - INFO - NTV scrape tamamlandı
+2025-11-15 11:43:06,693 - INFO - Haberturk scrape başladı...
+2025-11-15 11:43:07,523 - INFO - Haberturk - Günlük link bulundu: https://hthayat.haberturk.com/gunluk-burc-yorumlari-15-kasim-2025-cumartesi-1086501
+2025-11-15 11:43:07,828 - INFO - Haberturk - Koç tamamlandı
+2025-11-15 11:43:07,828 - INFO - Haberturk - Boğa tamamlandı
+2025-11-15 11:43:07,828 - INFO - Haberturk - Yengeç tamamlandı
+2025-11-15 11:43:07,829 - INFO - Haberturk - Aslan tamamlandı
+2025-11-15 11:43:07,829 - INFO - Haberturk - Başak tamamlandı
+2025-11-15 11:43:07,829 - INFO - Haberturk - Akrep tamamlandı
+2025-11-15 11:43:07,829 - INFO - Haberturk - Yay tamamlandı
+2025-11-15 11:43:07,829 - INFO - Haberturk - Oğlak tamamlandı
+2025-11-15 11:43:07,830 - INFO - Haberturk - Kova tamamlandı
+2025-11-15 11:43:07,830 - INFO - Haberturk - Balık tamamlandı
+2025-11-15 11:43:10,286 - INFO - Haberturk scrape tamamlandı
+2025-11-15 11:43:10,287 - INFO - Elele scrape başladı...
+2025-11-15 11:43:11,117 - INFO - Elele - Koç tamamlandı
+2025-11-15 11:43:14,027 - INFO - Elele - Boğa tamamlandı
+2025-11-15 11:43:16,707 - INFO - Elele - İkizler tamamlandı
+2025-11-15 11:43:19,334 - INFO - Elele - Yengeç tamamlandı
+2025-11-15 11:43:21,951 - INFO - Elele - Aslan tamamlandı
+2025-11-15 11:43:24,681 - INFO - Elele - Başak tamamlandı
+2025-11-15 11:43:27,442 - INFO - Elele - Terazi tamamlandı
+2025-11-15 11:43:30,827 - INFO - Elele - Akrep tamamlandı
+2025-11-15 11:43:34,519 - INFO - Elele - Yay tamamlandı
+2025-11-15 11:43:37,891 - INFO - Elele - Oğlak tamamlandı
+2025-11-15 11:43:41,137 - INFO - Elele - Kova tamamlandı
+2025-11-15 11:43:44,997 - INFO - Elele - Balık tamamlandı
+2025-11-15 11:43:46,468 - INFO - Elele scrape tamamlandı
+2025-11-15 11:43:46,470 - INFO - Onedio scrape başladı...
+2025-11-15 11:43:46,817 - INFO - Onedio - Koç tamamlandı
+2025-11-15 11:43:48,425 - INFO - Onedio - Boğa tamamlandı
+2025-11-15 11:43:50,946 - INFO - Onedio - İkizler tamamlandı
+2025-11-15 11:43:53,509 - INFO - Onedio - Yengeç tamamlandı
+2025-11-15 11:43:56,635 - INFO - Onedio - Aslan tamamlandı
+2025-11-15 11:43:58,553 - INFO - Onedio - Başak tamamlandı
+2025-11-15 11:44:01,380 - INFO - Onedio - Terazi tamamlandı
+2025-11-15 11:44:02,902 - INFO - Onedio - Akrep tamamlandı
+2025-11-15 11:44:04,270 - INFO - Onedio - Yay tamamlandı
+2025-11-15 11:44:07,455 - INFO - Onedio - Oğlak tamamlandı
+2025-11-15 11:44:09,910 - INFO - Onedio - Kova tamamlandı
+2025-11-15 11:44:11,265 - INFO - Onedio - Balık tamamlandı
+2025-11-15 11:44:12,892 - INFO - Onedio scrape tamamlandı
+2025-11-15 11:44:12,893 - INFO - Mynet scrape başladı...
+2025-11-15 11:44:13,293 - INFO - Mynet - Koç tamamlandı
+2025-11-15 11:44:15,401 - INFO - Mynet - Boğa tamamlandı
+2025-11-15 11:44:17,254 - INFO - Mynet - İkizler tamamlandı
+2025-11-15 11:44:18,930 - INFO - Mynet - Yengeç tamamlandı
+2025-11-15 11:44:21,810 - INFO - Mynet - Aslan tamamlandı
+2025-11-15 11:44:23,797 - INFO - Mynet - Başak tamamlandı
+2025-11-15 11:44:27,044 - INFO - Mynet - Terazi tamamlandı
+2025-11-15 11:44:29,056 - INFO - Mynet - Akrep tamamlandı
+2025-11-15 11:44:31,101 - INFO - Mynet - Yay tamamlandı
+2025-11-15 11:44:32,869 - INFO - Mynet - Oğlak tamamlandı
+2025-11-15 11:44:35,981 - INFO - Mynet - Kova tamamlandı
+2025-11-15 11:44:38,828 - INFO - Mynet - Balık tamamlandı
+2025-11-15 11:44:40,901 - INFO - Mynet scrape tamamlandı
+2025-11-15 11:44:40,903 - INFO - Twitburc scrape başladı...
+2025-11-15 11:44:41,668 - INFO - Twitburc - Koç tamamlandı
+2025-11-15 11:44:43,735 - INFO - Twitburc - Boğa tamamlandı
+2025-11-15 11:44:45,885 - INFO - Twitburc - İkizler tamamlandı
+2025-11-15 11:44:47,968 - INFO - Twitburc - Yengeç tamamlandı
+2025-11-15 11:44:51,269 - INFO - Twitburc - Aslan tamamlandı
+2025-11-15 11:44:54,303 - INFO - Twitburc - Başak tamamlandı
+2025-11-15 11:44:56,539 - INFO - Twitburc - Terazi tamamlandı
+2025-11-15 11:44:58,653 - INFO - Twitburc - Akrep tamamlandı
+2025-11-15 11:45:01,053 - INFO - Twitburc - Yay tamamlandı
+2025-11-15 11:45:03,140 - INFO - Twitburc - Oğlak tamamlandı
+2025-11-15 11:45:06,216 - INFO - Twitburc - Kova tamamlandı
+2025-11-15 11:45:08,605 - INFO - Twitburc - Balık tamamlandı
+2025-11-15 11:45:09,843 - INFO - Twitburc scrape tamamlandı
+2025-11-15 11:45:09,845 - INFO - Vogue scrape başladı...
+2025-11-15 11:45:10,277 - INFO - Vogue - Koç tamamlandı
+2025-11-15 11:45:10,277 - INFO - Vogue - Boğa tamamlandı
+2025-11-15 11:45:10,278 - INFO - Vogue - İkizler tamamlandı
+2025-11-15 11:45:10,278 - INFO - Vogue - Yengeç tamamlandı
+2025-11-15 11:45:10,278 - INFO - Vogue - Aslan tamamlandı
+2025-11-15 11:45:10,278 - INFO - Vogue - Başak tamamlandı
+2025-11-15 11:45:10,278 - INFO - Vogue - Terazi tamamlandı
+2025-11-15 11:45:10,278 - INFO - Vogue - Akrep tamamlandı
+2025-11-15 11:45:10,278 - INFO - Vogue - Yay tamamlandı
+2025-11-15 11:45:10,279 - INFO - Vogue - Oğlak tamamlandı
+2025-11-15 11:45:10,279 - INFO - Vogue - Kova tamamlandı
+2025-11-15 11:45:10,279 - INFO - Vogue - Balık tamamlandı
+2025-11-15 11:45:11,559 - INFO - Vogue scrape tamamlandı
+2025-11-15 11:45:11,560 - INFO - Gunlukburc scrape başladı...
+2025-11-15 11:45:11,970 - INFO - Gunlukburc - Koç tamamlandı
+2025-11-15 11:45:14,754 - INFO - Gunlukburc - Boğa tamamlandı
+2025-11-15 11:45:17,339 - INFO - Gunlukburc - İkizler tamamlandı
+2025-11-15 11:45:20,266 - INFO - Gunlukburc - Yengeç tamamlandı
+2025-11-15 11:45:22,325 - INFO - Gunlukburc - Aslan tamamlandı
+2025-11-15 11:45:25,620 - INFO - Gunlukburc - Başak tamamlandı
+2025-11-15 11:45:28,309 - INFO - Gunlukburc - Terazi tamamlandı
+2025-11-15 11:45:31,115 - INFO - Gunlukburc - Akrep tamamlandı
+2025-11-15 11:45:33,012 - INFO - Gunlukburc - Yay tamamlandı
+2025-11-15 11:45:35,908 - INFO - Gunlukburc - Oğlak tamamlandı
+2025-11-15 11:45:38,209 - INFO - Gunlukburc - Kova tamamlandı
+2025-11-15 11:45:40,629 - INFO - Gunlukburc - Balık tamamlandı
+2025-11-15 11:45:42,930 - INFO - Gunlukburc scrape tamamlandı
+2025-11-15 11:45:42,931 - INFO - Myburc scrape başladı...
+2025-11-15 11:45:43,621 - INFO - Myburc - Koç tamamlandı
+2025-11-15 11:45:47,179 - INFO - Myburc - Boğa tamamlandı
+2025-11-15 11:45:49,689 - INFO - Myburc - İkizler tamamlandı
+2025-11-15 11:45:53,286 - INFO - Myburc - Yengeç tamamlandı
+2025-11-15 11:45:56,539 - INFO - Myburc - Aslan tamamlandı
+2025-11-15 11:45:59,603 - INFO - Myburc - Başak tamamlandı
+2025-11-15 11:46:02,800 - INFO - Myburc - Terazi tamamlandı
+2025-11-15 11:46:05,510 - INFO - Myburc - Akrep tamamlandı
+2025-11-15 11:46:07,778 - INFO - Myburc - Yay tamamlandı
+2025-11-15 11:46:09,846 - INFO - Myburc - Oğlak tamamlandı
+2025-11-15 11:46:11,681 - INFO - Myburc - Kova tamamlandı
+2025-11-15 11:46:13,851 - INFO - Myburc - Balık tamamlandı
+2025-11-15 11:46:15,390 - INFO - Myburc scrape tamamlandı
+2025-11-15 11:46:15,391 - INFO - ============================================================
+2025-11-15 11:46:15,391 - INFO - Tüm siteler tamamlandı!
+2025-11-15 11:46:15,391 - INFO - ============================================================
+2025-11-15 11:46:15,394 - INFO - Veriler data\daily_raw_2025-11-15.json dosyasına kaydedildi
+2025-11-15 11:46:15,394 - INFO - ============================================================
+2025-11-15 11:46:15,394 - INFO - ÖZET
+2025-11-15 11:46:15,394 - INFO - ============================================================
+2025-11-15 11:46:15,394 - INFO - Toplam site sayısı: 11
+2025-11-15 11:46:15,395 - INFO - Başarılı siteler: 11
+2025-11-15 11:46:15,395 - INFO - Toplam süre: 292.66 saniye
+2025-11-15 11:46:15,395 - INFO - Çıktı dosyası: data\daily_raw_2025-11-15.json
+2025-11-15 11:46:15,395 - INFO - ============================================================
+2025-11-15 11:46:15,395 - INFO - Scraping işlemi başarıyla tamamlandı!
+2025-11-15 12:40:00,314 - INFO - AIstrolog Scraper başlatılıyor...
+2025-11-15 12:40:00,314 - INFO - Tarih: 2025-11-15 12:40:00
+2025-11-15 12:40:00,314 - INFO - ============================================================
+2025-11-15 12:40:00,314 - INFO - Tüm sitelerde scraping başlatılıyor...
+2025-11-15 12:40:00,314 - INFO - ============================================================
+2025-11-15 12:40:00,314 - INFO - Milliyet scrape başladı...
+2025-11-15 12:40:00,640 - INFO - Milliyet - Koç tamamlandı
+2025-11-15 12:40:04,309 - INFO - Milliyet - Boğa tamamlandı
+2025-11-15 12:40:06,812 - INFO - Milliyet - İkizler tamamlandı
+2025-11-15 12:40:10,852 - INFO - Milliyet - Yengeç tamamlandı
+2025-11-15 12:40:14,887 - INFO - Milliyet - Aslan tamamlandı
+2025-11-15 12:40:16,569 - INFO - Milliyet - Başak tamamlandı
+2025-11-15 12:40:18,868 - INFO - Milliyet - Terazi tamamlandı
+2025-11-15 12:40:23,348 - INFO - Milliyet - Akrep tamamlandı
+2025-11-15 12:40:25,404 - INFO - Milliyet - Yay tamamlandı
+2025-11-15 12:40:28,768 - INFO - Milliyet - Oğlak tamamlandı
+2025-11-15 12:40:32,721 - INFO - Milliyet - Kova tamamlandı
+2025-11-15 12:40:34,808 - INFO - Milliyet - Balık tamamlandı
+2025-11-15 12:40:36,231 - INFO - Milliyet scrape tamamlandı
+2025-11-15 12:40:36,232 - INFO - Hurriyet scrape başladı...
+2025-11-15 12:40:36,547 - INFO - Hurriyet - Koç tamamlandı
+2025-11-15 12:40:39,059 - INFO - Hurriyet - Boğa tamamlandı
+2025-11-15 12:40:40,736 - INFO - Hurriyet - İkizler tamamlandı
+2025-11-15 12:40:42,461 - INFO - Hurriyet - Yengeç tamamlandı
+2025-11-15 12:40:46,228 - INFO - Hurriyet - Aslan tamamlandı
+2025-11-15 12:40:48,297 - INFO - Hurriyet - Başak tamamlandı
+2025-11-15 12:40:52,269 - INFO - Hurriyet - Terazi tamamlandı
+2025-11-15 12:40:55,515 - INFO - Hurriyet - Akrep tamamlandı
+2025-11-15 12:40:58,212 - INFO - Hurriyet - Yay tamamlandı
+2025-11-15 12:41:00,022 - INFO - Hurriyet - Oğlak tamamlandı
+2025-11-15 12:41:01,460 - INFO - Hurriyet - Kova tamamlandı
+2025-11-15 12:41:05,819 - INFO - Hurriyet - Balık tamamlandı
+2025-11-15 12:41:07,490 - INFO - Hurriyet scrape tamamlandı
+2025-11-15 12:41:07,492 - INFO - NTV scrape başladı...
+2025-11-15 12:41:08,265 - INFO - NTV - Gallery bulundu: https://www.ntv.com.tr/galeri/astroloji-ve-burclar/gunluk-burc-yorumlari-24-temmuz-2025,H-EnQlEIMU2UR5oYK9nTJw
+2025-11-15 12:41:09,071 - INFO - NTV - Koç tamamlandı
+2025-11-15 12:41:10,811 - INFO - NTV - Boğa tamamlandı
+2025-11-15 12:41:13,525 - INFO - NTV - İkizler tamamlandı
+2025-11-15 12:41:16,894 - INFO - NTV - Yengeç tamamlandı
+2025-11-15 12:41:18,892 - INFO - NTV - Aslan tamamlandı
+2025-11-15 12:41:21,763 - INFO - NTV - Başak tamamlandı
+2025-11-15 12:41:25,161 - INFO - NTV - Terazi tamamlandı
+2025-11-15 12:41:27,885 - INFO - NTV - Akrep tamamlandı
+2025-11-15 12:41:30,166 - INFO - NTV - Yay tamamlandı
+2025-11-15 12:41:32,905 - INFO - NTV - Oğlak tamamlandı
+2025-11-15 12:41:34,680 - INFO - NTV - Kova tamamlandı
+2025-11-15 12:41:37,929 - INFO - NTV - Balık tamamlandı
+2025-11-15 12:41:39,941 - INFO - NTV scrape tamamlandı
+2025-11-15 12:41:39,943 - INFO - Haberturk scrape başladı...
+2025-11-15 12:41:40,671 - INFO - Haberturk - Günlük link bulundu: https://hthayat.haberturk.com/gunluk-burc-yorumlari-15-kasim-2025-cumartesi-1086501
+2025-11-15 12:41:42,215 - INFO - Haberturk - Koç tamamlandı
+2025-11-15 12:41:42,215 - INFO - Haberturk - Boğa tamamlandı
+2025-11-15 12:41:42,216 - INFO - Haberturk - Yengeç tamamlandı
+2025-11-15 12:41:42,216 - INFO - Haberturk - Aslan tamamlandı
+2025-11-15 12:41:42,216 - INFO - Haberturk - Başak tamamlandı
+2025-11-15 12:41:42,216 - INFO - Haberturk - Akrep tamamlandı
+2025-11-15 12:41:42,216 - INFO - Haberturk - Yay tamamlandı
+2025-11-15 12:41:42,216 - INFO - Haberturk - Oğlak tamamlandı
+2025-11-15 12:41:42,216 - INFO - Haberturk - Kova tamamlandı
+2025-11-15 12:41:42,216 - INFO - Haberturk - Balık tamamlandı
+2025-11-15 12:41:44,522 - INFO - Haberturk scrape tamamlandı
+2025-11-15 12:41:44,525 - INFO - Elele scrape başladı...
+2025-11-15 12:41:45,301 - INFO - Elele - Koç tamamlandı
+2025-11-15 12:41:47,727 - INFO - Elele - Boğa tamamlandı
+2025-11-15 12:41:50,311 - INFO - Elele - İkizler tamamlandı
+2025-11-15 12:41:53,260 - INFO - Elele - Yengeç tamamlandı
+2025-11-15 12:41:54,995 - INFO - Elele - Aslan tamamlandı
+2025-11-15 12:41:58,608 - INFO - Elele - Başak tamamlandı
+2025-11-15 12:42:01,711 - INFO - Elele - Terazi tamamlandı
+2025-11-15 12:42:05,014 - INFO - Elele - Akrep tamamlandı
+2025-11-15 12:42:08,013 - INFO - Elele - Yay tamamlandı
+2025-11-15 12:42:10,887 - INFO - Elele - Oğlak tamamlandı
+2025-11-15 12:42:13,471 - INFO - Elele - Kova tamamlandı
+2025-11-15 12:42:16,510 - INFO - Elele - Balık tamamlandı
+2025-11-15 12:42:18,437 - INFO - Elele scrape tamamlandı
+2025-11-15 12:42:18,440 - INFO - Onedio scrape başladı...
+2025-11-15 12:42:19,141 - INFO - Onedio - Koç tamamlandı
+2025-11-15 12:42:21,240 - INFO - Onedio - Boğa tamamlandı
+2025-11-15 12:42:23,186 - INFO - Onedio - İkizler tamamlandı
+2025-11-15 12:42:25,251 - INFO - Onedio - Yengeç tamamlandı
+2025-11-15 12:42:27,031 - INFO - Onedio - Aslan tamamlandı
+2025-11-15 12:42:30,366 - INFO - Onedio - Başak tamamlandı
+2025-11-15 12:42:32,691 - INFO - Onedio - Terazi tamamlandı
+2025-11-15 12:42:35,974 - INFO - Onedio - Akrep tamamlandı
+2025-11-15 12:42:37,601 - INFO - Onedio - Yay tamamlandı
+2025-11-15 12:42:39,279 - INFO - Onedio - Oğlak tamamlandı
+2025-11-15 12:42:42,426 - INFO - Onedio - Kova tamamlandı
+2025-11-15 12:42:44,624 - INFO - Onedio - Balık tamamlandı
+2025-11-15 12:42:46,398 - INFO - Onedio scrape tamamlandı
+2025-11-15 12:42:46,399 - INFO - Mynet scrape başladı...
+2025-11-15 12:42:46,814 - INFO - Mynet - Koç tamamlandı
+2025-11-15 12:42:49,044 - INFO - Mynet - Boğa tamamlandı
+2025-11-15 12:42:50,692 - INFO - Mynet - İkizler tamamlandı
+2025-11-15 12:42:52,211 - INFO - Mynet - Yengeç tamamlandı
+2025-11-15 12:42:54,567 - INFO - Mynet - Aslan tamamlandı
+2025-11-15 12:42:57,468 - INFO - Mynet - Başak tamamlandı
+2025-11-15 12:43:00,661 - INFO - Mynet - Terazi tamamlandı
+2025-11-15 12:43:02,254 - INFO - Mynet - Akrep tamamlandı
+2025-11-15 12:43:04,270 - INFO - Mynet - Yay tamamlandı
+2025-11-15 12:43:05,639 - INFO - Mynet - Oğlak tamamlandı
+2025-11-15 12:43:09,010 - INFO - Mynet - Kova tamamlandı
+2025-11-15 12:43:11,698 - INFO - Mynet - Balık tamamlandı
+2025-11-15 12:43:13,197 - INFO - Mynet scrape tamamlandı
+2025-11-15 12:43:13,200 - INFO - Twitburc scrape başladı...
+2025-11-15 12:43:14,154 - INFO - Twitburc - Koç tamamlandı
+2025-11-15 12:43:17,408 - INFO - Twitburc - Boğa tamamlandı
+2025-11-15 12:43:21,196 - INFO - Twitburc - İkizler tamamlandı
+2025-11-15 12:43:24,520 - INFO - Twitburc - Yengeç tamamlandı
+2025-11-15 12:43:27,102 - INFO - Twitburc - Aslan tamamlandı
+2025-11-15 12:43:30,421 - INFO - Twitburc - Başak tamamlandı
+2025-11-15 12:43:33,012 - INFO - Twitburc - Terazi tamamlandı
+2025-11-15 12:43:36,447 - INFO - Twitburc - Akrep tamamlandı
+2025-11-15 12:43:40,123 - INFO - Twitburc - Yay tamamlandı
+2025-11-15 12:43:42,772 - INFO - Twitburc - Oğlak tamamlandı
+2025-11-15 12:43:45,139 - INFO - Twitburc - Kova tamamlandı
+2025-11-15 12:43:48,225 - INFO - Twitburc - Balık tamamlandı
+2025-11-15 12:43:50,239 - INFO - Twitburc scrape tamamlandı
+2025-11-15 12:43:50,240 - INFO - Vogue scrape başladı...
+2025-11-15 12:43:50,752 - INFO - Vogue - Koç tamamlandı
+2025-11-15 12:43:50,752 - INFO - Vogue - Boğa tamamlandı
+2025-11-15 12:43:50,752 - INFO - Vogue - İkizler tamamlandı
+2025-11-15 12:43:50,752 - INFO - Vogue - Yengeç tamamlandı
+2025-11-15 12:43:50,752 - INFO - Vogue - Aslan tamamlandı
+2025-11-15 12:43:50,752 - INFO - Vogue - Başak tamamlandı
+2025-11-15 12:43:50,753 - INFO - Vogue - Terazi tamamlandı
+2025-11-15 12:43:50,753 - INFO - Vogue - Akrep tamamlandı
+2025-11-15 12:43:50,753 - INFO - Vogue - Yay tamamlandı
+2025-11-15 12:43:50,753 - INFO - Vogue - Oğlak tamamlandı
+2025-11-15 12:43:50,753 - INFO - Vogue - Kova tamamlandı
+2025-11-15 12:43:50,753 - INFO - Vogue - Balık tamamlandı
+2025-11-15 12:43:51,827 - INFO - Vogue scrape tamamlandı
+2025-11-15 12:43:51,828 - INFO - Gunlukburc scrape başladı...
+2025-11-15 12:43:52,290 - INFO - Gunlukburc - Koç tamamlandı
+2025-11-15 12:43:55,583 - INFO - Gunlukburc - Boğa tamamlandı
+2025-11-15 12:43:58,208 - INFO - Gunlukburc - İkizler tamamlandı
+2025-11-15 12:44:01,125 - INFO - Gunlukburc - Yengeç tamamlandı
+2025-11-15 12:44:03,158 - INFO - Gunlukburc - Aslan tamamlandı
+2025-11-15 12:44:06,218 - INFO - Gunlukburc - Başak tamamlandı
+2025-11-15 12:44:08,307 - INFO - Gunlukburc - Terazi tamamlandı
+2025-11-15 12:44:09,837 - INFO - Gunlukburc - Akrep tamamlandı
+2025-11-15 12:44:11,547 - INFO - Gunlukburc - Yay tamamlandı
+2025-11-15 12:44:14,885 - INFO - Gunlukburc - Oğlak tamamlandı
+2025-11-15 12:44:17,688 - INFO - Gunlukburc - Kova tamamlandı
+2025-11-15 12:44:19,217 - INFO - Gunlukburc - Balık tamamlandı
+2025-11-15 12:44:21,134 - INFO - Gunlukburc scrape tamamlandı
+2025-11-15 12:44:21,137 - INFO - Myburc scrape başladı...
+2025-11-15 12:44:21,858 - INFO - Myburc - Koç tamamlandı
+2025-11-15 12:44:25,143 - INFO - Myburc - Boğa tamamlandı
+2025-11-15 12:44:27,702 - INFO - Myburc - İkizler tamamlandı
+2025-11-15 12:44:30,942 - INFO - Myburc - Yengeç tamamlandı
+2025-11-15 12:44:35,300 - INFO - Myburc - Aslan tamamlandı
+2025-11-15 12:44:38,232 - INFO - Myburc - Başak tamamlandı
+2025-11-15 12:44:40,316 - INFO - Myburc - Terazi tamamlandı
+2025-11-15 12:44:42,434 - INFO - Myburc - Akrep tamamlandı
+2025-11-15 12:44:45,029 - INFO - Myburc - Yay tamamlandı
+2025-11-15 12:44:47,818 - INFO - Myburc - Oğlak tamamlandı
+2025-11-15 12:44:49,744 - INFO - Myburc - Kova tamamlandı
+2025-11-15 12:44:51,941 - INFO - Myburc - Balık tamamlandı
+2025-11-15 12:44:54,540 - INFO - Myburc scrape tamamlandı
+2025-11-15 12:44:54,543 - INFO - ============================================================
+2025-11-15 12:44:54,543 - INFO - Tüm siteler tamamlandı!
+2025-11-15 12:44:54,543 - INFO - ============================================================
+2025-11-15 12:44:54,549 - INFO - Veriler data\daily_raw_2025-11-15.json dosyasına kaydedildi
+2025-11-15 12:44:54,549 - INFO - ✅ 11 site verisi kaydedildi
+2025-11-15 12:44:54,549 - INFO - ============================================================
+2025-11-15 12:44:54,549 - INFO - ÖZET
+2025-11-15 12:44:54,550 - INFO - ============================================================
+2025-11-15 12:44:54,550 - INFO - Toplam site sayısı: 11
+2025-11-15 12:44:54,550 - INFO - ✅ Başarılı siteler: 11
+2025-11-15 12:44:54,550 - INFO - Toplam süre: 294.24 saniye
+2025-11-15 12:44:54,550 - INFO - Çıktı dosyası: data\daily_raw_2025-11-15.json
+2025-11-15 12:44:54,550 - INFO - ============================================================
+2025-11-15 12:44:54,550 - INFO - ✅ Scraping işlemi tamamlandı!
+2025-11-15 12:56:29,643 - INFO - AIstrolog Scraper başlatılıyor...
+2025-11-15 12:56:29,643 - INFO - Tarih: 2025-11-15 12:56:29
+2025-11-15 12:56:29,643 - INFO - ============================================================
+2025-11-15 12:56:29,643 - INFO - Tüm sitelerde scraping başlatılıyor...
+2025-11-15 12:56:29,643 - INFO - ============================================================
+2025-11-15 12:56:29,643 - INFO - Milliyet scrape başladı...
+2025-11-15 12:56:29,963 - INFO - Milliyet - Koç tamamlandı
+2025-11-15 12:56:34,433 - INFO - Milliyet - Boğa tamamlandı
+2025-11-15 12:56:35,909 - INFO - Milliyet - İkizler tamamlandı
+2025-11-15 12:56:39,101 - INFO - Milliyet - Yengeç tamamlandı
+2025-11-15 12:56:40,537 - INFO - Milliyet - Aslan tamamlandı
+2025-11-15 12:56:43,058 - INFO - Milliyet - Başak tamamlandı
+2025-11-15 12:56:44,468 - INFO - Milliyet - Terazi tamamlandı
+2025-11-15 12:56:46,492 - INFO - Milliyet - Akrep tamamlandı
+2025-11-15 12:56:50,471 - INFO - Milliyet - Yay tamamlandı
+2025-11-15 12:56:53,695 - INFO - Milliyet - Oğlak tamamlandı
+2025-11-15 12:56:55,912 - INFO - Milliyet - Kova tamamlandı
+2025-11-15 12:56:57,342 - INFO - Milliyet - Balık tamamlandı
+2025-11-15 12:56:59,693 - INFO - Milliyet scrape tamamlandı
+2025-11-15 12:56:59,695 - INFO - Hurriyet scrape başladı...
+2025-11-15 12:57:00,694 - INFO - Hurriyet - Koç tamamlandı
+2025-11-15 12:57:04,519 - INFO - Hurriyet - Boğa tamamlandı
+2025-11-15 12:57:07,731 - INFO - Hurriyet - İkizler tamamlandı
+2025-11-15 12:57:10,635 - INFO - Hurriyet - Yengeç tamamlandı
+2025-11-15 12:57:13,734 - INFO - Hurriyet - Aslan tamamlandı
+2025-11-15 12:57:16,700 - INFO - Hurriyet - Başak tamamlandı
+2025-11-15 12:57:18,996 - INFO - Hurriyet - Terazi tamamlandı
+2025-11-15 12:57:21,961 - INFO - Hurriyet - Akrep tamamlandı
+2025-11-15 12:57:24,892 - INFO - Hurriyet - Yay tamamlandı
+2025-11-15 12:57:26,292 - INFO - Hurriyet - Oğlak tamamlandı
+2025-11-15 12:57:27,919 - INFO - Hurriyet - Kova tamamlandı
+2025-11-15 12:57:30,295 - INFO - Hurriyet - Balık tamamlandı
+2025-11-15 12:57:31,752 - INFO - Hurriyet scrape tamamlandı
+2025-11-15 12:57:31,753 - INFO - NTV scrape başladı...
+2025-11-15 12:57:32,265 - INFO - NTV - Gallery bulundu: https://www.ntv.com.tr/galeri/astroloji-ve-burclar/gunluk-burc-yorumlari-4-kasim-2025,3bUQ9CZxqEmiCSA4ZAeo6A
+2025-11-15 12:57:32,850 - INFO - NTV - Koç tamamlandı
+2025-11-15 12:57:36,682 - INFO - NTV - Boğa tamamlandı
+2025-11-15 12:57:39,107 - INFO - NTV - İkizler tamamlandı
+2025-11-15 12:57:41,139 - INFO - NTV - Yengeç tamamlandı
+2025-11-15 12:57:44,747 - INFO - NTV - Aslan tamamlandı
+2025-11-15 12:57:47,579 - INFO - NTV - Başak tamamlandı
+2025-11-15 12:57:50,557 - INFO - NTV - Terazi tamamlandı
+2025-11-15 12:57:52,743 - INFO - NTV - Akrep tamamlandı
+2025-11-15 12:57:54,667 - INFO - NTV - Yay tamamlandı
+2025-11-15 12:57:57,552 - INFO - NTV - Oğlak tamamlandı
+2025-11-15 12:58:00,466 - INFO - NTV - Kova tamamlandı
+2025-11-15 12:58:02,654 - INFO - NTV - Balık tamamlandı
+2025-11-15 12:58:03,841 - INFO - NTV scrape tamamlandı
+2025-11-15 12:58:03,843 - INFO - Haberturk scrape başladı...
+2025-11-15 12:58:04,177 - INFO - Haberturk - Günlük link bulundu: https://hthayat.haberturk.com/gunluk-burc-yorumlari-15-kasim-2025-cumartesi-1086501
+2025-11-15 12:58:04,506 - INFO - Haberturk - Koç tamamlandı
+2025-11-15 12:58:04,506 - INFO - Haberturk - Boğa tamamlandı
+2025-11-15 12:58:04,506 - INFO - Haberturk - Yengeç tamamlandı
+2025-11-15 12:58:04,506 - INFO - Haberturk - Aslan tamamlandı
+2025-11-15 12:58:04,506 - INFO - Haberturk - Başak tamamlandı
+2025-11-15 12:58:04,506 - INFO - Haberturk - Akrep tamamlandı
+2025-11-15 12:58:04,507 - INFO - Haberturk - Yay tamamlandı
+2025-11-15 12:58:04,507 - INFO - Haberturk - Oğlak tamamlandı
+2025-11-15 12:58:04,507 - INFO - Haberturk - Kova tamamlandı
+2025-11-15 12:58:04,507 - INFO - Haberturk - Balık tamamlandı
+2025-11-15 12:58:06,479 - INFO - Haberturk scrape tamamlandı
+2025-11-15 12:58:06,481 - INFO - Elele scrape başladı...
+2025-11-15 12:58:07,142 - INFO - Elele - Koç tamamlandı
+2025-11-15 12:58:10,490 - INFO - Elele - Boğa tamamlandı
+2025-11-15 12:58:13,689 - INFO - Elele - İkizler tamamlandı
+2025-11-15 12:58:15,781 - INFO - Elele - Yengeç tamamlandı
+2025-11-15 12:58:18,732 - INFO - Elele - Aslan tamamlandı
+2025-11-15 12:58:21,204 - INFO - Elele - Başak tamamlandı
+2025-11-15 12:58:23,234 - INFO - Elele - Terazi tamamlandı
+2025-11-15 12:58:25,576 - INFO - Elele - Akrep tamamlandı
+2025-11-15 12:58:29,292 - INFO - Elele - Yay tamamlandı
+2025-11-15 12:58:32,225 - INFO - Elele - Oğlak tamamlandı
+2025-11-15 12:58:34,973 - INFO - Elele - Kova tamamlandı
+2025-11-15 12:58:38,037 - INFO - Elele - Balık tamamlandı
+2025-11-15 12:58:41,037 - INFO - Elele scrape tamamlandı
+2025-11-15 12:58:41,039 - INFO - Onedio scrape başladı...
+2025-11-15 12:58:41,649 - INFO - Onedio - Koç tamamlandı
+2025-11-15 12:58:44,060 - INFO - Onedio - Boğa tamamlandı
+2025-11-15 12:58:46,985 - INFO - Onedio - İkizler tamamlandı
+2025-11-15 12:58:49,398 - INFO - Onedio - Yengeç tamamlandı
+2025-11-15 12:58:51,599 - INFO - Onedio - Aslan tamamlandı
+2025-11-15 12:58:54,875 - INFO - Onedio - Başak tamamlandı
+2025-11-15 12:58:58,208 - INFO - Onedio - Terazi tamamlandı
+2025-11-15 12:59:01,102 - INFO - Onedio - Akrep tamamlandı
+2025-11-15 12:59:04,339 - INFO - Onedio - Yay tamamlandı
+2025-11-15 12:59:06,651 - INFO - Onedio - Oğlak tamamlandı
+2025-11-15 12:59:09,085 - INFO - Onedio - Kova tamamlandı
+2025-11-15 12:59:11,884 - INFO - Onedio - Balık tamamlandı
+2025-11-15 12:59:14,756 - INFO - Onedio scrape tamamlandı
+2025-11-15 12:59:14,757 - INFO - Mynet scrape başladı...
+2025-11-15 12:59:15,072 - INFO - Mynet - Koç tamamlandı
+2025-11-15 12:59:16,941 - INFO - Mynet - Boğa tamamlandı
+2025-11-15 12:59:20,133 - INFO - Mynet - İkizler tamamlandı
+2025-11-15 12:59:21,634 - INFO - Mynet - Yengeç tamamlandı
+2025-11-15 12:59:24,935 - INFO - Mynet - Aslan tamamlandı
+2025-11-15 12:59:27,809 - INFO - Mynet - Başak tamamlandı
+2025-11-15 12:59:29,275 - INFO - Mynet - Terazi tamamlandı
+2025-11-15 12:59:31,056 - INFO - Mynet - Akrep tamamlandı
+2025-11-15 12:59:34,061 - INFO - Mynet - Yay tamamlandı
+2025-11-15 12:59:37,041 - INFO - Mynet - Oğlak tamamlandı
+2025-11-15 12:59:39,171 - INFO - Mynet - Kova tamamlandı
+2025-11-15 12:59:41,752 - INFO - Mynet - Balık tamamlandı
+2025-11-15 12:59:44,004 - INFO - Mynet scrape tamamlandı
+2025-11-15 12:59:44,005 - INFO - Twitburc scrape başladı...
+2025-11-15 12:59:44,762 - INFO - Twitburc - Koç tamamlandı
+2025-11-15 12:59:48,062 - INFO - Twitburc - Boğa tamamlandı
+2025-11-15 12:59:50,841 - INFO - Twitburc - İkizler tamamlandı
+2025-11-15 12:59:53,665 - INFO - Twitburc - Yengeç tamamlandı
+2025-11-15 12:59:56,217 - INFO - Twitburc - Aslan tamamlandı
+2025-11-15 12:59:59,886 - INFO - Twitburc - Başak tamamlandı
+2025-11-15 13:00:02,383 - INFO - Twitburc - Terazi tamamlandı
+2025-11-15 13:00:05,463 - INFO - Twitburc - Akrep tamamlandı
+2025-11-15 13:00:07,954 - INFO - Twitburc - Yay tamamlandı
+2025-11-15 13:00:10,241 - INFO - Twitburc - Oğlak tamamlandı
+2025-11-15 13:00:13,252 - INFO - Twitburc - Kova tamamlandı
+2025-11-15 13:00:15,925 - INFO - Twitburc - Balık tamamlandı
+2025-11-15 13:00:18,218 - INFO - Twitburc scrape tamamlandı
+2025-11-15 13:00:18,220 - INFO - Vogue scrape başladı...
+2025-11-15 13:00:18,608 - INFO - Vogue - Koç tamamlandı
+2025-11-15 13:00:18,608 - INFO - Vogue - Boğa tamamlandı
+2025-11-15 13:00:18,608 - INFO - Vogue - İkizler tamamlandı
+2025-11-15 13:00:18,609 - INFO - Vogue - Yengeç tamamlandı
+2025-11-15 13:00:18,609 - INFO - Vogue - Aslan tamamlandı
+2025-11-15 13:00:18,609 - INFO - Vogue - Başak tamamlandı
+2025-11-15 13:00:18,609 - INFO - Vogue - Terazi tamamlandı
+2025-11-15 13:00:18,609 - INFO - Vogue - Akrep tamamlandı
+2025-11-15 13:00:18,609 - INFO - Vogue - Yay tamamlandı
+2025-11-15 13:00:18,609 - INFO - Vogue - Oğlak tamamlandı
+2025-11-15 13:00:18,610 - INFO - Vogue - Kova tamamlandı
+2025-11-15 13:00:18,610 - INFO - Vogue - Balık tamamlandı
+2025-11-15 13:00:19,832 - INFO - Vogue scrape tamamlandı
+2025-11-15 13:00:19,833 - INFO - Gunlukburc scrape başladı...
+2025-11-15 13:00:20,192 - INFO - Gunlukburc - Koç tamamlandı
+2025-11-15 13:00:23,278 - INFO - Gunlukburc - Boğa tamamlandı
+2025-11-15 13:00:25,583 - INFO - Gunlukburc - İkizler tamamlandı
+2025-11-15 13:00:28,612 - INFO - Gunlukburc - Yengeç tamamlandı
+2025-11-15 13:00:31,166 - INFO - Gunlukburc - Aslan tamamlandı
+2025-11-15 13:00:32,752 - INFO - Gunlukburc - Başak tamamlandı
+2025-11-15 13:00:35,335 - INFO - Gunlukburc - Terazi tamamlandı
+2025-11-15 13:00:37,839 - INFO - Gunlukburc - Akrep tamamlandı
+2025-11-15 13:00:40,182 - INFO - Gunlukburc - Yay tamamlandı
+2025-11-15 13:00:42,025 - INFO - Gunlukburc - Oğlak tamamlandı
+2025-11-15 13:00:44,392 - INFO - Gunlukburc - Kova tamamlandı
+2025-11-15 13:00:46,859 - INFO - Gunlukburc - Balık tamamlandı
+2025-11-15 13:00:49,031 - INFO - Gunlukburc scrape tamamlandı
+2025-11-15 13:00:49,032 - INFO - Myburc scrape başladı...
+2025-11-15 13:00:49,797 - INFO - Myburc - Koç tamamlandı
+2025-11-15 13:00:53,186 - INFO - Myburc - Boğa tamamlandı
+2025-11-15 13:00:55,389 - INFO - Myburc - İkizler tamamlandı
+2025-11-15 13:00:58,798 - INFO - Myburc - Yengeç tamamlandı
+2025-11-15 13:01:00,739 - INFO - Myburc - Aslan tamamlandı
+2025-11-15 13:01:03,513 - INFO - Myburc - Başak tamamlandı
+2025-11-15 13:01:05,580 - INFO - Myburc - Terazi tamamlandı
+2025-11-15 13:01:09,012 - INFO - Myburc - Akrep tamamlandı
+2025-11-15 13:01:12,397 - INFO - Myburc - Yay tamamlandı
+2025-11-15 13:01:14,998 - INFO - Myburc - Oğlak tamamlandı
+2025-11-15 13:01:18,363 - INFO - Myburc - Kova tamamlandı
+2025-11-15 13:01:20,742 - INFO - Myburc - Balık tamamlandı
+2025-11-15 13:01:21,782 - INFO - Myburc scrape tamamlandı
+2025-11-15 13:01:21,783 - INFO - ============================================================
+2025-11-15 13:01:21,783 - INFO - Tüm siteler tamamlandı!
+2025-11-15 13:01:21,784 - INFO - ============================================================
+2025-11-15 13:01:21,786 - INFO - Veriler data\daily_raw_2025-11-15.json dosyasına kaydedildi
+2025-11-15 13:01:21,786 - INFO - ✅ 11 site verisi kaydedildi
+2025-11-15 13:01:21,786 - INFO - ============================================================
+2025-11-15 13:01:21,786 - INFO - ÖZET
+2025-11-15 13:01:21,786 - INFO - ============================================================
+2025-11-15 13:01:21,787 - INFO - Toplam site sayısı: 11
+2025-11-15 13:01:21,787 - INFO - ✅ Başarılı siteler: 11
+2025-11-15 13:01:21,787 - INFO - Toplam süre: 292.14 saniye
+2025-11-15 13:01:21,787 - INFO - Çıktı dosyası: data\daily_raw_2025-11-15.json
+2025-11-15 13:01:21,787 - INFO - ============================================================
+2025-11-15 13:01:21,787 - INFO - ✅ Scraping işlemi tamamlandı!
