@@ -8,6 +8,7 @@ Günlük burç yorumlarını toplayan ve kategorize eden otomasyon sistemi.
 - Yorumları otomatik olarak aşk, para ve sağlık kategorilerine ayırma
 - Orijinal metinleri koruyarak kopyalama
 - Tek komutla tam pipeline çalıştırma
+- GitHub Actions ile otomatik günlük veri çekme (her gün 05:00)
 
 ## Kurulum
 
