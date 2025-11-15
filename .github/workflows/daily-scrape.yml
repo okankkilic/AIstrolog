@@ -29,6 +29,16 @@ jobs:
     - name: Run scraper
       run: python scraper.py
     
+    - name: Check if data file exists
+      run: |
+        TODAY=$(date +'%Y-%m-%d')
+        DATA_FILE="data/daily_raw_${TODAY}.json"
+        if [ ! -f "$DATA_FILE" ]; then
+          echo "Error: Scraper failed to create $DATA_FILE"
+          exit 1
+        fi
+        echo "Data file confirmed: $DATA_FILE"
+    
     - name: Run categorization
       run: python categorize_horoscopes.py
     
