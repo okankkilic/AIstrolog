@@ -136,6 +136,13 @@ class HoroscopeCategorizer:
         """JSON dosyasını yükler, tüm burçları işler ve sonucu kaydeder"""
         print(f"Dosya okunuyor: {self.input_file}")
         
+        # Dosya varlığını kontrol et
+        if not self.input_file.exists():
+            raise FileNotFoundError(
+                f"Gerekli dosya bulunamadı: {self.input_file}\n"
+                f"Lütfen önce scraper.py çalıştırılarak veri çekildiğinden emin olun."
+            )
+        
         with open(self.input_file, 'r', encoding='utf-8') as f:
             data = json.load(f)
         

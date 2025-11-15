@@ -46,20 +46,24 @@ def main():
     print("Burç Yorumu Pipeline")
     print("=" * 60)
     
+    # Scraper'ı çalıştır
     if not run_scraper():
         print("\nPipeline başarısız: Scraping hatası")
-        return
+        sys.exit(1)
     
+    # Dosya varlığını kontrol et
     today = datetime.now().strftime('%Y-%m-%d')
     input_file = f"data/daily_raw_{today}.json"
     
     if not Path(input_file).exists():
-        print(f"\nDosya bulunamadı: {input_file}")
-        return
+        print(f"\nHATA: Dosya bulunamadı: {input_file}")
+        print("Scraper dosyayı oluşturamadı. Lütfen scraper.py'yi kontrol edin.")
+        sys.exit(1)
     
+    # Kategorizasyonu çalıştır
     if not run_categorizer(input_file):
         print("\nPipeline başarısız: Kategorizasyon hatası")
-        return
+        sys.exit(1)
     
     print("\n" + "=" * 60)
     print("Pipeline başarıyla tamamlandı!")
