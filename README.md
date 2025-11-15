@@ -8,7 +8,6 @@ Günlük burç yorumlarını toplayan ve kategorize eden otomasyon sistemi.
 - Yorumları otomatik olarak aşk, para ve sağlık kategorilerine ayırma
 - Orijinal metinleri koruyarak kopyalama
 - Tek komutla tam pipeline çalıştırma
-- GitHub Actions ile otomatik günlük veri çekme (her gün 05:00)
 
 ## Kurulum
 
@@ -27,9 +26,24 @@ python scraper.py
 # Sadece kategorize et
 python categorize_horoscopes.py
 
-# İkisini birden yap
+# İkisini birden yap + test et
 python run_pipeline.py
 ```
+
+### Test ve Doğrulama
+
+```bash
+# Workflow'u test et (önerilen!)
+python test_workflow.py data/daily_raw_2025-11-15.json data/processed_daily_raw_2025-11-15.json
+
+# Detaylı inceleme
+python verify_categorization.py data/daily_raw_2025-11-15.json data/processed_daily_raw_2025-11-15.json
+
+# Belirli bir kaynak/burcu incele
+python verify_categorization.py data/daily_raw_2025-11-15.json data/processed_daily_raw_2025-11-15.json milliyet Koç
+```
+
+**⚠️ Önemli:** Her scraping sonrası mutlaka test çalıştırın! Test, sahte/duplike veri kullanımını otomatik tespit eder.
 
 ### Gelişmiş kullanım
 
@@ -39,10 +53,28 @@ python categorize_horoscopes.py data/daily_raw_2025-11-14.json
 
 # Çıktı dosyası belirt
 python categorize_horoscopes.py input.json output.json
-
-# Sonuçları doğrula
-python verify_categorization.py ham_dosya.json islenmiş_dosya.json kaynak burç
 ```
+
+## Test Sistemi
+
+Workflow'un doğru çalıştığını garanti altına almak için kapsamlı test sistemi:
+
+### Otomatik Kontroller
+
+✅ **Duplike İçerik:** Aynı metin birden fazla burç için kullanılmış mı?
+✅ **Generic/Test İçerik:** Sahte placeholder veriler var mı?
+✅ **Boş İçerik:** Hangi kaynaklar veri çekememiş?
+✅ **Kategorizasyon Kalitesi:** İçerikler doğru kategorize ediliyor mu?
+✅ **Veri Güncelliği:** Bugüne ait veri mi?
+✅ **Kategori Benzersizliği:** Her kategori farklı içerik mi?
+
+### Test Sonuçları
+
+- ✅ **TEST BAŞARILI:** Workflow düzgün çalışıyor
+- ⚠️ **KISMEN BAŞARILI:** Bazı uyarılar var, kontrol edin
+- ❌ **TEST BAŞARISIZ:** Kritik sorunlar var, düzeltilmeli
+
+Detaylı test kılavuzu için: [TEST_GUIDE.md](TEST_GUIDE.md)
 
 ## Kategorizasyon Nasıl Çalışır?
 
@@ -96,13 +128,33 @@ Milliyet, Hürriyet, NTV, Habertürk, Elle, Onedio, Mynet, TwitBurc, Vogue, Gün
 AIstrolog/
 ├── scraper.py                    # Burç verilerini çeker
 ├── categorize_horoscopes.py      # Kategorize eder
-├── run_pipeline.py               # İkisini birden çalıştırır
-├── verify_categorization.py      # Sonuçları doğrular
+├── run_pipeline.py               # Tam pipeline (scrape + kategorize + test)
+├── test_workflow.py              # Otomatik test sistemi
+├── verify_categorization.py      # Detaylı inceleme aracı
+├── TEST_GUIDE.md                 # Test kılavuzu
 ├── requirements.txt
 └── data/
     ├── daily_raw_*.json          # Ham veri
     └── processed_*.json          # İşlenmiş veri
 ```
+
+## Güvenilirlik ve Kalite
+
+### Sahte Veri Önleme
+
+❌ **Default/fallback data kullanılmaz** - Eğer bir site veri çekemezse, boş bırakılır
+❌ **Generic içerik tespit edilir** - Test sistemi placeholder metinleri otomatik bulur
+✅ **Her scraping sonrası test** - `run_pipeline.py` otomatik test çalıştırır
+
+### Sorun Giderme
+
+Eğer testler başarısız olursa:
+
+1. **Duplike içerik uyarısı:** Scraper burçları doğru ayıramıyor, ilgili fonksiyonu kontrol edin
+2. **Generic içerik uyarısı:** Site yapısı değişmiş olabilir, scraper'ı güncelle
+3. **Boş içerik uyarısı:** Site erişilebilir mi? HTML yapısı değişti mi?
+
+Detaylı sorun giderme için: [TEST_GUIDE.md](TEST_GUIDE.md)
 
 ## Gereksinimler
 

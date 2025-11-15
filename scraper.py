@@ -111,7 +111,7 @@ def random_sleep():
 
 
 def create_empty_burc_dict() -> Dict:
-    """Boş burç dictionary'si oluşturur"""
+    """Boş burç dictionary'si oluşturur - SADECE sonuç initialize için kullanılır"""
     return {burc: {"genel": None, "aşk": None, "para": None, "sağlık": None} for burc in BURCLAR}
 
 
@@ -222,21 +222,46 @@ def scrape_ntv() -> Optional[Dict]:
         response.encoding = 'utf-8'
         soup = BeautifulSoup(response.content, 'lxml')
         
+        # Bugünün tarihini al
+        today = datetime.now()
+        today_str = today.strftime("%d-%B-%Y").lower()
+        
+        # Türkçe ay isimleri
+        ay_map = {
+            'january': 'ocak', 'february': 'subat', 'march': 'mart', 'april': 'nisan',
+            'may': 'mayis', 'june': 'haziran', 'july': 'temmuz', 'august': 'agustos',
+            'september': 'eylul', 'october': 'ekim', 'november': 'kasim', 'december': 'aralik'
+        }
+        
+        for eng, tr in ay_map.items():
+            today_str = today_str.replace(eng, tr)
+        
         # En son günlük burç yorumu galerisini bul
         gallery_link = None
         
-        # Tüm linkleri tara
+        # Tüm linkleri tara - bugünün tarihini içeren veya en üstteki günlük burç linkini al
         for a in soup.find_all('a', href=True):
             href = a.get('href')
             text = a.get_text(strip=True).lower()
             
-            # "günlük burç yorumları" içeren ilk galeri linkini al
-            if 'gunluk-burc-yorumlari' in href.lower() or 'günlük burç' in text:
-                gallery_link = href if href.startswith('http') else f"https://www.ntv.com.tr{href}"
-                # /1, /2 gibi burç numarasını kaldır
-                if gallery_link[-2:].endswith(tuple('123456789')):
-                    gallery_link = gallery_link.rsplit('/', 1)[0]
-                break
+            # "günlük burç yorumları" içeren ve tarihi bugüne yakın olan galeri linkini al
+            if 'gunluk-burc-yorumlari' in href.lower():
+                # Tarihi kontrol et - bugünün tarihini içeriyorsa veya kasim içeriyorsa al
+                if today_str.split('-')[1] in href.lower() or 'kasim' in href.lower():
+                    gallery_link = href if href.startswith('http') else f"https://www.ntv.com.tr{href}"
+                    # /1, /2 gibi burç numarasını kaldır
+                    if gallery_link[-2:].endswith(tuple('123456789')):
+                        gallery_link = gallery_link.rsplit('/', 1)[0]
+                    break
+            elif 'günlük burç' in text:
+                potential_link = href if href.startswith('http') else f"https://www.ntv.com.tr{href}"
+                if 'gunluk-burc-yorumlari' in potential_link.lower():
+                    # Tarih kontrolü yap
+                    if today_str.split('-')[1] in potential_link.lower() or 'kasim' in potential_link.lower():
+                        gallery_link = potential_link
+                        if gallery_link[-2:].endswith(tuple('123456789')):
+                            gallery_link = gallery_link.rsplit('/', 1)[0]
+                        break
         
         if not gallery_link:
             logger.warning("NTV - Günlük burç galerisi bulunamadı")
@@ -749,6 +774,17 @@ def scrape_myburc() -> Optional[Dict]:
                 tab_content = soup.select_one('#myTabContent')
                 
                 if tab_content:
+                    # Genel Durum (ana tab - #gununburcu veya ilk tab)
+                    genel_div = tab_content.select_one('#gununburcu')
+                    if not genel_div:
+                        # İlk tab'ı bul
+                        genel_div = tab_content.find('div', class_='tab-pane')
+                    
+                    if genel_div:
+                        paragraphs = genel_div.find_all('p')
+                        if paragraphs:
+                            yorum_dict["genel"] = clean_text(paragraphs[0].get_text())
+                    
                     # Aşk falı
                     ask_div = tab_content.select_one('#gununaskfali')
                     if ask_div:
@@ -814,21 +850,43 @@ def collect_all_data() -> Dict:
         "myburc": scrape_myburc(),
     }
     
-    # None olan siteleri boş dict ile değiştir
+    # None olan siteleri kontrol et
+    failed_sites = []
     for site_name, data in all_results.items():
         if data is None:
-            logger.warning(f"{site_name} için veri alınamadı, boş dict kullanılıyor")
-            all_results[site_name] = create_empty_burc_dict()
+            logger.error(f"❌ {site_name} için veri alınamadı!")
+            failed_sites.append(site_name)
     
     logger.info("=" * 60)
     logger.info("Tüm siteler tamamlandı!")
     logger.info("=" * 60)
+    
+    if failed_sites:
+        logger.warning(f"⚠️  {len(failed_sites)} site başarısız oldu: {', '.join(failed_sites)}")
+        logger.warning("Bu siteler için veri eksik olacak!")
     
     return all_results
 
 
 def save_to_json(data: Dict, output_dir: str = "data"):
     """Verileri JSON dosyasına kaydeder"""
+    # None olan siteleri filtrele
+    filtered_data = {}
+    failed_count = 0
+    
+    for site_name, site_data in data.items():
+        if site_data is None:
+            logger.warning(f"⚠️  {site_name} verisi None - dosyaya eklenmeyecek")
+            failed_count += 1
+        else:
+            filtered_data[site_name] = site_data
+    
+    if not filtered_data:
+        raise ValueError("❌ Hiçbir siteden veri alınamadı! Dosya oluşturulmayacak.")
+    
+    if failed_count > 0:
+        logger.warning(f"⚠️  {failed_count} site verisi eksik")
+    
     # Klasör yoksa oluştur
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
@@ -841,9 +899,11 @@ def save_to_json(data: Dict, output_dir: str = "data"):
     
     # JSON'a kaydet
     with open(filepath, 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+        json.dump(filtered_data, f, ensure_ascii=False, indent=2)
     
     logger.info(f"Veriler {filepath} dosyasına kaydedildi")
+    logger.info(f"✅ {len(filtered_data)} site verisi kaydedildi")
+    
     return filepath
 
 
@@ -863,15 +923,29 @@ def main():
         
         # İstatistikler
         elapsed = time.time() - start_time
+        
+        # Başarılı siteleri say (None olmayanlar)
+        successful_sites = sum(1 for v in all_data.values() if v is not None)
+        failed_sites = sum(1 for v in all_data.values() if v is None)
+        
         logger.info("=" * 60)
         logger.info("ÖZET")
         logger.info("=" * 60)
         logger.info(f"Toplam site sayısı: {len(all_data)}")
-        logger.info(f"Başarılı siteler: {sum(1 for v in all_data.values() if v)}")
+        logger.info(f"✅ Başarılı siteler: {successful_sites}")
+        
+        if failed_sites > 0:
+            logger.warning(f"❌ Başarısız siteler: {failed_sites}")
+        
         logger.info(f"Toplam süre: {elapsed:.2f} saniye")
         logger.info(f"Çıktı dosyası: {filepath}")
         logger.info("=" * 60)
-        logger.info("Scraping işlemi başarıyla tamamlandı!")
+        
+        if successful_sites > 0:
+            logger.info("✅ Scraping işlemi tamamlandı!")
+        else:
+            logger.error("❌ Scraping tamamen başarısız oldu!")
+            raise ValueError("Hiçbir siteden veri alınamadı!")
         
     except Exception as e:
         logger.error(f"Ana işlem sırasında hata: {e}", exc_info=True)
