@@ -1,0 +1,446 @@
+{
+  "milliyet": {
+    "Koç": {
+      "genel": "Koç burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Boğa": {
+      "genel": "Boğa burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "İkizler": {
+      "genel": "İkizler burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Yengeç": {
+      "genel": "Yengeç burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Aslan": {
+      "genel": "Aslan burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Başak": {
+      "genel": "Başak burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Terazi": {
+      "genel": "Terazi burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Akrep": {
+      "genel": "Akrep burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Yay": {
+      "genel": "Yay burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Oğlak": {
+      "genel": "Oğlak burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Kova": {
+      "genel": "Kova burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Balık": {
+      "genel": "Balık burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    }
+  },
+  "hurriyet": {
+    "Koç": {
+      "genel": "Koç burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Boğa": {
+      "genel": "Boğa burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "İkizler": {
+      "genel": "İkizler burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Yengeç": {
+      "genel": "Yengeç burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Aslan": {
+      "genel": "Aslan burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Başak": {
+      "genel": "Başak burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Terazi": {
+      "genel": "Terazi burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Akrep": {
+      "genel": "Akrep burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Yay": {
+      "genel": "Yay burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Oğlak": {
+      "genel": "Oğlak burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Kova": {
+      "genel": "Kova burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Balık": {
+      "genel": "Balık burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    }
+  },
+  "ntv": {
+    "Koç": {
+      "genel": "Koç burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Boğa": {
+      "genel": "Boğa burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "İkizler": {
+      "genel": "İkizler burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Yengeç": {
+      "genel": "Yengeç burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Aslan": {
+      "genel": "Aslan burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Başak": {
+      "genel": "Başak burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Terazi": {
+      "genel": "Terazi burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Akrep": {
+      "genel": "Akrep burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Yay": {
+      "genel": "Yay burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Oğlak": {
+      "genel": "Oğlak burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Kova": {
+      "genel": "Kova burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Balık": {
+      "genel": "Balık burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    }
+  },
+  "haberturk": {
+    "Koç": {
+      "genel": "Koç burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Boğa": {
+      "genel": "Boğa burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "İkizler": {
+      "genel": "İkizler burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Yengeç": {
+      "genel": "Yengeç burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Aslan": {
+      "genel": "Aslan burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Başak": {
+      "genel": "Başak burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Terazi": {
+      "genel": "Terazi burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Akrep": {
+      "genel": "Akrep burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Yay": {
+      "genel": "Yay burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Oğlak": {
+      "genel": "Oğlak burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Kova": {
+      "genel": "Kova burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Balık": {
+      "genel": "Balık burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    }
+  },
+  "elele": {
+    "Koç": {
+      "genel": "Koç burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Boğa": {
+      "genel": "Boğa burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "İkizler": {
+      "genel": "İkizler burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Yengeç": {
+      "genel": "Yengeç burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Aslan": {
+      "genel": "Aslan burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Başak": {
+      "genel": "Başak burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Terazi": {
+      "genel": "Terazi burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Akrep": {
+      "genel": "Akrep burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Yay": {
+      "genel": "Yay burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Oğlak": {
+      "genel": "Oğlak burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Kova": {
+      "genel": "Kova burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Balık": {
+      "genel": "Balık burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    }
+  },
+  "onedio": {
+    "Koç": {
+      "genel": "Koç burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Boğa": {
+      "genel": "Boğa burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "İkizler": {
+      "genel": "İkizler burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Yengeç": {
+      "genel": "Yengeç burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Aslan": {
+      "genel": "Aslan burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Başak": {
+      "genel": "Başak burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Terazi": {
+      "genel": "Terazi burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Akrep": {
+      "genel": "Akrep burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Yay": {
+      "genel": "Yay burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Oğlak": {
+      "genel": "Oğlak burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Kova": {
+      "genel": "Kova burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    },
+    "Balık": {
+      "genel": "Balık burcu için bugün sakin ve üretken bir gün olacak. İç sesinizi dinleyin.",
+      "aşk": "Duygusal ilişkilerinizde önemli gelişmeler yaşayabilirsiniz.",
+      "para": "Mali konularda dikkatli olun, planlı hareket edin.",
+      "sağlık": "Kendinize zaman ayırın, dinlenmeye özen gösterin."
+    }
+  }
+}
