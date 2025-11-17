@@ -209,142 +209,6 @@ def scrape_hurriyet() -> Optional[Dict]:
         logger.error(f"Hurriyet scraping error: {e}")
         return None
 
-
-def scrape_ntv() -> Optional[Dict]:
-    """NTV.com.tr'den burç yorumlarını çeker - Gallery yaklaşımı ile"""
-    logger.info("NTV scrape başladı...")
-    results = create_empty_burc_dict()
-    
-    try:
-        # Ana sayfadan burç linklerini çek
-        main_url = "https://www.ntv.com.tr/astroloji-ve-burclar"
-        response = requests.get(main_url, headers=get_random_headers(), timeout=10)
-        response.encoding = 'utf-8'
-        soup = BeautifulSoup(response.content, 'lxml')
-        
-        # Bugünün tarihini al
-        today = datetime.now()
-        today_str = today.strftime("%d-%B-%Y").lower()
-        
-        # Türkçe ay isimleri
-        ay_map = {
-            'january': 'ocak', 'february': 'subat', 'march': 'mart', 'april': 'nisan',
-            'may': 'mayis', 'june': 'haziran', 'july': 'temmuz', 'august': 'agustos',
-            'september': 'eylul', 'october': 'ekim', 'november': 'kasim', 'december': 'aralik'
-        }
-        
-        for eng, tr in ay_map.items():
-            today_str = today_str.replace(eng, tr)
-        
-        # En son günlük burç yorumu galerisini bul
-        gallery_link = None
-        
-        # Tüm linkleri tara - bugünün tarihini içeren veya en üstteki günlük burç linkini al
-        for a in soup.find_all('a', href=True):
-            href = a.get('href')
-            text = a.get_text(strip=True).lower()
-            
-            # "günlük burç yorumları" içeren ve tarihi bugüne yakın olan galeri linkini al
-            if 'gunluk-burc-yorumlari' in href.lower():
-                # Tarihi kontrol et - bugünün tarihini içeriyorsa veya kasim içeriyorsa al
-                if today_str.split('-')[1] in href.lower() or 'kasim' in href.lower():
-                    gallery_link = href if href.startswith('http') else f"https://www.ntv.com.tr{href}"
-                    # /1, /2 gibi burç numarasını kaldır
-                    if gallery_link[-2:].endswith(tuple('123456789')):
-                        gallery_link = gallery_link.rsplit('/', 1)[0]
-                    break
-            elif 'günlük burç' in text:
-                potential_link = href if href.startswith('http') else f"https://www.ntv.com.tr{href}"
-                if 'gunluk-burc-yorumlari' in potential_link.lower():
-                    # Tarih kontrolü yap
-                    if today_str.split('-')[1] in potential_link.lower() or 'kasim' in potential_link.lower():
-                        gallery_link = potential_link
-                        if gallery_link[-2:].endswith(tuple('123456789')):
-                            gallery_link = gallery_link.rsplit('/', 1)[0]
-                        break
-        
-        if not gallery_link:
-            logger.warning("NTV - Günlük burç galerisi bulunamadı")
-            return results
-        
-        logger.info(f"NTV - Gallery bulundu: {gallery_link}")
-        
-        # Her burç için gallery sayfasını çek (1-12 arası)
-        burc_mapping = {
-            1: "Koç", 2: "Boğa", 3: "İkizler", 4: "Yengeç",
-            5: "Aslan", 6: "Başak", 7: "Terazi", 8: "Akrep",
-            9: "Yay", 10: "Oğlak", 11: "Kova", 12: "Balık"
-        }
-        
-        for burc_num, burc_name in burc_mapping.items():
-            try:
-                burc_url = f"{gallery_link}/{burc_num}"
-                response = requests.get(burc_url, headers=get_random_headers(), timeout=10)
-                response.encoding = 'utf-8'
-                soup_burc = BeautifulSoup(response.content, 'lxml')
-                
-                # İçerik çıkarma - birden fazla yöntem dene
-                full_text = ""
-                
-                # Yöntem 1: figcaption (galeri sayfaları için)
-                figcaption = soup_burc.find('figcaption')
-                if figcaption:
-                    paragraphs = figcaption.find_all('p')
-                    full_text = ' '.join([clean_text(p.get_text()) for p in paragraphs])
-                
-                # Yöntem 2: gallery-item veya similar classes
-                if not full_text:
-                    content_div = soup_burc.find('div', class_=lambda x: x and any(c in ' '.join(x).lower() for c in ['gallery', 'content', 'text']))
-                    if content_div:
-                        paragraphs = content_div.find_all('p')
-                        full_text = ' '.join([clean_text(p.get_text()) for p in paragraphs])
-                
-                # Yöntem 3: class'ı olmayan ama p içeren divler
-                if not full_text:
-                    for div in soup_burc.find_all('div'):
-                        paragraphs = div.find_all('p')
-                        if paragraphs:
-                            text = ' '.join([clean_text(p.get_text()) for p in paragraphs])
-                            # Burç yorumu gibi görünüyor mu? (en az 50 karakter)
-                            if len(text) > 50:
-                                full_text = text
-                                break
-                
-                # Temizleme: Burç ismini ve standart başlıkları kaldır
-                if full_text:
-                    # "BURCU:" gibi pattern'leri temizle
-                    if 'BURCU' in full_text[:100]:
-                        parts = full_text.split('BURCU', 1)
-                        if len(parts) > 1:
-                            full_text = parts[1].strip()
-                            if full_text.startswith(':'):
-                                full_text = full_text[1:].strip()
-                    
-                    # Burç isminden sonrasını al
-                    if burc_name.upper() in full_text[:100]:
-                        parts = full_text.split(burc_name.upper(), 1)
-                        if len(parts) > 1:
-                            full_text = parts[1].strip()
-                    
-                    results[burc_name]["genel"] = full_text
-                    logger.info(f"NTV - {burc_name} tamamlandı")
-                else:
-                    logger.warning(f"NTV - {burc_name} için içerik bulunamadı")
-                
-                random_sleep()
-                
-            except Exception as e:
-                logger.error(f"NTV - {burc_name} error: {e}")
-                continue
-        
-        logger.info("NTV scrape tamamlandı")
-        return results
-        
-    except Exception as e:
-        logger.error(f"NTV scraping error: {e}")
-        return None
-
-
 def scrape_haberturk() -> Optional[Dict]:
     """Haberturk Hayat'tan burç yorumlarını çeker - Ana sayfadan günlük link bulur"""
     logger.info("Haberturk scrape başladı...")
@@ -383,16 +247,34 @@ def scrape_haberturk() -> Optional[Dict]:
         
         for fig in figcaptions:
             text = clean_text(fig.get_text())
+            text_upper = text.upper()  # Türkçe büyük harfe çevir
             
-            # Burç ismini bul
+            # Burç ismini bul - hem Türkçe hem İngilizce büyük harf versiyonları
             for burc_name in BURCLAR:
-                if burc_name.upper() in text[:100]:  # İlk 100 karakterde
-                    # Tarih ve burç isminden sonraki metni al
-                    parts = text.split(burc_name.upper())
-                    if len(parts) > 1:
-                        burc_text = parts[1].replace('GÜNLÜK BURÇ YORUMU', '').strip()
-                        results[burc_name]["genel"] = burc_text
-                        logger.info(f"Haberturk - {burc_name} tamamlandı")
+                burc_upper_tr = burc_name.upper()  # İKİZLER, TERAZİ (Türkçe)
+                burc_upper_en = burc_name.replace('İ', 'I').replace('i', 'I').upper()  # IKIZLER, TERAZI (İngilizce)
+                
+                # Her iki versiyonu da kontrol et
+                found = False
+                search_term = None
+                
+                if burc_upper_tr in text_upper[:200]:  # 100'den 200'e çıkardık
+                    found = True
+                    search_term = burc_upper_tr
+                elif burc_upper_en in text_upper[:200]:
+                    found = True
+                    search_term = burc_upper_en
+                
+                if found and search_term:
+                    # Orijinal text'te arama yap (case-insensitive)
+                    # İlk önce Türkçe versiyonu dene
+                    if search_term in text_upper:
+                        idx = text_upper.index(search_term)
+                        burc_text = text[idx + len(search_term):].replace('GÜNLÜK BURÇ YORUMU', '').replace('Günlük Burç Yorumu', '').strip()
+                        
+                        if burc_text and len(burc_text) > 20:
+                            results[burc_name]["genel"] = burc_text
+                            logger.info(f"Haberturk - {burc_name} tamamlandı")
                     break
         
         random_sleep()
@@ -712,9 +594,9 @@ def scrape_gunlukburc() -> Optional[Dict]:
                             # Kategoriyi belirle
                             if 'genel durum' in heading_text:
                                 current_category = "genel"
-                            elif 'aşk' in heading_text and 'ilişki' in heading_text:
+                            elif 'aşk' in heading_text or 'ilişki' in heading_text:  # AND yerine OR
                                 current_category = "aşk"
-                            elif 'iş' in heading_text and 'kariyer' in heading_text:
+                            elif 'iş' in heading_text or 'kariyer' in heading_text:  # AND yerine OR
                                 current_category = "iş"
                             elif 'maddi durum' in heading_text or 'para' in heading_text:
                                 current_category = "para"
@@ -723,6 +605,24 @@ def scrape_gunlukburc() -> Optional[Dict]:
                         
                         elif element.name == 'p' and current_category:
                             text = clean_text(element.get_text())
+                            text_lower = text.lower()
+                            
+                            # Tanıtım metinlerini filtrele
+                            skip_phrases = [
+                                'günlük yıldız falınız',
+                                'yıldız falınızı okuyun',
+                                'gününe özel',
+                                'gezegenler ve yıldızların',
+                                'burcu günlük yorumu'
+                            ]
+                            
+                            # Eğer tanıtım metni içeriyorsa atla
+                            if any(phrase in text_lower for phrase in skip_phrases):
+                                continue
+                            
+                            # Burç ismi içeren başlık metinlerini atla (örn: "Koç Burcu 17 Kasım...")
+                            if any(burc.lower() in text_lower for burc in BURCLAR) and len(text) < 150:
+                                continue
                             
                             # Yeterli uzunlukta metinleri al
                             if text and len(text) > 50:
@@ -839,7 +739,6 @@ def collect_all_data() -> Dict:
     all_results = {
         "milliyet": scrape_milliyet(),
         "hurriyet": scrape_hurriyet(),
-        "ntv": scrape_ntv(),
         "haberturk": scrape_haberturk(),
         "elele": scrape_elele(),
         "onedio": scrape_onedio(),
