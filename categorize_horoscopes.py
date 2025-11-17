@@ -78,17 +78,20 @@ class HoroscopeCategorizer:
         }
         
         for keyword in self.LOVE_KEYWORDS:
-            if keyword in sentence_lower:
+            # Word boundary at start to avoid matching inside words
+            if re.search(r'\b' + re.escape(keyword), sentence_lower):
                 categories['love'] = True
                 break
         
         for keyword in self.MONEY_KEYWORDS:
-            if keyword in sentence_lower:
+            # Word boundary at start to avoid matching inside words
+            if re.search(r'\b' + re.escape(keyword), sentence_lower):
                 categories['money'] = True
                 break
         
         for keyword in self.HEALTH_KEYWORDS:
-            if keyword in sentence_lower:
+            # Word boundary at start to avoid matching inside words
+            if re.search(r'\b' + re.escape(keyword), sentence_lower):
                 categories['health'] = True
                 break
         

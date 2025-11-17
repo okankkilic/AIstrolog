@@ -1,13 +1,15 @@
 # AIstrolog
 
-Günlük burç yorumlarını toplayan ve kategorize eden otomasyon sistemi.
+Günlük burç yorumlarını toplayan, kategorize eden ve özetleyen otomasyon sistemi.
 
 ## Özellikler
 
-- 11 farklı kaynaktan burç yorumu toplama
+- 10 farklı kaynaktan burç yorumu toplama
 - Yorumları otomatik olarak aşk, para ve sağlık kategorilerine ayırma
+- Birden fazla kaynaktaki yorumları akıllıca özetleme
 - Orijinal metinleri koruyarak kopyalama
 - Tek komutla tam pipeline çalıştırma
+- GitHub Actions ile otomatik günlük çalıştırma
 
 ## Kurulum
 
@@ -26,7 +28,13 @@ python scraper.py
 # Sadece kategorize et
 python categorize_horoscopes.py
 
-# İkisini birden yap + test et
+# Özetle (kategorize edilmiş veri gerekli)
+python summarizer.py
+
+# Full pipeline (scrape + kategorize + özetle + test)
+python run_full_pipeline.py
+
+# Hızlı pipeline (scrape + kategorize + test)
 python run_pipeline.py
 ```
 
@@ -51,9 +59,26 @@ python verify_categorization.py data/daily_raw_2025-11-15.json data/processed_da
 # Belirli bir dosyayı kategorize et
 python categorize_horoscopes.py data/daily_raw_2025-11-14.json
 
+# Belirli bir dosyayı özetle
+python summarizer.py data/processed_daily_raw_2025-11-14.json
+
 # Çıktı dosyası belirt
 python categorize_horoscopes.py input.json output.json
+python summarizer.py input.json output.json
 ```
+
+## Özetleme Nasıl Çalışır?
+
+Özetleme sistemi, farklı kaynaklardan gelen aynı burç/kategori yorumlarını birleştirerek en bilgilendirici özeti oluşturur:
+
+1. **Cümle bazlı analiz:** Her kaynaktan gelen metinler cümlelere ayrılır
+2. **Benzerlik tespiti:** Tekrar eden veya çok benzer cümleler çıkarılır
+3. **Bilgi birleştirme:** Farklı kaynaklardan gelen benzersiz bilgiler birleştirilir
+4. **Akıcı özet:** En bilgilendirici cümleler doğal bir özet oluşturur
+
+**Sonuç:** 10 farklı kaynaktan gelen yorumlar, tekrar olmadan birleştirilmiş tek bir özette toplanır.
+
+Detaylı bilgi için: [SUMMARIZATION_GUIDE.md](SUMMARIZATION_GUIDE.md)
 
 ## Test Sistemi
 
@@ -118,9 +143,21 @@ Ham veri:
 }
 ```
 
+Özetlenmiş veri:
+```json
+{
+  "Koç": {
+    "genel": "Bugün harika bir gün. Enerji dolu hissedeceksin...",
+    "aşk": "Aşkta şanslısın. İlişkilerinizde pozitif gelişmeler var...",
+    "para": "Para konusunda dikkatli ol. Harcamalarınızı kontrol edin...",
+    "sağlık": "Sağlığınız yerinde. Düzenli beslenmeye önem verin..."
+  }
+}
+```
+
 ## Desteklenen Kaynaklar
 
-Milliyet, Hürriyet, NTV, Habertürk, Elle, Onedio, Mynet, TwitBurc, Vogue, GünlükBurç, MyBurç
+Milliyet, Hürriyet, Habertürk, Elle, Onedio, Mynet, TwitBurc, Vogue, GünlükBurç, MyBurç
 
 ## Proje Yapısı
 
@@ -128,15 +165,31 @@ Milliyet, Hürriyet, NTV, Habertürk, Elle, Onedio, Mynet, TwitBurc, Vogue, Gün
 AIstrolog/
 ├── scraper.py                    # Burç verilerini çeker
 ├── categorize_horoscopes.py      # Kategorize eder
-├── run_pipeline.py               # Tam pipeline (scrape + kategorize + test)
+├── summarizer.py                 # Özetler
+├── run_pipeline.py               # Scrape + kategorize + test
+├── run_full_pipeline.py          # Scrape + kategorize + özetle + test
 ├── test_workflow.py              # Otomatik test sistemi
 ├── verify_categorization.py      # Detaylı inceleme aracı
 ├── TEST_GUIDE.md                 # Test kılavuzu
+├── SUMMARIZATION_GUIDE.md        # Özetleme kılavuzu
 ├── requirements.txt
+├── .github/workflows/
+│   └── daily-scrape.yml          # Otomatik günlük çalıştırma
 └── data/
     ├── daily_raw_*.json          # Ham veri
-    └── processed_*.json          # İşlenmiş veri
+    ├── processed_*.json          # İşlenmiş veri
+    └── summarized_*.json         # Özetlenmiş veri
 ```
+
+## Otomatik Çalıştırma
+
+Proje, GitHub Actions ile her gün otomatik çalışır:
+
+- **Zamanlama:** Her gün saat 03:00 (Türkiye saati)
+- **İşlemler:** Scraping → Kategorize → Özetleme → Commit & Push
+- **Workflow dosyası:** `.github/workflows/daily-scrape.yml`
+
+Manuel çalıştırma için GitHub repository'de "Actions" sekmesinden "Daily Horoscope Scraping" workflow'unu seçip "Run workflow" butonuna tıklayın.
 
 ## Güvenilirlik ve Kalite
 
