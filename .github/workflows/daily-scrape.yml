@@ -32,6 +32,9 @@ jobs:
     - name: Run categorization
       run: python categorize_horoscopes.py
     
+    - name: Run scorer
+      run: python scorer.py
+    
     - name: Run summarizer
       run: python summarizer.py
     

@@ -4,12 +4,14 @@ Günlük burç yorumlarını toplayan, kategorize eden ve özetleyen otomasyon s
 
 ## Özellikler
 
-- 10 farklı kaynaktan burç yorumu toplama
-- Yorumları otomatik olarak aşk, para ve sağlık kategorilerine ayırma
-- Birden fazla kaynaktaki yorumları akıllıca özetleme
-- Orijinal metinleri koruyarak kopyalama
-- Tek komutla tam pipeline çalıştırma
-- GitHub Actions ile otomatik günlük çalıştırma
+- 🌐 10 farklı kaynaktan burç yorumu toplama
+- 📂 Yorumları otomatik olarak aşk, para ve sağlık kategorilerine ayırma
+- 🏆 **YENİ:** Sentiment analizi ile burç puanlama sistemi (0-100)
+- 📊 **YENİ:** Günün en şanslı/aşık/zengin burçlarını belirleme
+- 📝 Birden fazla kaynaktaki yorumları akıllıca özetleme
+- 💾 Orijinal metinleri koruyarak kopyalama
+- ⚡ Tek komutla tam pipeline çalıştırma
+- 🤖 GitHub Actions ile otomatik günlük çalıştırma
 
 ## Kurulum
 
@@ -28,10 +30,13 @@ python scraper.py
 # Sadece kategorize et
 python categorize_horoscopes.py
 
+# Sadece skorla (YENİ!)
+python scorer.py
+
 # Özetle (kategorize edilmiş veri gerekli)
 python summarizer.py
 
-# Full pipeline (scrape + kategorize + özetle + test)
+# Full pipeline (scrape + kategorize + skorla + özetle + test)
 python run_full_pipeline.py
 
 # Hızlı pipeline (scrape + kategorize + test)
@@ -59,6 +64,9 @@ python verify_categorization.py data/daily_raw_2025-11-15.json data/processed_da
 # Belirli bir dosyayı kategorize et
 python categorize_horoscopes.py data/daily_raw_2025-11-14.json
 
+# Belirli bir dosyayı skorla
+python scorer.py data/processed_daily_raw_2025-11-14.json
+
 # Belirli bir dosyayı özetle
 python summarizer.py data/processed_daily_raw_2025-11-14.json
 
@@ -66,6 +74,42 @@ python summarizer.py data/processed_daily_raw_2025-11-14.json
 python categorize_horoscopes.py input.json output.json
 python summarizer.py input.json output.json
 ```
+
+## 🏆 Puanlama Sistemi (YENİ!)
+
+Scorer sistemi, burç yorumlarını 0-100 arası puanlayarak günün en şanslı burçlarını belirler.
+
+### Özellikler
+
+- **📊 Sentiment Analizi:** 200+ pozitif/negatif kelime ile metin analizi
+- **✅ Akıllı Validasyon:** Duplikasyon tespiti ve keyword kontrolü
+- **🎯 Kategori Skorları:** Genel, Aşk, Para, Sağlık için ayrı puanlar
+- **🥇 Liderlik Tablosu:** Günün en aşık, en zengin, en sağlıklı burçları
+
+### Örnek Çıktı
+
+```
+================================================================================
+🏆 GÜNÜN BURCLAR SIRALAMASI
+================================================================================
+
+⭐ GÜNÜN LİDERLERİ:
+--------------------------------------------------------------------------------
+🥇 EN ŞANSLI BURÇ:   Akrep        → 89.0/100
+❤️  EN AŞIK BURÇ:     Koç          → 100.0/100
+💰 EN ZENGİN BURÇ:   Yengeç       → 100.0/100
+🏃 EN SAĞLIKLI BURÇ: Balık        → 76.2/100
+⚠️  EN ŞANSSIZ BURÇ:  Başak        → 46.1/100
+
+📊 GENEL SIRALAMA:
+--------------------------------------------------------------------------------
+🥇 Akrep        →  89.0/100 ⭐⭐⭐⭐
+🥈 Terazi       →  87.0/100 ⭐⭐⭐⭐
+🥉 Yengeç       →  86.5/100 ⭐⭐⭐⭐
+...
+```
+
+Detaylı bilgi için: [SCORER_GUIDE.md](SCORER_GUIDE.md)
 
 ## Özetleme Nasıl Çalışır?
 
@@ -155,6 +199,25 @@ Ham veri:
 }
 ```
 
+Skorlanmış veri (YENİ!):
+```json
+{
+  "scores": {
+    "Koç": {
+      "genel": {"score": 73.8, "sentiment": "positive"},
+      "aşk": {"score": 100.0, "sentiment": "positive"},
+      "para": {"score": 92.5, "sentiment": "positive"},
+      "sağlık": {"score": 45.0, "sentiment": "neutral"},
+      "toplam": 70.3
+    }
+  },
+  "rankings": {
+    "genel_ranking": [...],
+    "leaders": {"en_aşık": {"burc": "Koç", "score": 100.0}}
+  }
+}
+```
+
 ## Desteklenen Kaynaklar
 
 Milliyet, Hürriyet, Habertürk, Elle, Onedio, Mynet, TwitBurc, Vogue, GünlükBurç, MyBurç
@@ -165,19 +228,22 @@ Milliyet, Hürriyet, Habertürk, Elle, Onedio, Mynet, TwitBurc, Vogue, GünlükB
 AIstrolog/
 ├── scraper.py                    # Burç verilerini çeker
 ├── categorize_horoscopes.py      # Kategorize eder
+├── scorer.py                     # 🏆 Puanlama sistemi (YENİ!)
 ├── summarizer.py                 # Özetler
 ├── run_pipeline.py               # Scrape + kategorize + test
-├── run_full_pipeline.py          # Scrape + kategorize + özetle + test
+├── run_full_pipeline.py          # Scrape + kategorize + skorla + özetle + test
 ├── test_workflow.py              # Otomatik test sistemi
 ├── verify_categorization.py      # Detaylı inceleme aracı
 ├── TEST_GUIDE.md                 # Test kılavuzu
 ├── SUMMARIZATION_GUIDE.md        # Özetleme kılavuzu
+├── SCORER_GUIDE.md               # 🏆 Puanlama kılavuzu (YENİ!)
 ├── requirements.txt
 ├── .github/workflows/
 │   └── daily-scrape.yml          # Otomatik günlük çalıştırma
 └── data/
     ├── daily_raw_*.json          # Ham veri
     ├── processed_*.json          # İşlenmiş veri
+    ├── scored_*.json             # 🏆 Skorlanmış veri (YENİ!)
     └── summarized_*.json         # Özetlenmiş veri
 ```
 
@@ -186,7 +252,7 @@ AIstrolog/
 Proje, GitHub Actions ile her gün otomatik çalışır:
 
 - **Zamanlama:** Her gün saat 03:00 (Türkiye saati)
-- **İşlemler:** Scraping → Kategorize → Özetleme → Commit & Push
+- **İşlemler:** Scraping → Kategorize → **Skorlama** → Özetleme → Commit & Push
 - **Workflow dosyası:** `.github/workflows/daily-scrape.yml`
 
 Manuel çalıştırma için GitHub repository'de "Actions" sekmesinden "Daily Horoscope Scraping" workflow'unu seçip "Run workflow" butonuna tıklayın.

@@ -80,18 +80,14 @@ Cümle 2: "Bugün aşk hayatınızda güzel anlar yaşayacaksınız."
 
 ### 5. Cümle Skorlama
 
-Her cümle, kategori ile alakası ve bilgi değerine göre skorlanır:
+Her cümle, kategori ile alakasına göre skorlanır:
 
-**Skorlama Kriterleri:**
+**Skorlama Kriteri:**
 
-1. **Kategori Uygunluğu:** İlgili anahtar kelimeleri içeriyor mu?
-   - Aşk: aşk, sevgi, partner, flört, ilişki, kalp, duygusal, evlilik, romantik
-   - Para: para, maddi, harcama, birikim, yatırım, kazanç, finans, maaş, gelir
-   - Sağlık: sağlık, enerji, stres, egzersiz, spor, beslenme, uyku, yorgun, dinlen
-
-2. **Uzunluk Faktörü:**
-   - Çok kısa cümleler (< 5 kelime): Skor × 0.5
-   - Uzun cümleler (> 15 kelime): Skor × 1.2
+**Kategori Uygunluğu:** İlgili anahtar kelimeleri içeriyor mu?
+- Aşk: aşk, sevgi, partner, flört, ilişki, kalp, duygusal, evlilik, romantik
+- Para: para, maddi, harcama, birikim, yatırım, kazanç, finans, maaş, gelir
+- Sağlık: sağlık, enerji, stres, egzersiz, spor, beslenme, uyku, yorgun, dinlen
 
 **Örnek:**
 
@@ -99,7 +95,6 @@ Her cümle, kategori ile alakası ve bilgi değerine göre skorlanır:
 Cümle: "Aşk hayatınızda bugün güzel gelişmeler olacak."
 Kategori: aşk
 Anahtar kelime: "aşk" → +1 puan
-Uzunluk: 7 kelime → Normal
 Final Skor: 1.0
 ```
 
