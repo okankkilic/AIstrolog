@@ -190,14 +190,6 @@ class TurkishHoroscopeSummarizer:
                 if keyword in sentence_lower:
                     score += 1.0
         
-        # Length penalty (very short sentences less important)
-        if len(sentence.split()) < 5:
-            score *= 0.5
-        
-        # Very long sentences might be more informative
-        if len(sentence.split()) > 15:
-            score *= 1.2
-        
         return score
     
     def extract_top_sentences(self, sentences: List[str], category: str, max_sentences: int = 3) -> List[str]:
