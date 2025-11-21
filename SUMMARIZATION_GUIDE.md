@@ -183,13 +183,13 @@ summarizer = TurkishHoroscopeSummarizer(similarity_threshold=0.6)
 summarizer = TurkishHoroscopeSummarizer(similarity_threshold=0.8)
 ```
 
-## İstatistikler
+## Istatistikler
 
-Özetleme sonunda her kategori için istatistikler gösterilir:
+Ozetleme sonunda her kategori icin istatistikler gosterilir:
 
 ```
 ====================================================================
-📈 Summarization Statistics
+Summarization Statistics
 ====================================================================
 Genel     : 12/12 summarized (100.0%)
 Aşk       : 12/12 summarized (100.0%)
@@ -207,25 +207,25 @@ Sistem, orijinal kaynak metinleri ile oluşturulan özeti karşılaştırma imka
 
 ```
 ================================================================================
-🔍 Comparison: Koç - AŞK
+Comparison: Koc - ASK
 ================================================================================
 
-📝 ORIGINAL SOURCES:
+ORIGINAL SOURCES:
 --------------------------------------------------------------------------------
 
 [milliyet]
-Bugün aşk hayatınızda heyecan dolu anlar yaşayacaksınız. Partnerinizle uyum içinde olacaksınız.
+Bugun ask hayatinizda heyecan dolu anlar yasayacaksiniz. Partnerinizle uyum icinde olacaksiniz.
 
 [hurriyet]
-İlişkilerinizde pozitif gelişmeler sizi bekliyor. Duygusal anlamda kendinizi iyi hissedeceksiniz.
+Iliskilerinizde pozitif gelismeler sizi bekliyor. Duygusal anlamda kendinizi iyi hissedeceksiniz.
 
 [onedio]
-Bugün aşk hayatınızda güzel anlar yaşayacaksınız. Sevdiğiniz kişiyle yakınlaşacaksınız.
+Bugun ask hayatinizda guzel anlar yasayacaksiniz. Sevdiginiz kisiyle yakinlasacaksiniz.
 
 --------------------------------------------------------------------------------
-✨ GENERATED SUMMARY:
+GENERATED SUMMARY:
 --------------------------------------------------------------------------------
-Aşk hayatınızda heyecan dolu anlar yaşayacaksınız. İlişkilerinizde pozitif gelişmeler sizi bekliyor. Partnerinizle uyum içinde olacaksınız.
+Ask hayatinizda heyecan dolu anlar yasayacaksiniz. Iliskilerinizde pozitif gelismeler sizi bekliyor. Partnerinizle uyum icinde olacaksiniz.
 
 ================================================================================
 ```

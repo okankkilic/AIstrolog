@@ -45,22 +45,22 @@ python scorer.py data/processed_daily_raw_2025-11-19.json
 #### 1. Terminal Çıktısı
 ```
 ================================================================================
-🏆 GÜNÜN BURCLAR SIRALAMASI
+GUNUN BURCLAR SIRALAMASI
 ================================================================================
 
-⭐ GÜNÜN LİDERLERİ:
+GUNUN LIDERLERI:
 --------------------------------------------------------------------------------
-🥇 EN ŞANSLI BURÇ:   Akrep        → 89.0/100
-❤️  EN AŞIK BURÇ:     Koç          → 100.0/100
-💰 EN ZENGİN BURÇ:   Yengeç       → 100.0/100
-🏃 EN SAĞLIKLI BURÇ: Balık        → 76.2/100
-⚠️  EN ŞANSSIZ BURÇ:  Başak        → 46.1/100
+1. EN SANSLI BURC:   Akrep        -> 89.0/100
+2. EN ASIK BURC:     Koc          -> 100.0/100
+3. EN ZENGIN BURC:   Yengec       -> 100.0/100
+4. EN SAGLIKLI BURC: Balik        -> 76.2/100
+5. EN SANSSIZ BURC:  Basak        -> 46.1/100
 
-📊 GENEL SIRALAMA:
+GENEL SIRALAMA:
 --------------------------------------------------------------------------------
-🥇 Akrep        →  89.0/100 ⭐⭐⭐⭐
-🥈 Terazi       →  87.0/100 ⭐⭐⭐⭐
-🥉 Yengeç       →  86.5/100 ⭐⭐⭐⭐
+1. Akrep        ->  89.0/100 (****)
+2. Terazi       ->  87.0/100 (****)
+3. Yengec       ->  86.5/100 (****)
 ...
 ```
 
@@ -188,11 +188,11 @@ merged_data["Koç"]["aşk"] = [
 ## Yildiz Sistemi
 
 ```
-90-100 puan: ⭐⭐⭐⭐⭐ (Mükemmel)
-75-89 puan:  ⭐⭐⭐⭐   (Çok İyi)
-60-74 puan:  ⭐⭐⭐     (İyi)
-45-59 puan:  ⭐⭐       (Orta)
-0-44 puan:   ⭐         (Zayıf)
+90-100 puan: (*****) Mukemmel
+75-89 puan:  (****)  Cok Iyi
+60-74 puan:  (***)   Iyi
+45-59 puan:  (**)    Orta
+0-44 puan:   (*)     Zayif
 ```
 
 ## Ornek Sonuclar
@@ -206,7 +206,7 @@ Analiz:
   - Pozitif kelimeler: harika(3), romantik(2.5), mutlu(2), sevgi(2)
   - Kategori boost: +10 (aşk kategorisi için)
   - Net skor: 9.5 + 10 = 19.5
-  - Final skor: 50 + (19.5 × 2.5) = 98.75/100 ✅
+  - Final skor: 50 + (19.5 × 2.5) = 98.75/100
 ```
 
 ### Negatif Metin Örneği
@@ -217,7 +217,7 @@ Metin: "Dikkat! Bugün zorlu bir gün. Stresli ve gergin hissedebilir,
 Analiz:
   - Negatif kelimeler: dikkat(-1.5), zorlu(-2), stresli(-2.5), gergin(-2.5), sorun(-2.5)
   - Net skor: -11
-  - Final skor: 50 + (-11 × 2.5) = 22.5/100 ⚠️
+  - Final skor: 50 + (-11 × 2.5) = 22.5/100
 ```
 
 ## Sorun Giderme
@@ -232,8 +232,8 @@ Analiz:
 - Skor `None` olarak işaretlenir
 
 ### Tüm skorlar 100
-- Pozitif kelime bombardımanı var
-- Normaldir, gerçekten iyi bir gün! 🎉
+- Pozitif kelime bombardimanı var
+- Normaldir, gercekten iyi bir gun
 
 ### Tüm skorlar düşük
 - Çok fazla negatif kelime kullanılmış
