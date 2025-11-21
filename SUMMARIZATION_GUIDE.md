@@ -1,10 +1,18 @@
-# Özetleme Sistemi Kılavuzu
+# Ozetleme Sistemi Kilavuzu
 
-## Genel Bakış
+## Genel Bakis
 
-AIstrolog özetleme sistemi, 10 farklı kaynaktan toplanan burç yorumlarını birleştirerek her burç için tek, tutarlı ve bilgilendirici özetler oluşturur.
+AIstrolog ozetleme sistemi, 10 farkli kaynaktan toplanan burc yorumlarini birlestirerek her burc icin tek, tutarli ve bilgilendirici ozetler olusturur.
 
-## Özetleme Süreci
+### Kaynak Guncelleme Saatleri
+
+Bazi kaynaklar gecikmeli guncelleme yapar:
+- **Hurriyet**: Sabah 09:00 civarinda
+- **Vogue**: Sabah 08:30 civarinda
+
+Bu nedenle otomasyon sistemi gunluk iki kez calisir (03:00 ve 09:00) ve en guncel verileri toplar.
+
+## Ozetleme Sureci
 
 ### 1. Veri Toplama
 
