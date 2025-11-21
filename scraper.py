@@ -82,6 +82,19 @@ def normalize_burc_name(name: str) -> Optional[str]:
     """Burç ismini normalize eder"""
     if not name:
         return None
+    
+    # Özel durumlar için direkt mapping (Hurriyet'te büyük harf sorunları için)
+    special_cases = {
+        "İKİZLER": "İkizler",
+        "IKIZLER": "İkizler",
+        "TERAZİ": "Terazi",
+        "TERAZI": "Terazi",
+    }
+    
+    clean_name_upper = name.strip().upper()
+    if clean_name_upper in special_cases:
+        return special_cases[clean_name_upper]
+    
     clean_name = name.strip().lower()
     normalized = BURC_NORMALIZATION.get(clean_name)
     if normalized:
@@ -139,21 +152,27 @@ def scrape_milliyet() -> Optional[Dict]:
                     
                     yorum_dict = {"genel": None, "aşk": None, "para": None, "sağlık": None}
                     
+                    # Tüm paragrafları birleştir - hepsini genel'e ekle
+                    all_texts = []
+                    
                     for p in paragraphs:
                         text = clean_text(p.get_text())
+                        if text and len(text) > 5:
+                            all_texts.append(text)
+                        
                         text_lower = text.lower()
                         
-                        # Kategorilere göre ayır
-                        if text_lower.startswith('iş:') or text_lower.startswith('kariyer:'):
-                            yorum_dict["genel"] = text.split(':', 1)[1].strip() if ':' in text else text
-                        elif text_lower.startswith('para:'):
+                        # Ayrıca kategorilere göre de ayır
+                        if text_lower.startswith('para:'):
                             yorum_dict["para"] = text.split(':', 1)[1].strip() if ':' in text else text
                         elif text_lower.startswith('sağlık:'):
                             yorum_dict["sağlık"] = text.split(':', 1)[1].strip() if ':' in text else text
-                        elif text_lower.startswith('aşk:'):
+                        elif 'aşk' in text_lower and ('ilişki' in text_lower or 'i̇lişki' in text_lower):
                             yorum_dict["aşk"] = text.split(':', 1)[1].strip() if ':' in text else text
-                        elif not yorum_dict["genel"]:  # Eğer kategori yoksa genel olarak al
-                            yorum_dict["genel"] = text
+                    
+                    # Tüm metni genel'e ekle
+                    if all_texts:
+                        yorum_dict["genel"] = ' '.join(all_texts)
                     
                     results[burc_name] = yorum_dict
                     logger.info(f"Milliyet - {burc_name} tamamlandı")
@@ -229,26 +248,41 @@ def scrape_hurriyet() -> Optional[Dict]:
         return None
 
 def scrape_haberturk() -> Optional[Dict]:
-    """Haberturk Hayat'tan burç yorumlarını çeker - Ana sayfadan günlük link bulur"""
+    """Haberturk Hayat'tan burç yorumlarını çeker - gunun-yorumu sayfasından günlük link bulur"""
     logger.info("Haberturk scrape başladı...")
     results = create_empty_burc_dict()
     
     try:
-        # Ana sayfadan günlük burç yorumları linkini bul
-        main_url = "https://hthayat.haberturk.com/astroloji"
+        # Günün yorumu sayfasından günlük burç yorumları linkini bul
+        main_url = "https://hthayat.haberturk.com/astroloji/gunun-yorumu"
         response = requests.get(main_url, headers=get_random_headers(), timeout=10)
         response.encoding = 'utf-8'
         soup = BeautifulSoup(response.content, 'lxml')
         
-        # Günlük burç yorumu linkini ara
+        # Günlük burç yorumu linkini ara - figcaption içinde title içeren bağlantıyı bul
         daily_link = None
         today = datetime.now()
         
-        for link in soup.find_all('a', href=True):
-            href = link['href']
-            if 'gunluk-burc-yorumlari' in href.lower():
-                daily_link = href if href.startswith('http') else f"https://hthayat.haberturk.com{href}"
-                break
+        # figcaption içindeki bağlantıları ara
+        figcaptions = soup.find_all('figcaption')
+        for figcaption in figcaptions:
+            # h2.title içinde "Günlük burç yorumları" içeren linki ara
+            title_heading = figcaption.find('h2', class_='title')
+            if title_heading and 'günlük burç yorumları' in title_heading.get_text().lower():
+                # Parent <a> tag'ini bul
+                parent_link = figcaption.find_parent('a', href=True)
+                if parent_link:
+                    href = parent_link['href']
+                    daily_link = href if href.startswith('http') else f"https://hthayat.haberturk.com{href}"
+                    break
+        
+        # Alternatif yöntem: link içinde 'gunluk-burc-yorumlari' içeren bağlantıyı ara
+        if not daily_link:
+            for link in soup.find_all('a', href=True):
+                href = link['href']
+                if 'gunluk-burc-yorumlari' in href.lower():
+                    daily_link = href if href.startswith('http') else f"https://hthayat.haberturk.com{href}"
+                    break
         
         if not daily_link:
             logger.warning("Haberturk - Günlük burç yorumları linki bulunamadı")
@@ -355,14 +389,13 @@ def scrape_elele() -> Optional[Dict]:
 
 
 def scrape_onedio() -> Optional[Dict]:
-    """Onedio.com'dan burç yorumlarını çeker - Ana sayfadan günlük link bulur"""
+    """Onedio.com'dan burç yorumlarını çeker - Her kategoride 12 figcaption var (her burç için bir tane)"""
     logger.info("Onedio scrape başladı...")
     results = create_empty_burc_dict()
     
     try:
-        # Her burç için ayrı ayrı dene
         today = datetime.now()
-        date_str = today.strftime("%d-%B-%Y").lower()  # 14-kasim-2025 formatı
+        date_str = today.strftime("%d-%B-%Y").lower()  # 21-kasim-2025 formatı
         
         # Türkçe ay isimleri
         ay_map = {
@@ -374,35 +407,48 @@ def scrape_onedio() -> Optional[Dict]:
         for eng, tr in ay_map.items():
             date_str = date_str.replace(eng, tr)
         
-        for burc_name, slug in BURC_SLUGS.items():
+        # Kategoriler: genel, aşk, para, sağlık
+        categories = {
+            'genel': f"https://onedio.com/astroloji/gunluk-burc-yorumuna-gore-{date_str}-gunun-nasil-gececek",
+            'aşk': f'https://onedio.com/astroloji/gunluk-ask-burc-yorumuna-gore-{date_str}-gunun-nasil-gececek',
+            'para': f'https://onedio.com/astroloji/gunluk-para-burc-yorumuna-gore-{date_str}-gunun-nasil-gececek',
+            'sağlık': f'https://onedio.com/astroloji/gunluk-saglik-burc-yorumuna-gore-{date_str}-gunun-nasil-gececek'
+        }
+        
+        # Her kategori için tüm burçları al
+        for category_name, category_url in categories.items():
             try:
-                url = f"https://onedio.com/astroloji/{slug}/{date_str}-gunluk-burc-yorumu"
-                response = requests.get(url, headers=get_random_headers(), timeout=10)
+                response = requests.get(category_url, headers=get_random_headers(), timeout=10)
                 response.encoding = 'utf-8'
                 
-                if response.status_code != 200:
-                    continue
-                
-                soup = BeautifulSoup(response.content, 'lxml')
-                
-                # Figcaption içindeki yorumu al
-                figcaption = soup.find('figcaption')
-                
-                if figcaption:
-                    paragraphs = figcaption.find_all('p')
-                    full_text = ' '.join([clean_text(p.get_text()) for p in paragraphs])
+                if response.status_code == 200:
+                    soup = BeautifulSoup(response.content, 'lxml')
                     
-                    # "Sevgili X," kısmından sonrasını al
-                    if f'Sevgili {burc_name}' in full_text:
-                        full_text = full_text.split(f'Sevgili {burc_name}', 1)[1].strip()
+                    # Tüm figcaption'ları al (her biri bir burç için)
+                    figcaptions = soup.find_all('figcaption')
                     
-                    results[burc_name]["genel"] = full_text
-                    logger.info(f"Onedio - {burc_name} tamamlandı")
+                    for figcaption in figcaptions:
+                        paragraphs = figcaption.find_all('p')
+                        full_text = ' '.join([clean_text(p.get_text()) for p in paragraphs])
+                        
+                        # Hangi burç için olduğunu bul
+                        for burc_name in BURCLAR:
+                            if f'Sevgili {burc_name}' in full_text:
+                                # "Sevgili Burç," kısmından sonrasını al
+                                burc_yorum = full_text.split(f'Sevgili {burc_name}', 1)[1].strip()
+                                # Virgül varsa kaldır
+                                if burc_yorum.startswith(','):
+                                    burc_yorum = burc_yorum[1:].strip()
+                                
+                                results[burc_name][category_name] = burc_yorum
+                                break
+                    
+                    logger.info(f"Onedio - {category_name} kategorisi tamamlandı")
                 
                 random_sleep()
-                
+            
             except Exception as e:
-                logger.error(f"Onedio - {burc_name} error: {e}")
+                logger.error(f"Onedio - {category_name} kategori hatası: {e}")
                 continue
         
         logger.info("Onedio scrape tamamlandı")
@@ -467,42 +513,48 @@ def scrape_twitburc() -> Optional[Dict]:
                 response.encoding = 'utf-8'
                 soup = BeautifulSoup(response.content, 'lxml')
                 
-                # Günlük yorum içeren tab-pane'i bul
-                # "Günün Ruh Hali:" içeren bölümü ara
+                # Tüm tab-pane'leri bul
+                # Sıralama: 1. Hakkında, 2. Dün, 3. Günlük, 4. Haftalık, 5. Aylık, 6. Yıllık
                 tab_panes = soup.find_all('div', class_='tab-pane')
                 
-                for pane in tab_panes:
+                target_pane = None
+                if len(tab_panes) >= 3:
+                    # 3. pane (index 2) Günlük yorumdur
+                    target_pane = tab_panes[2]
+                elif tab_panes:
+                    # Eğer 3 tane yoksa, active olanı veya ilkini dene (fallback)
+                    target_pane = soup.find('div', class_='tab-pane active') or tab_panes[0]
+                
+                if target_pane:
                     # "Günlük Yorumu" veya "Günün Ruh Hali" içeren bölümü bul
-                    h2_tags = pane.find_all('h2')
-                    for h2 in h2_tags:
-                        if 'Günlük Yorumu' in h2.get_text() or 'Günün Ruh Hali' in h2.get_text():
-                            # Bu panedeki p etiketlerini al
-                            paragraphs = pane.find_all('p')
-                            
-                            # Başlıkları filtrele ve sadece yorum metnini al
-                            text_parts = []
-                            for p in paragraphs:
-                                text = clean_text(p.get_text())
-                                
-                                # Burç özellikleri gibi uzun metinleri atla
-                                if 'BURCU ÖZELLİKLERİ' in text or 'Grubun:' in text or 'Şanslı' in text:
-                                    continue
-                                
-                                # Başlıkları temizle
-                                if text.startswith('Günün Ruh Hali:'):
-                                    text = text.replace('Günün Ruh Hali:', '').strip()
-                                
-                                if text and len(text) > 20:
-                                    text_parts.append(text)
-                            
-                            if text_parts:
-                                full_text = ' '.join(text_parts)
-                                results[burc_name]["genel"] = full_text
-                                logger.info(f"Twitburc - {burc_name} tamamlandı")
-                                break
+                    # Bazen h2 içinde olmayabilir, direkt p'leri alalım
                     
-                    if results[burc_name]["genel"]:
-                        break
+                    paragraphs = target_pane.find_all('p')
+                    
+                    # Başlıkları filtrele ve sadece yorum metnini al
+                    text_parts = []
+                    for p in paragraphs:
+                        text = clean_text(p.get_text())
+                        
+                        # Burç özellikleri gibi uzun metinleri atla
+                        if 'BURCU ÖZELLİKLERİ' in text or 'Grubun:' in text or 'Şanslı' in text:
+                            continue
+                        
+                        # Başlıkları temizle
+                        if text.startswith('Günün Ruh Hali:'):
+                            text = text.replace('Günün Ruh Hali:', '').strip()
+                        
+                        if text and len(text) > 20:
+                            text_parts.append(text)
+                    
+                    if text_parts:
+                        full_text = ' '.join(text_parts)
+                        results[burc_name]["genel"] = full_text
+                        logger.info(f"Twitburc - {burc_name} tamamlandı")
+                    else:
+                        logger.warning(f"Twitburc - {burc_name} metin bulunamadı")
+                else:
+                    logger.warning(f"Twitburc - {burc_name} için tab-pane bulunamadı")
                 
                 random_sleep()
                 
@@ -693,16 +745,20 @@ def scrape_myburc() -> Optional[Dict]:
                 tab_content = soup.select_one('#myTabContent')
                 
                 if tab_content:
-                    # Genel Durum (ana tab - #gununburcu veya ilk tab)
-                    genel_div = tab_content.select_one('#gununburcu')
-                    if not genel_div:
-                        # İlk tab'ı bul
-                        genel_div = tab_content.find('div', class_='tab-pane')
-                    
-                    if genel_div:
-                        paragraphs = genel_div.find_all('p')
-                        if paragraphs:
-                            yorum_dict["genel"] = clean_text(paragraphs[0].get_text())
+                    # Genel Durum - p.d-block.px-4 class'ına sahip paragrafı al
+                    genel_p = soup.select_one('p.d-block.px-4')
+                    if genel_p:
+                        yorum_dict["genel"] = clean_text(genel_p.get_text())
+                    else:
+                        # Alternatif: İlk tab içindeki ilk p
+                        genel_div = tab_content.select_one('#gununburcu')
+                        if not genel_div:
+                            genel_div = tab_content.find('div', class_='tab-pane')
+                        
+                        if genel_div:
+                            paragraphs = genel_div.find_all('p')
+                            if paragraphs:
+                                yorum_dict["genel"] = clean_text(paragraphs[0].get_text())
                     
                     # Aşk falı
                     ask_div = tab_content.select_one('#gununaskfali')
@@ -719,17 +775,24 @@ def scrape_myburc() -> Optional[Dict]:
                             is_text = clean_text(paragraphs[0].get_text())
                             yorum_dict["para"] = is_text  # İş ve kariyeri para kategorisine ekle
                     
-                    # Para falı
+                    # Para falı - İki içeriği birleştir
                     para_div = tab_content.select_one('#gununparafali')
                     if para_div:
+                        # Tüm p etiketlerini al ve birleştir
                         paragraphs = para_div.find_all('p')
-                        if paragraphs:
-                            para_text = clean_text(paragraphs[0].get_text())
+                        para_texts = []
+                        for p in paragraphs:
+                            para_text = clean_text(p.get_text())
+                            if para_text and len(para_text) > 20:
+                                para_texts.append(para_text)
+                        
+                        if para_texts:
+                            combined_para_text = ' '.join(para_texts)
                             # İş falı varsa üzerine ekle, yoksa sadece para falını yaz
                             if yorum_dict["para"]:
-                                yorum_dict["para"] += " " + para_text
+                                yorum_dict["para"] += " " + combined_para_text
                             else:
-                                yorum_dict["para"] = para_text
+                                yorum_dict["para"] = combined_para_text
                     
                     results[burc_name] = yorum_dict
                     logger.info(f"Myburc - {burc_name} tamamlandı")
