@@ -175,9 +175,9 @@ summarizer = TurkishHoroscopeSummarizer(similarity_threshold=0.6)
 summarizer = TurkishHoroscopeSummarizer(similarity_threshold=0.8)
 ```
 
-## İstatistikler
+## Istatistikler
 
-Özetleme sonunda her kategori için istatistikler gösterilir:
+Ozetleme sonunda her kategori icin istatistikler gosterilir:
 
 ```
 ====================================================================
@@ -199,7 +199,7 @@ Sistem, orijinal kaynak metinleri ile oluşturulan özeti karşılaştırma imka
 
 ```
 ================================================================================
-Comparison: Koç - AŞK
+Comparison: Koc - ASK
 ================================================================================
 
 ORIGINAL SOURCES:

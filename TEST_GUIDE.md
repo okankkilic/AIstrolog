@@ -43,8 +43,9 @@ python test_workflow.py data/daily_raw_2025-11-15.json data/processed_daily_raw_
 ### Bos icerik uyarisi
 - Site erisilebilir mi?
 - HTML yapisi degisti mi?
-- Hurriyet ve Vogue icin sabah 09:00 calistirmasini bekleyin
-- `scraper.log` dosyasina bak
+- Bazi siteler (Hurriyet, Vogue) sabah 08:30-09:00 arasi guncelleme yapar
+- Saat 09:00 calistirmasini bekleyin
+- scraper.log dosyasina bak
 
 ### Kategorizasyon dusuk
 - Ham veriyi kontrol et

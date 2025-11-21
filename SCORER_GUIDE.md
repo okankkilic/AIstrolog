@@ -1,10 +1,10 @@
-# Burç Puanlama Sistemi (Scorer)
+# Burc Puanlama Sistemi (Scorer)
 
-## Genel Bakış
+## Genel Bakis
 
 Scorer sistemi, kategorileştirilmiş burç yorumlarını analiz ederek her burç için 0-100 arası skorlar verir ve günün en şanslı/şanssız burçlarını belirler.
 
-## Özellikler
+## Ozellikler
 
 ### 1. Sentiment Analizi
 - **200+ pozitif/negatif kelime** ile metin analizi
@@ -19,17 +19,17 @@ Scorer sistemi, kategorileştirilmiş burç yorumlarını analiz ederek her bur�
 ### 3. Kapsamlı Skorlama
 Her burç için:
 - Genel skor (0-100)
-- Aşk skoru (0-100)
+- Ask skoru (0-100)
 - Para skoru (0-100)
-- Sağlık skoru (0-100)
-- Ağırlıklı toplam skor
+- Saglik skoru (0-100)
+- Agirlikli toplam skor
 
 ### 4. Sıralama Sistemleri
 - **Genel sıralama**: Tüm burçlar toplam skora göre
 - **Kategori sıralamaları**: Aşk, para, sağlık bazında
 - **Liderler**: Günün şampiyonları
 
-## Kullanım
+## Kullanim
 
 ### Temel Kullanım
 ```bash
@@ -45,22 +45,22 @@ python scorer.py data/processed_daily_raw_2025-11-19.json
 #### 1. Terminal Çıktısı
 ```
 ================================================================================
-GÜNÜN BURCLAR SIRALAMASI
+🏆 GÜNÜN BURCLAR SIRALAMASI
 ================================================================================
 
-GÜNÜN LİDERLERİ:
+⭐ GÜNÜN LİDERLERİ:
 --------------------------------------------------------------------------------
-EN ŞANSLI BURÇ:   Akrep        → 89.0/100
-EN AŞIK BURÇ:     Koç          → 100.0/100
-EN ZENGİN BURÇ:   Yengeç       → 100.0/100
-EN SAĞLIKLI BURÇ: Balık        → 76.2/100
-EN ŞANSSIZ BURÇ:  Başak        → 46.1/100
+🥇 EN ŞANSLI BURÇ:   Akrep        → 89.0/100
+❤️  EN AŞIK BURÇ:     Koç          → 100.0/100
+💰 EN ZENGİN BURÇ:   Yengeç       → 100.0/100
+🏃 EN SAĞLIKLI BURÇ: Balık        → 76.2/100
+⚠️  EN ŞANSSIZ BURÇ:  Başak        → 46.1/100
 
-GENEL SIRALAMA:
+📊 GENEL SIRALAMA:
 --------------------------------------------------------------------------------
-#1 Akrep        →  89.0/100 (4 yıldız)
-#2 Terazi       →  87.0/100 (4 yıldız)
-#3 Yengeç       →  86.5/100 (4 yıldız)
+🥇 Akrep        →  89.0/100 ⭐⭐⭐⭐
+🥈 Terazi       →  87.0/100 ⭐⭐⭐⭐
+🥉 Yengeç       →  86.5/100 ⭐⭐⭐⭐
 ...
 ```
 
@@ -110,7 +110,7 @@ GENEL SIRALAMA:
 #### 3. Log Dosyası
 `scorer.log`: Tüm işlemlerin detaylı kayıtları
 
-## Skorlama Mantığı
+## Skorlama Mantigi
 
 ### Sentiment Skoru Hesaplama
 
@@ -145,7 +145,7 @@ Limit: 0-100 arası
 Toplam = (Genel × 0.30) + (Aşk × 0.25) + (Para × 0.25) + (Sağlık × 0.20)
 ```
 
-## Validasyon Kuralları
+## Validasyon Kurallari
 
 ### 1. Duplikasyon Kontrolü
 ```python
@@ -185,17 +185,17 @@ merged_data["Koç"]["aşk"] = [
 ]
 ```
 
-## Yıldız Sistemi
+## Yildiz Sistemi
 
 ```
-90-100 puan: 5 yıldız (Mükemmel)
-75-89 puan:  4 yıldız (Çok İyi)
-60-74 puan:  3 yıldız (İyi)
-45-59 puan:  2 yıldız (Orta)
-0-44 puan:   1 yıldız (Zayıf)
+90-100 puan: ⭐⭐⭐⭐⭐ (Mükemmel)
+75-89 puan:  ⭐⭐⭐⭐   (Çok İyi)
+60-74 puan:  ⭐⭐⭐     (İyi)
+45-59 puan:  ⭐⭐       (Orta)
+0-44 puan:   ⭐         (Zayıf)
 ```
 
-## Örnek Sonuçlar
+## Ornek Sonuclar
 
 ### Pozitif Metin Örneği
 ```
@@ -239,7 +239,7 @@ Analiz:
 - Çok fazla negatif kelime kullanılmış
 - Yorum metinleri uyarı/dikkat içeriyor
 
-## Konfigürasyon
+## Konfigurasyon
 
 ### Sentiment Kelimelerini Özelleştirme
 `scorer.py` içinde:
@@ -278,18 +278,18 @@ python summarizer.py                  # 4. Özetleme
 
 ## Notlar
 
-- Birden fazla kaynak = daha güvenilir skor
-- Duplikasyon tespiti = daha doğru sonuçlar
-- Keyword validasyonu = yanlış kategorileme önleme
-- Ağırlıklı skorlama = dengeli değerlendirme
-- Detaylı loglama = şeffaf işlem
+- Birden fazla kaynak = daha guvenilir skor
+- Duplikasyon tespiti = daha dogru sonuclar
+- Keyword validasyonu = yanlis kategorileme onleme
+- Agirlikli skorlama = dengeli degerlendirme
+- Detayli loglama = seffaf islem
 
-## Sonuç
+## Sonuc
 
-Scorer sistemi, burç yorumlarını objektif bir şekilde puanlayarak kullanıcılara:
-- Günün en şanslı burçlarını gösterir
-- Kategori bazlı (aşk, para, sağlık) liderlik tablosu sunar
-- Tüm burçlar için detaylı analiz sağlar
-- Güvenilir, validasyonlu ve ölçülebilir sonuçlar üretir
+Scorer sistemi, burc yorumlarini objektif bir sekilde puanlayarak kullanicilara:
+- Gunun en sansli burclarini gosterir
+- Kategori bazli (ask, para, saglik) liderlik tablosu sunar
+- Tum burclar icin detayli analiz saglar
+- Guvenilir, validasyonlu ve olculebilir sonuclar uretir
 
-**Artık sadece burç yorumu değil, VERİYE DAYALI burç analizi!**
+Artik sadece burc yorumu degil, VERIYE DAYALI burc analizi!
