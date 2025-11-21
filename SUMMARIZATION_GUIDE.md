@@ -1,18 +1,10 @@
-# Ozetleme Sistemi Kilavuzu
+# Özetleme Sistemi Kılavuzu
 
-## Genel Bakis
+## Genel Bakış
 
-AIstrolog ozetleme sistemi, 10 farkli kaynaktan toplanan burc yorumlarini birlestirerek her burc icin tek, tutarli ve bilgilendirici ozetler olusturur.
+AIstrolog özetleme sistemi, 10 farklı kaynaktan toplanan burç yorumlarını birleştirerek her burç için tek, tutarlı ve bilgilendirici özetler oluşturur.
 
-### Kaynak Guncelleme Saatleri
-
-Bazi kaynaklar gecikmeli guncelleme yapar:
-- **Hurriyet**: Sabah 09:00 civarinda
-- **Vogue**: Sabah 08:30 civarinda
-
-Bu nedenle otomasyon sistemi gunluk iki kez calisir (03:00 ve 09:00) ve en guncel verileri toplar.
-
-## Ozetleme Sureci
+## Özetleme Süreci
 
 ### 1. Veri Toplama
 
@@ -183,9 +175,9 @@ summarizer = TurkishHoroscopeSummarizer(similarity_threshold=0.6)
 summarizer = TurkishHoroscopeSummarizer(similarity_threshold=0.8)
 ```
 
-## Istatistikler
+## İstatistikler
 
-Ozetleme sonunda her kategori icin istatistikler gosterilir:
+Özetleme sonunda her kategori için istatistikler gösterilir:
 
 ```
 ====================================================================
@@ -207,25 +199,25 @@ Sistem, orijinal kaynak metinleri ile oluşturulan özeti karşılaştırma imka
 
 ```
 ================================================================================
-Comparison: Koc - ASK
+Comparison: Koç - AŞK
 ================================================================================
 
 ORIGINAL SOURCES:
 --------------------------------------------------------------------------------
 
 [milliyet]
-Bugun ask hayatinizda heyecan dolu anlar yasayacaksiniz. Partnerinizle uyum icinde olacaksiniz.
+Bugün aşk hayatınızda heyecan dolu anlar yaşayacaksınız. Partnerinizle uyum içinde olacaksınız.
 
 [hurriyet]
-Iliskilerinizde pozitif gelismeler sizi bekliyor. Duygusal anlamda kendinizi iyi hissedeceksiniz.
+İlişkilerinizde pozitif gelişmeler sizi bekliyor. Duygusal anlamda kendinizi iyi hissedeceksiniz.
 
 [onedio]
-Bugun ask hayatinizda guzel anlar yasayacaksiniz. Sevdiginiz kisiyle yakinlasacaksiniz.
+Bugün aşk hayatınızda güzel anlar yaşayacaksınız. Sevdiğiniz kişiyle yakınlaşacaksınız.
 
 --------------------------------------------------------------------------------
 GENERATED SUMMARY:
 --------------------------------------------------------------------------------
-Ask hayatinizda heyecan dolu anlar yasayacaksiniz. Iliskilerinizde pozitif gelismeler sizi bekliyor. Partnerinizle uyum icinde olacaksiniz.
+Aşk hayatınızda heyecan dolu anlar yaşayacaksınız. İlişkilerinizde pozitif gelişmeler sizi bekliyor. Partnerinizle uyum içinde olacaksınız.
 
 ================================================================================
 ```
