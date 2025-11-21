@@ -10,6 +10,8 @@ python run_pipeline.py
 
 Bu komut otomatik olarak scraping yapar, kategorize eder ve test eder.
 
+Not: Bazi kaynaklar (ornegin Vogue) verilerini gun icinde gec saatlerde gunceller. Otomatik workflow gunde iki kez calisarak tum verilerin toplanmasini saglar.
+
 ### Manuel Test
 
 ```bash
@@ -43,7 +45,6 @@ python test_workflow.py data/daily_raw_2025-11-15.json data/processed_daily_raw_
 ### Bos icerik uyarisi
 - Site erisilebilir mi?
 - HTML yapisi degisti mi?
-- Hurriyet ve Vogue icin sabah 09:00 calistirmasini bekleyin
 - `scraper.log` dosyasina bak
 
 ### Kategorizasyon dusuk
