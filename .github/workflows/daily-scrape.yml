@@ -4,6 +4,8 @@ on:
   schedule:
     # Her gün sabah 03:00 Türkiye saati (00:00 UTC)
     - cron: '0 0 * * *'
+    # Her gün sabah 09:00 Türkiye saati (06:00 UTC) - VOGUE için
+    - cron: '0 6 * * *'
   workflow_dispatch: # Manuel çalıştırma için
 
 jobs:

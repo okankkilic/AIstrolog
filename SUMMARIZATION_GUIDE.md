@@ -181,7 +181,7 @@ summarizer = TurkishHoroscopeSummarizer(similarity_threshold=0.8)
 
 ```
 ====================================================================
-📈 Summarization Statistics
+Summarization Statistics
 ====================================================================
 Genel     : 12/12 summarized (100.0%)
 Aşk       : 12/12 summarized (100.0%)
@@ -199,10 +199,10 @@ Sistem, orijinal kaynak metinleri ile oluşturulan özeti karşılaştırma imka
 
 ```
 ================================================================================
-🔍 Comparison: Koç - AŞK
+Comparison: Koç - AŞK
 ================================================================================
 
-📝 ORIGINAL SOURCES:
+ORIGINAL SOURCES:
 --------------------------------------------------------------------------------
 
 [milliyet]
@@ -215,7 +215,7 @@ Bugün aşk hayatınızda heyecan dolu anlar yaşayacaksınız. Partnerinizle uy
 Bugün aşk hayatınızda güzel anlar yaşayacaksınız. Sevdiğiniz kişiyle yakınlaşacaksınız.
 
 --------------------------------------------------------------------------------
-✨ GENERATED SUMMARY:
+GENERATED SUMMARY:
 --------------------------------------------------------------------------------
 Aşk hayatınızda heyecan dolu anlar yaşayacaksınız. İlişkilerinizde pozitif gelişmeler sizi bekliyor. Partnerinizle uyum içinde olacaksınız.
 

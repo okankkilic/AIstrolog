@@ -26,9 +26,9 @@ python test_workflow.py data/daily_raw_2025-11-15.json data/processed_daily_raw_
 
 ## Test Sonuclari
 
-- `[OK] TEST BASARILI` - Her sey yolunda
-- `[!] KISMEN BASARILI` - Uyarilar var, kontrol et
-- `[X] TEST BASARISIZ` - Kritik hatalar var, duzeltilmeli
+- `TEST BASARILI` - Her sey yolunda
+- `KISMEN BASARILI` - Uyarilar var, kontrol et
+- `TEST BASARISIZ` - Kritik hatalar var, duzeltilmeli
 
 ## Sorun Giderme
 
@@ -43,6 +43,7 @@ python test_workflow.py data/daily_raw_2025-11-15.json data/processed_daily_raw_
 ### Bos icerik uyarisi
 - Site erisilebilir mi?
 - HTML yapisi degisti mi?
+- Hurriyet ve Vogue icin sabah 09:00 calistirmasini bekleyin
 - `scraper.log` dosyasina bak
 
 ### Kategorizasyon dusuk
