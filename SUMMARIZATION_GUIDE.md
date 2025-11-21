@@ -2,7 +2,7 @@
 
 ## Genel Bakış
 
-AIstrolog özetleme sistemi, 11 farklı kaynaktan toplanan burç yorumlarını birleştirerek her burç için tek, tutarlı ve bilgilendirici özetler oluşturur.
+AIstrolog özetleme sistemi, 10 farklı kaynaktan toplanan burç yorumlarını birleştirerek her burç için tek, tutarlı ve bilgilendirici özetler oluşturur.
 
 Not: Bazı kaynaklar (örn. Vogue, Hürriyet) verilerini gün içinde geç saatlerde günceller. Otomatik workflow günde iki kez çalışarak tüm verilerin toplanmasını sağlar.
 
