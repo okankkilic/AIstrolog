@@ -2,7 +2,9 @@
 
 ## Genel Bakış
 
-AIstrolog özetleme sistemi, 10 farklı kaynaktan toplanan burç yorumlarını birleştirerek her burç için tek, tutarlı ve bilgilendirici özetler oluşturur.
+AIstrolog özetleme sistemi, 11 farklı kaynaktan toplanan burç yorumlarını birleştirerek her burç için tek, tutarlı ve bilgilendirici özetler oluşturur.
+
+Not: Bazı kaynaklar (örn. Vogue, Hürriyet) verilerini gün içinde geç saatlerde günceller. Otomatik workflow günde iki kez çalışarak tüm verilerin toplanmasını sağlar.
 
 ## Özetleme Süreci
 
@@ -175,13 +177,13 @@ summarizer = TurkishHoroscopeSummarizer(similarity_threshold=0.6)
 summarizer = TurkishHoroscopeSummarizer(similarity_threshold=0.8)
 ```
 
-## Istatistikler
+## İstatistikler
 
-Ozetleme sonunda her kategori icin istatistikler gosterilir:
+Özetleme sonunda her kategori için istatistikler gösterilir:
 
 ```
 ====================================================================
-Summarization Statistics
+📈 Summarization Statistics
 ====================================================================
 Genel     : 12/12 summarized (100.0%)
 Aşk       : 12/12 summarized (100.0%)
@@ -199,10 +201,10 @@ Sistem, orijinal kaynak metinleri ile oluşturulan özeti karşılaştırma imka
 
 ```
 ================================================================================
-Comparison: Koc - ASK
+🔍 Comparison: Koç - AŞK
 ================================================================================
 
-ORIGINAL SOURCES:
+📝 ORIGINAL SOURCES:
 --------------------------------------------------------------------------------
 
 [milliyet]
@@ -215,7 +217,7 @@ Bugün aşk hayatınızda heyecan dolu anlar yaşayacaksınız. Partnerinizle uy
 Bugün aşk hayatınızda güzel anlar yaşayacaksınız. Sevdiğiniz kişiyle yakınlaşacaksınız.
 
 --------------------------------------------------------------------------------
-GENERATED SUMMARY:
+✨ GENERATED SUMMARY:
 --------------------------------------------------------------------------------
 Aşk hayatınızda heyecan dolu anlar yaşayacaksınız. İlişkilerinizde pozitif gelişmeler sizi bekliyor. Partnerinizle uyum içinde olacaksınız.
 
@@ -256,6 +258,10 @@ GitHub Actions workflow'u her gün otomatik olarak:
 4. Sonuçları GitHub'a push eder
 
 **Workflow dosyası:** `.github/workflows/daily-scrape.yml`
+
+**Çalışma saatleri:**
+- Sabah 03:00 (Türkiye saati): İlk veri toplama
+- Sabah 09:00 (Türkiye saati): Geç güncellenen siteler için tekrar çalıştırma
 
 ## Sorun Giderme
 

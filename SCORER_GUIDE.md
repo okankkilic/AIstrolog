@@ -4,6 +4,8 @@
 
 Scorer sistemi, kategorileştirilmiş burç yorumlarını analiz ederek her burç için 0-100 arası skorlar verir ve günün en şanslı/şanssız burçlarını belirler.
 
+Not: Bazi kaynaklar (ornegin Vogue) verilerini gun icinde gec saatlerde gunceller. Otomatik workflow gunde iki kez calisarak tum verilerin toplanmasini saglar.
+
 ## Ozellikler
 
 ### 1. Sentiment Analizi
@@ -18,18 +20,18 @@ Scorer sistemi, kategorileştirilmiş burç yorumlarını analiz ederek her bur�
 
 ### 3. Kapsamlı Skorlama
 Her burç için:
-- Genel skor (0-100)
-- Ask skoru (0-100)
-- Para skoru (0-100)
-- Saglik skoru (0-100)
-- Agirlikli toplam skor
+- ✅ Genel skor (0-100)
+- ❤️ Aşk skoru (0-100)
+- 💰 Para skoru (0-100)
+- 🏃 Sağlık skoru (0-100)
+- 📊 Ağırlıklı toplam skor
 
 ### 4. Sıralama Sistemleri
 - **Genel sıralama**: Tüm burçlar toplam skora göre
 - **Kategori sıralamaları**: Aşk, para, sağlık bazında
 - **Liderler**: Günün şampiyonları
 
-## Kullanim
+## 🚀 Kullanım
 
 ### Temel Kullanım
 ```bash
@@ -110,7 +112,7 @@ python scorer.py data/processed_daily_raw_2025-11-19.json
 #### 3. Log Dosyası
 `scorer.log`: Tüm işlemlerin detaylı kayıtları
 
-## Skorlama Mantigi
+## 📊 Skorlama Mantığı
 
 ### Sentiment Skoru Hesaplama
 
@@ -145,7 +147,7 @@ Limit: 0-100 arası
 Toplam = (Genel × 0.30) + (Aşk × 0.25) + (Para × 0.25) + (Sağlık × 0.20)
 ```
 
-## Validasyon Kurallari
+## 🔍 Validasyon Kuralları
 
 ### 1. Duplikasyon Kontrolü
 ```python
@@ -185,7 +187,7 @@ merged_data["Koç"]["aşk"] = [
 ]
 ```
 
-## Yildiz Sistemi
+## 🎨 Yıldız Sistemi
 
 ```
 90-100 puan: ⭐⭐⭐⭐⭐ (Mükemmel)
@@ -195,7 +197,7 @@ merged_data["Koç"]["aşk"] = [
 0-44 puan:   ⭐         (Zayıf)
 ```
 
-## Ornek Sonuclar
+## 📈 Örnek Sonuçlar
 
 ### Pozitif Metin Örneği
 ```
@@ -206,7 +208,7 @@ Analiz:
   - Pozitif kelimeler: harika(3), romantik(2.5), mutlu(2), sevgi(2)
   - Kategori boost: +10 (aşk kategorisi için)
   - Net skor: 9.5 + 10 = 19.5
-  - Final skor: 50 + (19.5 × 2.5) = 98.75/100
+  - Final skor: 50 + (19.5 × 2.5) = 98.75/100 ✅
 ```
 
 ### Negatif Metin Örneği
@@ -217,10 +219,10 @@ Metin: "Dikkat! Bugün zorlu bir gün. Stresli ve gergin hissedebilir,
 Analiz:
   - Negatif kelimeler: dikkat(-1.5), zorlu(-2), stresli(-2.5), gergin(-2.5), sorun(-2.5)
   - Net skor: -11
-  - Final skor: 50 + (-11 × 2.5) = 22.5/100
+  - Final skor: 50 + (-11 × 2.5) = 22.5/100 ⚠️
 ```
 
-## Sorun Giderme
+## 🐛 Sorun Giderme
 
 ### "Burç verisi bulunamadı" hatası
 - Processed dosyada eksik veri var
@@ -233,13 +235,13 @@ Analiz:
 
 ### Tüm skorlar 100
 - Pozitif kelime bombardımanı var
-- Normaldir, gerçekten iyi bir gün!
+- Normaldir, gerçekten iyi bir gün! 🎉
 
 ### Tüm skorlar düşük
 - Çok fazla negatif kelime kullanılmış
 - Yorum metinleri uyarı/dikkat içeriyor
 
-## Konfigurasyon
+## 🔧 Konfigürasyon
 
 ### Sentiment Kelimelerini Özelleştirme
 `scorer.py` içinde:
@@ -266,30 +268,30 @@ weights = {
 }
 ```
 
-## Pipeline Entegrasyonu
+## 📦 Pipeline Entegrasyonu
 
 ```bash
 # Tam pipeline
 python scraper.py                    # 1. Veri toplama
 python categorize_horoscopes.py      # 2. Kategorileme
-python scorer.py                      # 3. Skorlama
+python scorer.py                      # 3. Skorlama ← YENİ!
 python summarizer.py                  # 4. Özetleme
 ```
 
-## Notlar
+## 📝 Notlar
 
-- Birden fazla kaynak = daha guvenilir skor
-- Duplikasyon tespiti = daha dogru sonuclar
-- Keyword validasyonu = yanlis kategorileme onleme
-- Agirlikli skorlama = dengeli degerlendirme
-- Detayli loglama = seffaf islem
+- ✅ Birden fazla kaynak = daha güvenilir skor
+- ✅ Duplikasyon tespiti = daha doğru sonuçlar
+- ✅ Keyword validasyonu = yanlış kategorileme önleme
+- ✅ Ağırlıklı skorlama = dengeli değerlendirme
+- ✅ Detaylı loglama = şeffaf işlem
 
-## Sonuc
+## 🎯 Sonuç
 
-Scorer sistemi, burc yorumlarini objektif bir sekilde puanlayarak kullanicilara:
-- Gunun en sansli burclarini gosterir
-- Kategori bazli (ask, para, saglik) liderlik tablosu sunar
-- Tum burclar icin detayli analiz saglar
-- Guvenilir, validasyonlu ve olculebilir sonuclar uretir
+Scorer sistemi, burç yorumlarını objektif bir şekilde puanlayarak kullanıcılara:
+- Günün en şanslı burçlarını gösterir
+- Kategori bazlı (aşk, para, sağlık) liderlik tablosu sunar
+- Tüm burçlar için detaylı analiz sağlar
+- Güvenilir, validasyonlu ve ölçülebilir sonuçlar üretir
 
-Artik sadece burc yorumu degil, VERIYE DAYALI burc analizi!
+**Artık sadece burç yorumu değil, VERİYE DAYALI burç analizi! 📊🎯**

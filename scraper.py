@@ -173,33 +173,52 @@ def scrape_milliyet() -> Optional[Dict]:
 
 
 def scrape_hurriyet() -> Optional[Dict]:
-    """Hurriyet.com.tr'den burç yorumlarını çeker"""
+    """Hurriyet.com.tr'den burç yorumlarını çeker - Ana sayfadaki widget'tan tüm burçları alır"""
     logger.info("Hurriyet scrape başladı...")
     results = create_empty_burc_dict()
     
     try:
-        for burc_name, slug in BURC_SLUGS.items():
+        # Ana astroloji sayfasını çek - tüm burçlar burada
+        url = "https://www.hurriyet.com.tr/mahmure/astroloji/"
+        response = requests.get(url, headers=get_random_headers(), timeout=10)
+        response.encoding = 'utf-8'
+        soup = BeautifulSoup(response.content, 'lxml')
+        
+        # Zodiac widget içindeki tüm burç açıklamalarını al
+        widget_descriptions = soup.select('.zodiac-widget-description-wrapper')
+        
+        if not widget_descriptions:
+            logger.warning("Hurriyet - Zodiac widget bulunamadı")
+            return results
+        
+        # Her bir burç açıklamasını işle
+        for desc_wrapper in widget_descriptions:
             try:
-                url = f"https://www.hurriyet.com.tr/mahmure/astroloji/{slug}-burcu/"
-                response = requests.get(url, headers=get_random_headers(), timeout=10)
-                response.encoding = 'utf-8'
-                soup = BeautifulSoup(response.content, 'lxml')
+                # Burç ismini al (link içinden)
+                title_elem = desc_wrapper.select_one('.zodiac-widget-description-wrapper-title a')
+                if not title_elem:
+                    continue
                 
-                # HTML yapısına göre içeriği çek
-                content_div = soup.select_one('.horoscope-detail-tab-content')
+                title_text = clean_text(title_elem.get_text())
+                # "KOÇ BURCU" -> "Koç" gibi normalize et
+                burc_name_raw = title_text.replace('BURCU', '').replace('BURÇ', '').strip()
+                burc_name = normalize_burc_name(burc_name_raw)
                 
-                if content_div:
-                    # Tüm p etiketlerini al ve birleştir
-                    paragraphs = content_div.find_all('p')
-                    full_text = ' '.join([clean_text(p.get_text()) for p in paragraphs])
+                if not burc_name:
+                    logger.warning(f"Hurriyet - Burç ismi normalize edilemedi: {burc_name_raw}")
+                    continue
+                
+                # Burç yorumunu al
+                text_elem = desc_wrapper.select_one('.zodiac-widget-description-wrapper-text .truncate')
+                if text_elem:
+                    yorum = clean_text(text_elem.get_text())
                     
-                    results[burc_name]["genel"] = full_text
-                    logger.info(f"Hurriyet - {burc_name} tamamlandı")
-                
-                random_sleep()
+                    if yorum and len(yorum) > 20:
+                        results[burc_name]["genel"] = yorum
+                        logger.info(f"Hurriyet - {burc_name} tamamlandı")
                 
             except Exception as e:
-                logger.error(f"Hurriyet - {burc_name} error: {e}")
+                logger.error(f"Hurriyet - Burç işleme hatası: {e}")
                 continue
         
         logger.info("Hurriyet scrape tamamlandı")
