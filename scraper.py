@@ -467,42 +467,42 @@ def scrape_twitburc() -> Optional[Dict]:
                 response.encoding = 'utf-8'
                 soup = BeautifulSoup(response.content, 'lxml')
                 
-                # Günlük yorum içeren tab-pane'i bul
-                # "Günün Ruh Hali:" içeren bölümü ara
+                # Site 6 tab-pane'e sahip: Hakkında, Dün, Günlük, Haftalık, Aylık, Yıllık
+                # Günlük (daily) 3. tab-pane'de (index 2)
                 tab_panes = soup.find_all('div', class_='tab-pane')
                 
-                for pane in tab_panes:
-                    # "Günlük Yorumu" veya "Günün Ruh Hali" içeren bölümü bul
-                    h2_tags = pane.find_all('h2')
-                    for h2 in h2_tags:
-                        if 'Günlük Yorumu' in h2.get_text() or 'Günün Ruh Hali' in h2.get_text():
-                            # Bu panedeki p etiketlerini al
-                            paragraphs = pane.find_all('p')
-                            
-                            # Başlıkları filtrele ve sadece yorum metnini al
-                            text_parts = []
-                            for p in paragraphs:
-                                text = clean_text(p.get_text())
-                                
-                                # Burç özellikleri gibi uzun metinleri atla
-                                if 'BURCU ÖZELLİKLERİ' in text or 'Grubun:' in text or 'Şanslı' in text:
-                                    continue
-                                
-                                # Başlıkları temizle
-                                if text.startswith('Günün Ruh Hali:'):
-                                    text = text.replace('Günün Ruh Hali:', '').strip()
-                                
-                                if text and len(text) > 20:
-                                    text_parts.append(text)
-                            
-                            if text_parts:
-                                full_text = ' '.join(text_parts)
-                                results[burc_name]["genel"] = full_text
-                                logger.info(f"Twitburc - {burc_name} tamamlandı")
-                                break
+                target_pane = None
+                if len(tab_panes) >= 3:
+                    target_pane = tab_panes[2]  # 3. pane = Günlük
+                
+                if target_pane:
+                    # Bu panedeki p etiketlerini al
+                    paragraphs = target_pane.find_all('p')
                     
-                    if results[burc_name]["genel"]:
-                        break
+                    # Başlıkları filtrele ve sadece yorum metnini al
+                    text_parts = []
+                    for p in paragraphs:
+                        text = clean_text(p.get_text())
+                        
+                        # Burç özellikleri gibi uzun metinleri atla
+                        if 'BURCU ÖZELLİKLERİ' in text or 'Grubun:' in text or 'Şanslı' in text:
+                            continue
+                        
+                        # Başlıkları temizle
+                        if text.startswith('Günün Ruh Hali:'):
+                            text = text.replace('Günün Ruh Hali:', '').strip()
+                        
+                        if text and len(text) > 20:
+                            text_parts.append(text)
+                    
+                    if text_parts:
+                        full_text = ' '.join(text_parts)
+                        results[burc_name]["genel"] = full_text
+                        logger.info(f"Twitburc - {burc_name} tamamlandı")
+                    else:
+                        logger.warning(f"Twitburc - {burc_name} metin bulunamadı")
+                else:
+                    logger.warning(f"Twitburc - {burc_name} için tab-pane bulunamadı")
                 
                 random_sleep()
                 
