@@ -185,10 +185,10 @@ Projenin kullanıcı arayüzü Next.js 16 ve Tailwind CSS kullanılarak gelişti
 
 ### Sayfa Yapısı
 
-- **Ana Sayfa:** Burç seçim ekranı, hover efektli kartlar ve günlük tarih bilgisi.
-- **Sıralamalar:** SEO uyumlu URL yapısı (/siralama). Genel, Aşk, Para ve Sağlık kategorilerine göre filtreleme. Günlük, haftalık ve yıllık görünüm seçenekleri.
-- **Burç Detay:** Dinamik yönlendirme (/burc-adi/tarih). Kategorilere ayrılmış (Genel, Aşk, Para, Sağlık) detaylı yorumlar.
-- **Kaynaklar:** Kullanılan astroloji kaynaklarının listelendiği bilgilendirme sayfası.
+- **Ana Sayfa:** Burç seçim ekranı, hover efektli kartlar ve günlük tarih bilgisi. Burç sembolleri PNG formatında güncellendi.
+- **Sıralamalar:** SEO uyumlu URL yapısı (/siralama). Genel, Aşk, Para ve Sağlık kategorilerine göre filtreleme. Tek sütunlu (Sıra, Burç) sadeleştirilmiş tablo yapısı.
+- **Burç Detay:** Dinamik yönlendirme (/burc-adi/tarih). Kategorilere ayrılmış (Genel, Aşk, Para, Sağlık) detaylı yorumlar. Başlıkta PNG burç görselleri.
+- **Kaynaklar:** Kullanılan astroloji kaynaklarının listelendiği bilgilendirme sayfası. Kart tasarımı güncellendi, logolar PNG/JPG formatında eklendi.
 
 ### Teknik Detaylar
 
@@ -197,3 +197,5 @@ Projenin kullanıcı arayüzü Next.js 16 ve Tailwind CSS kullanılarak gelişti
 - Lucide React ikon seti
 - Responsive (mobil uyumlu) tasarım
 - SEO uyumlu URL yapısı
+- Hydration hataları giderildi (SSR uyumlu random veri üretimi)
+- Görsel optimizasyonu (PNG/JPG desteği, grayscale hover efektleri)
