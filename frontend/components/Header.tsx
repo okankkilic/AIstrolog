@@ -14,7 +14,7 @@ export default function Header() {
 
       {/* Navigation */}
       <nav className="w-full border-t border-gray-100 py-4">
-        <ul className="flex justify-center gap-8 text-xl font-khand tracking-wide uppercase text-gray-600 font-normal">
+        <ul className="flex justify-center gap-16 text-xl font-khand tracking-wide uppercase text-gray-600 font-normal">
           <li>
             <Link href="/burclar" className="hover:text-black transition-colors">
               Burç Özetleri

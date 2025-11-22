@@ -38,9 +38,9 @@ export default function Home() {
             <Link
               key={sign.name}
               href={`/burclar/${sign.slug}/${dateSlug}`}
-              className="group flex flex-col bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 items-center text-center"
+              className="group flex flex-col bg-white border border-gray-200 rounded-xl p-8 hover:-translate-y-1 transition-all duration-300 items-center text-center"
             >
-              <div className="w-24 h-24 mb-6 flex items-center justify-center p-2 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-50 h-50 mb-6 flex items-center justify-center p-2 group-hover:scale-110 transition-transform duration-300">
                 <img 
                   src={`/signs/${sign.slug}.png`} 
                   alt={sign.name}
