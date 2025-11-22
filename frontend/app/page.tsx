@@ -27,9 +27,11 @@ export default function Home() {
     <div className="flex flex-col gap-12">
       {/* Zodiac Grid */}
       <section>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-khand font-normal text-center mb-2 uppercase">Burcunuzu Seçin</h2>
-          <p className="text-gray-500 font-lora italic">Günlük yorumunuzu okumak için burcunuza tıklayın.</p>
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-khand font-normal mb-4 uppercase">Burcunuzu Seçin</h1>
+          <p className="text-gray-600 font-lora">
+            Günlük yorumunuzu okumak için burcunuza tıklayın.
+          </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {ZODIAC_SIGNS.map((sign) => (
@@ -38,7 +40,13 @@ export default function Home() {
               href={`/${sign.slug}/${dateSlug}`}
               className="group flex flex-col items-center justify-center p-8 rounded-xl border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white aspect-square"
             >
-              <span className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">{sign.symbol}</span>
+              <div className="w-24 h-24 mb-4 group-hover:scale-110 transition-transform duration-300">
+                <img 
+                  src={`/signs/${sign.slug}.png`} 
+                  alt={sign.name}
+                  className="w-full h-full object-contain"
+                />
+              </div>
               <span className="font-khand font-normal text-2xl uppercase tracking-wide">{sign.name}</span>
               <span className="text-sm text-gray-500 font-lora mt-2">{sign.date}</span>
             </Link>

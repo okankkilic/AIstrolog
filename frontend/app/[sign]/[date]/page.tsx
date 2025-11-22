@@ -37,7 +37,13 @@ export default function ZodiacDetailPage({ params }: { params: Promise<{ sign: s
     <div className="max-w-4xl mx-auto">
       <section className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
         <div className="bg-gray-50 p-8 border-b border-gray-200 text-center">
-          <div className="text-8xl mb-6">{zodiac.symbol}</div>
+          <div className="w-32 h-32 mx-auto mb-6">
+            <img 
+              src={`/signs/${sign}.png`} 
+              alt={zodiac.name}
+              className="w-full h-full object-contain"
+            />
+          </div>
           <h1 className="text-5xl font-khand font-normal mb-4 uppercase">{zodiac.name}</h1>
           <p className="text-xl text-gray-600 font-lora">{date} Günlük Yorum</p>
         </div>

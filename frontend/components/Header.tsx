@@ -5,10 +5,10 @@ export default function Header() {
   return (
     <header className="w-full border-b border-gray-200 bg-white">
       {/* Top Logo Area */}
-      <div className="flex flex-col items-center justify-center py-8">
+      <div className="flex flex-col items-center justify-center py-4">
         <div className="flex flex-col items-center gap-2">
-          <Sun className="h-12 w-12 text-black" strokeWidth={1} />
-          <h1 className="text-6xl font-khand tracking-widest text-black uppercase font-normal">AIstrolog</h1>
+          <Sun className="h-10 w-10 text-black" strokeWidth={1} />
+          <h1 className="text-5xl font-khand tracking-widest text-black uppercase font-normal">AIstrolog</h1>
         </div>
       </div>
 
