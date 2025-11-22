@@ -13,6 +13,7 @@ Günlük burç yorumlarını toplayan, kategorize eden, puanlayan ve modern bir 
 
 ### Frontend & Arayüz
 - **Modern UI:** Next.js 16 ve Tailwind CSS ile geliştirilmiş şık tasarım
+- **Özel Görseller:** Nano Banana Pro ile oluşturulmuş yüksek kaliteli burç görselleri
 - **Günlük Sıralamalar:** Burçların o günkü şans durumuna göre sıralanması
 - **Detaylı Görünüm:** Her burç için kategorize edilmiş ve özetlenmiş yorumlar
 - **Mobil Uyumlu:** Her cihazda kusursuz deneyim
