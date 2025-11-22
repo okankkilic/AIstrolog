@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fdfbf7;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-serif: var(--font-lora);
+  --font-sans: var(--font-khand);
+}
+
+/* Explicit font classes to ensure they work */
+.font-khand {
+  font-family: var(--font-khand), sans-serif;
+}
+
+.font-lora {
+  font-family: var(--font-lora), serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-lora), serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-khand), sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+

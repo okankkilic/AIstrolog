@@ -172,3 +172,28 @@ Detaylı sorun giderme için: [TEST_GUIDE.md](TEST_GUIDE.md)
 ## Gereksinimler
 
 Python 3.7+, requests, beautifulsoup4, pandas
+
+## Frontend Geliştirmeleri
+
+Projenin kullanıcı arayüzü Next.js 16 ve Tailwind CSS kullanılarak geliştirilmiştir.
+
+### Tasarım ve Tipografi
+
+- **Fontlar:** Başlıklar için Khand (Regular), metinler için Lora fontları kullanıldı.
+- **Renkler:** Arkaplan rengi göz yormayan kırık beyaz (#fdfbf7) olarak ayarlandı.
+- **Hiyerarşi:** Başlık boyutları önem derecesine göre ölçeklendirildi.
+
+### Sayfa Yapısı
+
+- **Ana Sayfa:** Burç seçim ekranı, hover efektli kartlar ve günlük tarih bilgisi.
+- **Sıralamalar:** SEO uyumlu URL yapısı (/siralama). Genel, Aşk, Para ve Sağlık kategorilerine göre filtreleme. Günlük, haftalık ve yıllık görünüm seçenekleri.
+- **Burç Detay:** Dinamik yönlendirme (/burc-adi/tarih). Kategorilere ayrılmış (Genel, Aşk, Para, Sağlık) detaylı yorumlar.
+- **Kaynaklar:** Kullanılan astroloji kaynaklarının listelendiği bilgilendirme sayfası.
+
+### Teknik Detaylar
+
+- Next.js 16 (App Router)
+- Tailwind CSS v4
+- Lucide React ikon seti
+- Responsive (mobil uyumlu) tasarım
+- SEO uyumlu URL yapısı
