@@ -41,21 +41,19 @@ export default function SourcesPage() {
                 />
             </div>
             
-            <div className="flex-1 flex flex-col items-center">
-                <div className="flex items-center gap-2 mb-3">
-                  <h3 className="text-2xl font-khand font-normal uppercase group-hover:text-blue-600 transition-colors">
+            <div className="flex-1 flex flex-col items-center w-full">
+                <div className="flex items-center gap-2 mb-6">
+                  <h3 className="text-2xl font-khand font-normal uppercase group-hover:text-black transition-colors">
                     {source.name}
                   </h3>
-                  <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-600" />
+                  <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-black" />
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed font-lora mb-4">
-                  {source.description}
-                </p>
-            </div>
-            
-            <div className="w-full pt-4 border-t border-gray-100 flex justify-center items-center gap-2 text-xs text-gray-400 uppercase tracking-wider font-bold">
-              <span className="w-2 h-2 rounded-full bg-green-500"></span>
-              Aktif Kaynak
+                
+                <div className="w-full pt-4 border-t border-gray-100">
+                    <p className="text-gray-600 text-sm leading-relaxed font-lora">
+                    {source.description}
+                    </p>
+                </div>
             </div>
           </a>
         ))}

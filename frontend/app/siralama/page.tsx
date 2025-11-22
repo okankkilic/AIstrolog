@@ -50,9 +50,9 @@ export default function RankingsPage() {
 
   const categories = [
     { key: 'general', label: 'Genel', icon: Trophy, color: 'text-black', bg: 'bg-gray-100', border: 'border-gray-300' },
-    { key: 'love', label: 'Aşk', icon: Heart, color: 'text-pink-600', bg: 'bg-pink-50', border: 'border-pink-200' },
-    { key: 'money', label: 'Para', icon: Coins, color: 'text-green-600', bg: 'bg-green-50', border: 'border-green-200' },
-    { key: 'health', label: 'Sağlık', icon: Activity, color: 'text-blue-600', bg: 'bg-blue-50', border: 'border-blue-200' },
+    { key: 'love', label: 'Aşk', icon: Heart, color: 'text-black', bg: 'bg-gray-100', border: 'border-gray-300' },
+    { key: 'money', label: 'Para', icon: Coins, color: 'text-black', bg: 'bg-gray-100', border: 'border-gray-300' },
+    { key: 'health', label: 'Sağlık', icon: Activity, color: 'text-black', bg: 'bg-gray-100', border: 'border-gray-300' },
   ] as const;
 
   return (
@@ -60,7 +60,7 @@ export default function RankingsPage() {
       <div className="text-center mb-8">
         <h1 className="text-4xl font-khand font-normal mb-4 uppercase">Burç Sıralamaları</h1>
         <p className="text-gray-600 font-lora">
-          Yapay zeka analizlerine göre burçların puan durumu.
+          Yapay zeka analizlerine göre burçların avantaj durumu.
         </p>
       </div>
 
