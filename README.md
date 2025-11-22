@@ -1,23 +1,54 @@
 # AIstrolog
 
-Günlük burç yorumlarını toplayan ve kategorize eden otomasyon sistemi.
+Günlük burç yorumlarını toplayan, kategorize eden, puanlayan ve modern bir arayüzle sunan tam kapsamlı astroloji platformu.
 
 ## Özellikler
 
-- 10 farklı kaynaktan burç yorumu toplama
-- Yorumları otomatik olarak aşk, para ve sağlık kategorilerine ayırma
-- Orijinal metinleri koruyarak kopyalama
-- Tek komutla tam pipeline çalıştırma
+### Backend & Veri İşleme
+- **Çoklu Kaynak:** 10 farklı kaynaktan (Milliyet, Hürriyet, Onedio vb.) burç yorumu toplama
+- **Akıllı Kategorizasyon:** Yorumları otomatik olarak Aşk, Para ve Sağlık kategorilerine ayırma
+- **Sentiment Analizi & Puanlama:** Burçları kategorilere göre puanlayıp (0-100) sıralama (En Şanslı, En Aşık vb.)
+- **AI Özetleme:** Farklı kaynaklardan gelen yorumları tek bir tutarlı metin haline getirme
+- **Otomatik Test:** Veri kalitesini ve bütünlüğünü koruyan kapsamlı test sistemi
+
+### Frontend & Arayüz
+- **Modern UI:** Next.js 16 ve Tailwind CSS ile geliştirilmiş şık tasarım
+- **Günlük Sıralamalar:** Burçların o günkü şans durumuna göre sıralanması
+- **Detaylı Görünüm:** Her burç için kategorize edilmiş ve özetlenmiş yorumlar
+- **Mobil Uyumlu:** Her cihazda kusursuz deneyim
 
 ## Kurulum
+
+### Backend Kurulumu
 
 ```bash
 pip install -r requirements.txt
 ```
 
+### Frontend Kurulumu
+
+```bash
+cd frontend
+npm install
+```
+
 ## Kullanım
 
-### Basit kullanım
+### Backend Komutları
+
+#### Temel Kullanım
+
+```bash
+# 🚀 TAM OTOMASYON (Önerilen)
+# Veri çeker, kategorize eder, özetler ve test eder
+python run_full_pipeline.py
+
+# 📊 Puanlama ve Sıralama
+# İşlenmiş verileri analiz eder ve puanlar
+python scorer.py
+```
+
+#### Modüler Kullanım
 
 ```bash
 # Sadece veri çek
@@ -26,8 +57,19 @@ python scraper.py
 # Sadece kategorize et
 python categorize_horoscopes.py
 
-# İkisini birden yap + test et
+# Sadece özetle
+python summarizer.py
+
+# İkisini birden yap + test et (Eski yöntem)
 python run_pipeline.py
+```
+
+### Frontend Çalıştırma
+
+```bash
+cd frontend
+npm run dev
+# Tarayıcıda http://localhost:3000 adresine gidin
 ```
 
 ### Test ve Doğrulama
@@ -55,7 +97,54 @@ python categorize_horoscopes.py data/daily_raw_2025-11-14.json
 python categorize_horoscopes.py input.json output.json
 ```
 
-## Test Sistemi
+## Proje Yapısı
+
+```
+AIstrolog/
+├── frontend/                     # Next.js Web Uygulaması
+│   ├── app/                      # Sayfalar ve Routing
+│   ├── components/               # React Bileşenleri
+│   └── public/                   # Görseller ve Varlıklar
+├── data/                         # Veri Klasörü
+│   ├── daily_raw_*.json          # Ham veriler
+│   ├── processed_*.json          # Kategorize edilmiş veriler
+│   ├── summarized_*.json         # Özetlenmiş veriler
+│   └── scored_*.json             # Puanlanmış veriler
+├── scraper.py                    # Veri toplama motoru
+├── categorize_horoscopes.py      # NLP tabanlı kategorizasyon
+├── scorer.py                     # Sentiment analizi ve puanlama
+├── summarizer.py                 # Yorum özetleme motoru
+├── run_full_pipeline.py          # Ana orkestrasyon scripti
+├── test_workflow.py              # Test otomasyonu
+├── verify_categorization.py      # Detaylı inceleme aracı
+├── TEST_GUIDE.md                 # Test kılavuzu
+└── requirements.txt              # Python bağımlılıkları
+```
+
+## Backend Detayları
+
+### Kategorizasyon Nasıl Çalışır?
+
+Script, "genel" anahtarındaki metni cümlelere ayırır ve her cümleyi analiz eder:
+
+**Aşk kategorisi:** aşk, sevgi, partner, flört, ilişki, kalp, duygular, evlilik vb.
+
+**Para kategorisi:** para, maddi, harcama, birikim, yatırım, kazanç, finans, maaş vb.
+
+**Sağlık kategorisi:** sağlık, enerji, stres, egzersiz, spor, beslenme, uyku vb.
+
+Önemli: Orijinal "genel" metin hiç değişmez. İlgili cümleler sadece uygun kategorilere kopyalanır.
+
+### Puanlama Sistemi (Scorer)
+
+`scorer.py` scripti, burç yorumlarını analiz ederek 0-100 arası puanlar:
+- **Pozitif Kelimeler:** harika (+3), şanslı (+2.5), güzel (+2)...
+- **Negatif Kelimeler:** felaket (-3), riskli (-2.5), zor (-2)...
+- **Kategori Bazlı:** Aşk, Para ve Sağlık için özel kelime setleri.
+
+Sonuçta "Günün En Şanslısı", "En Aşık Burcu" gibi liderler belirlenir ve `scored_processed_daily_raw_YYYY-MM-DD.json` dosyasına kaydedilir.
+
+### Test Sistemi
 
 Workflow'un doğru çalıştığını garanti altına almak için kapsamlı test sistemi:
 
@@ -118,9 +207,22 @@ Ham veri:
 }
 ```
 
+Puanlanmış veri:
+```json
+{
+  "scores": {
+    "Koç": {
+      "genel": { "score": 85.5, "sentiment": "positive" },
+      "aşk": { "score": 92.0, "sentiment": "positive" },
+      "toplam": 88.2
+    }
+  }
+}
+```
+
 ## Desteklenen Kaynaklar
 
-Milliyet, Hürriyet, Habertürk, Elle, Onedio, Mynet, TwitBurc, Vogue, GünlükBurç, MyBurç
+Milliyet, Hürriyet, Habertürk, Elele, Onedio, Mynet, TwitBurc, Vogue, GünlükBurç, MyBurç
 
 ## Otomatik Güncelleme
 
@@ -130,22 +232,6 @@ GitHub Actions workflow'u günde iki kez otomatik çalışır:
 - Sabah 09:00 (Türkiye saati): Güncellenmiş verilerle tekrar çalıştırma
 
 Vogue sitesi verilerini sabah 08:30 civarında güncellediği için ikinci çalıştırma ile tam veri toplanması sağlanır.
-
-## Proje Yapısı
-
-```
-AIstrolog/
-├── scraper.py                    # Burç verilerini çeker
-├── categorize_horoscopes.py      # Kategorize eder
-├── run_pipeline.py               # Tam pipeline (scrape + kategorize + test)
-├── test_workflow.py              # Otomatik test sistemi
-├── verify_categorization.py      # Detaylı inceleme aracı
-├── TEST_GUIDE.md                 # Test kılavuzu
-├── requirements.txt
-└── data/
-    ├── daily_raw_*.json          # Ham veri
-    └── processed_*.json          # İşlenmiş veri
-```
 
 ## Güvenilirlik ve Kalite
 
@@ -171,7 +257,17 @@ Detaylı sorun giderme için: [TEST_GUIDE.md](TEST_GUIDE.md)
 
 ## Gereksinimler
 
-Python 3.7+, requests, beautifulsoup4, pandas
+### Sistem
+- Python 3.7+
+- Node.js 18+
+
+### Veri İşleme ve Backend (Python)
+- **Veri Analizi & Manipülasyon:** pandas>=2.0.0
+- **Web Scraping:** requests>=2.31.0, beautifulsoup4>=4.12.0, selenium>=4.0.0, lxml>=4.9.0
+
+### Frontend (Node.js)
+- **Framework:** Next.js 16.0.3, React 19.2.0
+- **UI & Styling:** Tailwind CSS v4, Framer Motion, Lucide React
 
 ## Frontend Geliştirmeleri
 

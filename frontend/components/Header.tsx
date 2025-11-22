@@ -16,12 +16,12 @@ export default function Header() {
       <nav className="w-full border-t border-gray-100 py-4">
         <ul className="flex justify-center gap-8 text-xl font-khand tracking-wide uppercase text-gray-600 font-normal">
           <li>
-            <Link href="/" className="hover:text-black transition-colors">
+            <Link href="/burclar" className="hover:text-black transition-colors">
               Burç Özetleri
             </Link>
           </li>
           <li>
-            <Link href="/sources" className="hover:text-black transition-colors">
+            <Link href="/kaynaklar" className="hover:text-black transition-colors">
               Kaynaklar
             </Link>
           </li>

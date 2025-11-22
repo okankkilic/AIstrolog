@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Trophy, Heart, Coins, Activity } from 'lucide-react';
+import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
 // Mock Data Generator
@@ -47,84 +48,88 @@ export default function RankingsPage() {
     setData(generateData(p)); // Refresh mock data
   };
 
-  const categories: { key: SortKey; label: string; icon: any }[] = [
-    { key: 'general', label: 'Genel', icon: Trophy },
-    { key: 'love', label: 'Aşk', icon: Heart },
-    { key: 'money', label: 'Para', icon: Coins },
-    { key: 'health', label: 'Sağlık', icon: Activity },
-  ];
+  const categories = [
+    { key: 'general', label: 'Genel', icon: Trophy, color: 'text-black', bg: 'bg-gray-100', border: 'border-gray-300' },
+    { key: 'love', label: 'Aşk', icon: Heart, color: 'text-black', bg: 'bg-gray-100', border: 'border-gray-300' },
+    { key: 'money', label: 'Para', icon: Coins, color: 'text-black', bg: 'bg-gray-100', border: 'border-gray-300' },
+    { key: 'health', label: 'Sağlık', icon: Activity, color: 'text-black', bg: 'bg-gray-100', border: 'border-gray-300' },
+  ] as const;
 
   return (
     <div className="max-w-xl mx-auto">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-khand font-normal mb-4 uppercase">Burç Sıralamaları</h1>
         <p className="text-gray-600 font-lora">
-          Yapay zeka analizlerine göre burçların puan durumu.
+          Yapay zeka analizlerine göre burçların avantaj durumu.
         </p>
       </div>
 
-      {/* Controls Container */}
-      <div className="flex flex-col items-center gap-8 mb-12">
-        {/* Period Selector */}
-        <div className="flex justify-center gap-2 bg-gray-100 p-1.5 rounded-full">
-          {['daily', 'weekly', 'yearly'].map((p) => (
-            <button
-              key={p}
-              onClick={() => handlePeriodChange(p as Period)}
-              className={clsx(
-                "px-6 py-2 rounded-full font-khand font-normal uppercase tracking-wider transition-all text-sm",
-                period === p 
-                  ? "bg-white text-black shadow-sm" 
-                  : "text-gray-500 hover:text-gray-700"
-              )}
-            >
-              {p === 'daily' ? 'Günlük' : p === 'weekly' ? 'Haftalık' : 'Aylık'}
-            </button>
-          ))}
-        </div>
-
-        {/* Category Selector */}
-        <div className="flex flex-wrap justify-center gap-3">
-          {categories.map(({ key, label, icon: Icon }) => (
-            <button
-              key={key}
-              onClick={() => setSelectedCategory(key)}
-              className={clsx(
-                "flex items-center gap-2 px-5 py-2.5 rounded-xl border transition-colors duration-200 focus:outline-none",
-                selectedCategory === key
-                  ? "bg-black text-white border-black shadow-lg"
-                  : "bg-white text-gray-600 border-gray-200 hover:border-gray-300 hover:bg-gray-50"
-              )}
-            >
-              <Icon className="w-4 h-4" />
-              <span className="font-khand font-normal uppercase tracking-wide">{label}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Single Column Table */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-        <table className="w-full">
-          <thead>
-            <tr className="bg-gray-50 border-b border-gray-200">
-              <th className="p-4 w-20 text-center font-khand font-normal text-gray-500">Sıra</th>
-              <th className="p-4 text-left font-khand font-normal text-gray-500">Burç</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100">
-            {sortedData.map((row, index) => (
-              <tr key={row.sign} className="hover:bg-gray-50 transition-colors group">
-                <td className="p-4 text-center font-khand font-bold text-xl text-gray-400 group-hover:text-black">
-                  {index + 1}
-                </td>
-                <td className="p-4 font-khand font-normal text-xl">
-                  {row.sign}
-                </td>
-              </tr>
+        {/* Controls Header */}
+        <div className="p-6 border-b border-gray-100 bg-gray-50/50 flex flex-col gap-6">
+          {/* Period Selector */}
+          <div className="flex justify-center">
+            <div className="flex p-1 bg-gray-200/50 rounded-lg relative">
+              {['daily', 'weekly', 'yearly'].map((p) => (
+                <button
+                  key={p}
+                  onClick={() => handlePeriodChange(p as Period)}
+                  className={clsx(
+                    "relative px-6 py-1.5 rounded-md font-khand font-normal uppercase tracking-wider transition-colors text-sm focus:outline-none",
+                    period === p 
+                      ? "text-black" 
+                      : "text-gray-500 hover:text-gray-700"
+                  )}
+                >
+                  {period === p && (
+                    <motion.div
+                      layoutId="activePeriod"
+                      className="absolute inset-0 bg-white rounded-md shadow-sm"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      style={{ zIndex: 0 }}
+                    />
+                  )}
+                  <span className="relative z-10">
+                    {p === 'daily' ? 'Günlük' : p === 'weekly' ? 'Haftalık' : 'Aylık'}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Category Selector */}
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.map(({ key, label, icon: Icon, color, bg, border }) => (
+              <button
+                key={key}
+                onClick={() => setSelectedCategory(key)}
+                className={clsx(
+                  "flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-200 focus:outline-none",
+                  selectedCategory === key
+                    ? `${bg} ${color} ${border}`
+                    : "bg-white text-gray-500 border-transparent hover:bg-gray-50 hover:text-gray-700"
+                )}
+              >
+                <Icon className="w-4 h-4" />
+                <span className="font-khand font-normal uppercase tracking-wide text-sm">{label}</span>
+              </button>
             ))}
-          </tbody>
-        </table>
+          </div>
+        </div>
+
+        {/* List */}
+        <div className="flex flex-col">
+          {sortedData.map((row, index) => (
+            <div key={row.sign} className="flex items-center p-4 hover:bg-gray-50 transition-colors group border-b border-gray-100 last:border-none">
+              <div className="w-16 text-center font-khand font-bold text-2xl text-gray-300 group-hover:text-gray-900 transition-colors">
+                {index + 1}
+              </div>
+              <div className="flex-1 font-khand font-normal text-xl">
+                {row.sign}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
