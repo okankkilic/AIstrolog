@@ -1,76 +1,76 @@
 {
   "milliyet": {
     "Koç": {
-      "genel": "İş: Bugün çalışmak zorundaysanız işleri ağırdan alın, hata yapmamak önemli. Para: Küçük bir harcama keyif verebilir ama fazlasına kaçmayın. Kariyer: Yeni bir karar alma zamanı yaklaşıyor. Sağlık: Baş ağrısı veya kas yorgunluğu olabilir. Aşk: Geçmişi düşünmeyin; biri sizi sessizce özlüyor olabilir. İlişkiler: Bir arkadaşla uzun süredir konuşulmayan bir konu çözülebilir.",
-      "aşk": "Aşk: Geçmişi düşünmeyin; biri sizi sessizce özlüyor olabilir.",
-      "para": "İş: Bugün çalışmak zorundaysanız işleri ağırdan alın, hata yapmamak önemli. Para: Küçük bir harcama keyif verebilir ama fazlasına kaçmayın. Kariyer: Yeni bir karar alma zamanı yaklaşıyor.",
-      "sağlık": "Sağlık: Baş ağrısı veya kas yorgunluğu olabilir."
+      "genel": "Bugün çalışmak zorundaysanız işleri ağırdan alın, hata yapmamak önemli. Küçük bir harcama keyif verebilir ama fazlasına kaçmayın. Yeni bir karar alma zamanı yaklaşıyor. Baş ağrısı veya kas yorgunluğu olabilir. Geçmişi düşünmeyin; biri sizi sessizce özlüyor olabilir. Bir arkadaşla uzun süredir konuşulmayan bir konu çözülebilir.",
+      "aşk": null,
+      "para": "Bugün çalışmak zorundaysanız işleri ağırdan alın, hata yapmamak önemli. Küçük bir harcama keyif verebilir ama fazlasına kaçmayın. Yeni bir karar alma zamanı yaklaşıyor.",
+      "sağlık": "Baş ağrısı veya kas yorgunluğu olabilir."
     },
     "Boğa": {
-      "genel": "İş: Bugün plan yapmak, geleceğe hazırlık yapmak için ideal. Para: Küçük bir kazanç haberi alabilirsiniz. Kariyer: Sessizce ilerlemek size avantaj kazandırır. Sağlık: Boyun ağrısı ve yorgunluk olabilir. Aşk: Partnerinizle duygusal bir yakınlaşma var. İlişkiler: Ailenizle keyifli bir gün geçirmek moral verir.",
-      "aşk": "Aşk: Partnerinizle duygusal bir yakınlaşma var.",
-      "para": "Para: Küçük bir kazanç haberi alabilirsiniz. Kariyer: Sessizce ilerlemek size avantaj kazandırır.",
-      "sağlık": "Sağlık: Boyun ağrısı ve yorgunluk olabilir."
+      "genel": "Bugün plan yapmak, geleceğe hazırlık yapmak için ideal. Küçük bir kazanç haberi alabilirsiniz. Sessizce ilerlemek size avantaj kazandırır. Boyun ağrısı ve yorgunluk olabilir. Partnerinizle duygusal bir yakınlaşma var. Ailenizle keyifli bir gün geçirmek moral verir.",
+      "aşk": "Partnerinizle duygusal bir yakınlaşma var.",
+      "para": "Küçük bir kazanç haberi alabilirsiniz. Sessizce ilerlemek size avantaj kazandırır.",
+      "sağlık": "Boyun ağrısı ve yorgunluk olabilir."
     },
     "İkizler": {
-      "genel": "İş: Günün ilk yarısı dağınık ama akşam netleşiyorsunuz. Para: Küçük bir borç kapatılabilir. Kariyer: Fikirlerinizi toparlamak için güzel bir gün. Sağlık: Uyku düzenine dikkat edin. Aşk: Bir konuşma sizi duygusal olarak etkileyebilir. İlişkiler: Yakın dostlardan biriyle dertleşmek iyi gelir.",
-      "aşk": "Aşk: Bir konuşma sizi duygusal olarak etkileyebilir.",
-      "para": "Para: Küçük bir borç kapatılabilir. Kariyer: Fikirlerinizi toparlamak için güzel bir gün. İlişkiler: Yakın dostlardan biriyle dertleşmek iyi gelir.",
-      "sağlık": "Sağlık: Uyku düzenine dikkat edin."
+      "genel": "Günün ilk yarısı dağınık ama akşam netleşiyorsunuz. Küçük bir borç kapatılabilir. Fikirlerinizi toparlamak için güzel bir gün. Uyku düzenine dikkat edin. Bir konuşma sizi duygusal olarak etkileyebilir. Yakın dostlardan biriyle dertleşmek iyi gelir.",
+      "aşk": null,
+      "para": "Küçük bir borç kapatılabilir. Yakın dostlardan biriyle dertleşmek iyi gelir.",
+      "sağlık": "Uyku düzenine dikkat edin."
     },
     "Yengeç": {
-      "genel": "İş: Haftanın stresini bugün üzerinizden atın. Para: Harcamalarda sadeleşme zamanı. Kariyer: Duygusal kararlar yerine mantıkla plan yapın. Sağlık: Mide hassasiyetine dikkat. Aşk: Bir ilişkinin yönü bugün netleşiyor. İlişkiler: Aileden biriyle konuşmak size iyi gelecek.",
-      "aşk": "Aşk: Bir ilişkinin yönü bugün netleşiyor.",
-      "para": "Para: Harcamalarda sadeleşme zamanı. Kariyer: Duygusal kararlar yerine mantıkla plan yapın.",
-      "sağlık": "İş: Haftanın stresini bugün üzerinizden atın. Sağlık: Mide hassasiyetine dikkat."
+      "genel": "Haftanın stresini bugün üzerinizden atın. Harcamalarda sadeleşme zamanı. Duygusal kararlar yerine mantıkla plan yapın. Mide hassasiyetine dikkat. Bir ilişkinin yönü bugün netleşiyor. Aileden biriyle konuşmak size iyi gelecek.",
+      "aşk": "Bir ilişkinin yönü bugün netleşiyor.",
+      "para": "Harcamalarda sadeleşme zamanı. Duygusal kararlar yerine mantıkla plan yapın.",
+      "sağlık": "Haftanın stresini bugün üzerinizden atın. Mide hassasiyetine dikkat."
     },
     "Aslan": {
-      "genel": "İş: Bugün dinlenmek size çok iyi gelir; iş düşünmeyin. Para: Gereksiz harcamaları durdurun. Kariyer: Uzun vadeli bir hedef için fikir doğabilir. Sağlık: Kalp çarpıntısı veya stres olabilir. Aşk: Partnerinizle keyifli bir paylaşım ruhunuzu yeniler. İlişkiler: Arkadaş çevrenizden biri sürpriz bir itirafta bulunabilir.",
-      "aşk": "Sağlık: Kalp çarpıntısı veya stres olabilir. Aşk: Partnerinizle keyifli bir paylaşım ruhunuzu yeniler. İlişkiler: Arkadaş çevrenizden biri sürpriz bir itirafta bulunabilir.",
-      "para": "İş: Bugün dinlenmek size çok iyi gelir; iş düşünmeyin. Para: Gereksiz harcamaları durdurun. Kariyer: Uzun vadeli bir hedef için fikir doğabilir.",
-      "sağlık": "İş: Bugün dinlenmek size çok iyi gelir; iş düşünmeyin. Sağlık: Kalp çarpıntısı veya stres olabilir."
+      "genel": "Bugün dinlenmek size çok iyi gelir; iş düşünmeyin. Gereksiz harcamaları durdurun. Uzun vadeli bir hedef için fikir doğabilir. Kalp çarpıntısı veya stres olabilir. Partnerinizle keyifli bir paylaşım ruhunuzu yeniler. Arkadaş çevrenizden biri sürpriz bir itirafta bulunabilir.",
+      "aşk": "Kalp çarpıntısı veya stres olabilir. Partnerinizle keyifli bir paylaşım ruhunuzu yeniler. Arkadaş çevrenizden biri sürpriz bir itirafta bulunabilir.",
+      "para": "Bugün dinlenmek size çok iyi gelir; iş düşünmeyin. Gereksiz harcamaları durdurun.",
+      "sağlık": "Bugün dinlenmek size çok iyi gelir; iş düşünmeyin. Kalp çarpıntısı veya stres olabilir."
     },
     "Başak": {
-      "genel": "İş: Düzen kurmak için içsel motivasyon yüksek. Para: Maddi olarak rahatlama geliyor. Kariyer: Günün sonunda takdir edileceğiniz bir gelişme olabilir. Sağlık: Baş ağrısı veya omuz ağrısı olabilir. Aşk: Fazla düşünmeyin, kalbinizi açık tutun. İlişkiler: Ailenizle uyumlu bir iletişim kuruyorsunuz.",
-      "aşk": "Aşk: Fazla düşünmeyin, kalbinizi açık tutun.",
-      "para": "Para: Maddi olarak rahatlama geliyor. Kariyer: Günün sonunda takdir edileceğiniz bir gelişme olabilir.",
-      "sağlık": "Para: Maddi olarak rahatlama geliyor. Sağlık: Baş ağrısı veya omuz ağrısı olabilir."
+      "genel": "Düzen kurmak için içsel motivasyon yüksek. Maddi olarak rahatlama geliyor. Günün sonunda takdir edileceğiniz bir gelişme olabilir. Baş ağrısı veya omuz ağrısı olabilir. Fazla düşünmeyin, kalbinizi açık tutun. Ailenizle uyumlu bir iletişim kuruyorsunuz.",
+      "aşk": "Fazla düşünmeyin, kalbinizi açık tutun.",
+      "para": "Maddi olarak rahatlama geliyor.",
+      "sağlık": "Maddi olarak rahatlama geliyor. Baş ağrısı veya omuz ağrısı olabilir."
     },
     "Terazi": {
-      "genel": "İş: Bugün üretmekten çok dinlenmek iyi gelir. Para: Küçük bir kazanç ya da hediye moral verebilir. Kariyer: Yeni bir fikir ilham getirebilir. Sağlık: Kas ağrıları olabilir. Aşk: Partnerinizle keyifli bir gün geçirme potansiyeli yüksek. İlişkiler: Dostlarınızla vakit geçirmek içsel dengeyi getirir.",
-      "aşk": "Aşk: Partnerinizle keyifli bir gün geçirme potansiyeli yüksek.",
-      "para": "İş: Bugün üretmekten çok dinlenmek iyi gelir. Para: Küçük bir kazanç ya da hediye moral verebilir. Kariyer: Yeni bir fikir ilham getirebilir.",
-      "sağlık": "İş: Bugün üretmekten çok dinlenmek iyi gelir. Sağlık: Kas ağrıları olabilir."
+      "genel": "Bugün üretmekten çok dinlenmek iyi gelir. Küçük bir kazanç ya da hediye moral verebilir. Yeni bir fikir ilham getirebilir. Kas ağrıları olabilir. Partnerinizle keyifli bir gün geçirme potansiyeli yüksek. Dostlarınızla vakit geçirmek içsel dengeyi getirir.",
+      "aşk": "Partnerinizle keyifli bir gün geçirme potansiyeli yüksek.",
+      "para": "Bugün üretmekten çok dinlenmek iyi gelir. Küçük bir kazanç ya da hediye moral verebilir.",
+      "sağlık": "Bugün üretmekten çok dinlenmek iyi gelir. Kas ağrıları olabilir."
     },
     "Akrep": {
-      "genel": "İş: Bugün içsel olarak güçlü hissediyorsunuz, işleri yavaş da olsa tamamlayın. Para: Beklediğiniz bir ödeme gelebilir. Kariyer: Yeni planlara açık olun. Sağlık: Stres kaynaklı yorgunluk olabilir. Aşk: Kalbiniz daha sakin; geçmişteki duygular kapanıyor. İlişkiler: Aile içinde bir konuda arabulucu olabilirsiniz.",
-      "aşk": "Aşk: Kalbiniz daha sakin; geçmişteki duygular kapanıyor.",
-      "para": "İş: Bugün içsel olarak güçlü hissediyorsunuz, işleri yavaş da olsa tamamlayın. Para: Beklediğiniz bir ödeme gelebilir. Kariyer: Yeni planlara açık olun.",
-      "sağlık": "Sağlık: Stres kaynaklı yorgunluk olabilir."
+      "genel": "Bugün içsel olarak güçlü hissediyorsunuz, işleri yavaş da olsa tamamlayın. Beklediğiniz bir ödeme gelebilir. Yeni planlara açık olun. Stres kaynaklı yorgunluk olabilir. Kalbiniz daha sakin; geçmişteki duygular kapanıyor. Aile içinde bir konuda arabulucu olabilirsiniz.",
+      "aşk": "Kalbiniz daha sakin; geçmişteki duygular kapanıyor.",
+      "para": "Bugün içsel olarak güçlü hissediyorsunuz, işleri yavaş da olsa tamamlayın. Beklediğiniz bir ödeme gelebilir.",
+      "sağlık": "Stres kaynaklı yorgunluk olabilir."
     },
     "Yay": {
-      "genel": "İş: Günün ilk yarısında yavaşlayın, sonrasında toparlanıyorsunuz. Para: Küçük bir maddi fırsat gündeme gelebilir. Kariyer: Bugün içsel motivasyonunuzu tazeleyin. Sağlık: Uykusuzluk ve halsizlik olabilir. Aşk: Duygularınız netleşiyor, iç huzur geliyor. İlişkiler: Ailenizle keyifli bir akşam sizi bekliyor.",
-      "aşk": "Aşk: Duygularınız netleşiyor, iç huzur geliyor.",
-      "para": "Para: Küçük bir maddi fırsat gündeme gelebilir. Kariyer: Bugün içsel motivasyonunuzu tazeleyin.",
-      "sağlık": "Sağlık: Uykusuzluk ve halsizlik olabilir."
+      "genel": "Günün ilk yarısında yavaşlayın, sonrasında toparlanıyorsunuz. Küçük bir maddi fırsat gündeme gelebilir. Bugün içsel motivasyonunuzu tazeleyin. Uykusuzluk ve halsizlik olabilir. Duygularınız netleşiyor, iç huzur geliyor. Ailenizle keyifli bir akşam sizi bekliyor.",
+      "aşk": "Duygularınız netleşiyor, iç huzur geliyor.",
+      "para": "Küçük bir maddi fırsat gündeme gelebilir.",
+      "sağlık": "Uykusuzluk ve halsizlik olabilir."
     },
     "Oğlak": {
-      "genel": "İş: Bugün plan yapmak, strateji belirlemek için uygun. Para: Parasal konularda istikrar sağlanıyor. Kariyer: Yavaş ama emin adımlarla ilerliyorsunuz. Sağlık: Diz ve kemik ağrısı olabilir. Aşk: Partnerinizle geçmişi değil geleceği konuşun. İlişkiler: Ailede barış havası hakim.",
-      "aşk": "Aşk: Partnerinizle geçmişi değil geleceği konuşun.",
-      "para": "Para: Parasal konularda istikrar sağlanıyor. Kariyer: Yavaş ama emin adımlarla ilerliyorsunuz.",
-      "sağlık": "İş: Bugün plan yapmak, strateji belirlemek için uygun. Sağlık: Diz ve kemik ağrısı olabilir."
+      "genel": "Bugün plan yapmak, strateji belirlemek için uygun. Parasal konularda istikrar sağlanıyor. Yavaş ama emin adımlarla ilerliyorsunuz. Diz ve kemik ağrısı olabilir. Partnerinizle geçmişi değil geleceği konuşun. Ailede barış havası hakim.",
+      "aşk": "Partnerinizle geçmişi değil geleceği konuşun.",
+      "para": "Parasal konularda istikrar sağlanıyor.",
+      "sağlık": "Bugün plan yapmak, strateji belirlemek için uygun. Diz ve kemik ağrısı olabilir."
     },
     "Kova": {
-      "genel": "İş: Bugün ilham dolusunuz, fikirlerinizi not alın. Para: Gereksiz alışverişten kaçının. Kariyer: Yeni bir iş bağlantısı yaklaşıyor. Sağlık: Dolaşım sorunları veya halsizlik olabilir. Aşk: Yeni biri sizi etkileyebilir ama temkinli olun. İlişkiler: Eski bir dosttan güzel bir mesaj gelebilir.",
-      "aşk": "Kariyer: Yeni bir iş bağlantısı yaklaşıyor. Aşk: Yeni biri sizi etkileyebilir ama temkinli olun.",
-      "para": "Para: Gereksiz alışverişten kaçının. Kariyer: Yeni bir iş bağlantısı yaklaşıyor.",
-      "sağlık": "Sağlık: Dolaşım sorunları veya halsizlik olabilir."
+      "genel": "Bugün ilham dolusunuz, fikirlerinizi not alın. Gereksiz alışverişten kaçının. Yeni bir iş bağlantısı yaklaşıyor. Dolaşım sorunları veya halsizlik olabilir. Yeni biri sizi etkileyebilir ama temkinli olun. Eski bir dosttan güzel bir mesaj gelebilir.",
+      "aşk": "Yeni bir iş bağlantısı yaklaşıyor.",
+      "para": "Gereksiz alışverişten kaçının. Yeni bir iş bağlantısı yaklaşıyor.",
+      "sağlık": "Dolaşım sorunları veya halsizlik olabilir."
     },
     "Balık": {
-      "genel": "İş: Gün boyunca odaklanmak zor ama ilhamınız yüksek. Para: Küçük bir kazanç moral verebilir. Kariyer: Sessiz ama verimli bir kapanış günü. Sağlık: Ruhsal olarak hassassınız, müzik iyi gelir. Aşk: Geçmişle bağ kesiliyor, kalbiniz hafifliyor. İlişkiler: Ailenizden biriyle duygusal bağ güçleniyor.",
-      "aşk": "Aşk: Geçmişle bağ kesiliyor, kalbiniz hafifliyor. İlişkiler: Ailenizden biriyle duygusal bağ güçleniyor.",
-      "para": "Para: Küçük bir kazanç moral verebilir. Kariyer: Sessiz ama verimli bir kapanış günü. Sağlık: Ruhsal olarak hassassınız, müzik iyi gelir.",
-      "sağlık": "İş: Gün boyunca odaklanmak zor ama ilhamınız yüksek. Sağlık: Ruhsal olarak hassassınız, müzik iyi gelir."
+      "genel": "Gün boyunca odaklanmak zor ama ilhamınız yüksek. Küçük bir kazanç moral verebilir. Sessiz ama verimli bir kapanış günü. Ruhsal olarak hassassınız, müzik iyi gelir. Geçmişle bağ kesiliyor, kalbiniz hafifliyor. Ailenizden biriyle duygusal bağ güçleniyor.",
+      "aşk": "Geçmişle bağ kesiliyor, kalbiniz hafifliyor. Ailenizden biriyle duygusal bağ güçleniyor.",
+      "para": "Küçük bir kazanç moral verebilir. Ruhsal olarak hassassınız, müzik iyi gelir.",
+      "sağlık": "Gün boyunca odaklanmak zor ama ilhamınız yüksek. Ruhsal olarak hassassınız, müzik iyi gelir."
     }
   },
   "hurriyet": {

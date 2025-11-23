@@ -1,0 +1,74 @@
+{
+  "Koç": {
+    "genel": "İş: Bugün çalışmak zorundaysanız işleri ağırdan alın, hata yapmamak önemli. Para: Küçük bir gider keyif verebilir ama fazlasına kaçmayın. Kariyer: Yeni bir karar alma zamanı yaklaşıyor. Sağlık: Baş ağrısı veya kas yorgunluğu olabilir.",
+    "aşk": "Akrep burcundaki Venüs'ün tutkulu ve dönüştürücü etkisi, aşk hayatınızda duygusal bağlarınızı güçlendirme ve ilişkinizin derinliklerini keşfetme arzunuza işaret ediyor. Aşk: Geçmişi düşünmeyin; biri sizi sessizce özlüyor olabilir. Sevgili Koç, Güneş, macera ve ruh alanınızdan geçişine başladı ve 21 Aralık'a kadar burada kalacak.",
+    "para": "Para: Küçük bir gider keyif verebilir ama fazlasına kaçmayın. İş ortaklıkları ve yatırımlar için doğru adımları atabileceğin bir gün. Para kazanma konusunda iddialı bir tutum izlemeniz sizi şanslı kılacaktır.",
+    "sağlık": "Sağlık: Baş ağrısı veya kas yorgunluğu olabilir. Sağlık konusunda dikkat etmen gereken küçük detaylar olabilir; dinlenmeyi unutma. Bugünün enerjileri, strateji ve plan oluşturmak için oldukça güçlü."
+  },
+  "Boğa": {
+    "genel": "İş: Bugün plan yapmak, geleceğe hazırlık yapmak için ideal. Para: Küçük bir gelir haberi alabilirsiniz. Kariyer: Sessizce ilerlemek size avantaj kazandırır. Sağlık: Boyun ağrısı ve yorgunluk olabilir.",
+    "aşk": "Aşk: Partnerinizle duygusal bir yakınlaşma var. Akrep burcundaki Venüs'ün yoğun ve bağlayıcı etkisi, aşk hayatınızda partnerinizle aranızdaki duygusal ve fiziksel çekimin arttığına işaret ediyor. Duygusal ilişkilerde sağlamlık arayışı içinde, sevdiğinize olan bağlılığınızı pekiştirecek adımlar atabilirsiniz.",
+    "para": "Yay burcundaki Mars'ın maceracı ve risk almaya teşvik eden etkisi, maddi konularda yeni kazanç yolları arama veya yatırım stratejilerinizi gözden geçirme isteğinizi vurguluyor. Para: Küçük bir gelir haberi alabilirsiniz. Maddi kaynaklarınızı sadece harcamak değil, akıllıca yönetmekle ilgili güçlü bir içgörü geliyor.",
+    "sağlık": "Sağlık: Boyun ağrısı ve yorgunluk olabilir. Fiziksel olarak yorgunluk hissetmen, düzenli spor rutinine ara verme kararı aldırabilir. Bugünün enerjileri, süreci ileri taşıyan konuşmalar için güçlü."
+  },
+  "İkizler": {
+    "genel": "İş: Günün ilk yarısı dağınık ama akşam netleşiyorsunuz. Para: Küçük bir borç kapatılabilir. Kariyer: Fikirlerinizi toparlamak için güzel bir gün. Sağlık: Uyku düzenine dikkat edin.",
+    "aşk": "Aşk: Bir konuşma sizi duygusal olarak etkileyebilir. 21 Aralık'a kadar, başkalarıyla daha kolay uzlaşmaya ve orta yolu bulmaya hazırsınız; bu da ilişkilerde daha büyük başarı getirir. Romantik bir pazar sabahına, bolca şımartılmaya ve sevgiye hazır ol.",
+    "para": "Para: Küçük bir borç kapatılabilir. İlişkiler: Yakın dostlardan biriyle dertleşmek iyi gelir. Aşk hayatına gelirsek, beklenmedik bir ilgi veya keyifli bir sohbet, gününü renklendirecek.",
+    "sağlık": "Sağlık: Uyku düzenine dikkat edin. Beslenme ve uyku düzenindeki ufak revizyonların fiziksel yansımasını kısa sürede göreceksin. Güneş, ortaklık alanınızdan bir aylık geçişine başladı ve önümüzdeki haftalarda hayatınıza yeni bir sosyal enerji getiriyor."
+  },
+  "Yengeç": {
+    "genel": "İş: Haftanın stresini bugün üzerinizden atın. Para: Harcamalarda sadeleşme zamanı. Kariyer: Duygusal kararlar yerine mantıkla plan yapın. Sağlık: Mide hassasiyetine dikkat.",
+    "aşk": "Akrep burcundaki Venüs'ün romantik ve derin etkisi, aşk hayatınızda flörtöz enerjilerin ve tutkulu anların yaşanabileceğine işaret ediyor. Aşk: Bir ilişkinin yönü bugün netleşiyor. İlişkisi olan Yengeçler, bugün partnerinizle birlikte keyifli aktivitelere katılarak veya yaratıcı hobilerle uğraşarak ilişkinize heyecan katabilirsiniz.",
+    "para": "Para: Harcamalarda sadeleşme zamanı. Şimdi yeni fırsatlar, özellikle finansal meseleler ve envestisman konuları kapını çalmaya hazır. Haftanın son gününde, Merkür ve Jüpiter'in eşsiz dansı, iş hayatında içgüdülerini keskinleştiriyor ve finansal kararlarında sana ekstra bir güven kazandırıyor.",
+    "sağlık": "Bu olumlu etkiler altında, beslenme alışkanlıklarınızı gözden geçirmek veya yeni bir egzersiz programına başlamak gibi sağlığınızı destekleyici kararlar alabilirsiniz. İş: Haftanın stresini bugün üzerinizden atın. Sağlık: Mide hassasiyetine dikkat."
+  },
+  "Aslan": {
+    "genel": "İş: Bugün dinlenmek size çok iyi gelir; iş düşünmeyin. Para: Gereksiz harcamaları durdurun. Kariyer: Uzun vadeli bir hedef için fikir doğabilir. Sağlık: Kalp çarpıntısı veya stres olabilir.",
+    "aşk": "Aşk ve duygusal ilişkilerinizi gözden geçirmeniz gerektiğini unutmamalısınız. Aşk: Partnerinizle keyifli bir paylaşım ruhunuzu yeniler. İlişkisi olan Aslanlar, bugün partnerinize sürprizler yaparak veya birlikte spontane bir plan organize ederek ilişkinizdeki kıvılcımı yeniden alevlendirebilirsiniz.",
+    "para": "Para: Gereksiz harcamaları durdurun. İş: Bugün dinlenmek size çok iyi gelir; iş düşünmeyin. Akrep burcundaki Merkür'ün stratejik ve sezgisel etkisi, maddi konularda özellikle aile ve gayrimenkul ile ilgili meselelerde derinlemesine düşünmeniz gerektiğini vurguluyor.",
+    "sağlık": "Sağlık: Kalp çarpıntısı veya stres olabilir. İş: Bugün dinlenmek size çok iyi gelir; iş düşünmeyin. Bu haftanın son gününe damgasını vuran Merkür ve Jüpiter'in enerjik üçgeni, yolunu aydınlatıyor."
+  },
+  "Başak": {
+    "genel": "İş: Düzen kurmak için içsel motivasyon yüksek. Para: Maddi olarak rahatlama geliyor. Kariyer: Günün sonunda takdir edileceğiniz bir gelişme olabilir. Sağlık: Baş ağrısı veya omuz ağrısı olabilir.",
+    "aşk": "İlişkisi olan Başaklar, partnerinizle geleceğe yönelik sağlam planlar yaparken aynı zamanda ilişkinize keyif katacak aktiviteler organize edebilirsiniz. Aşk: Fazla düşünmeyin, kalbinizi açık tutun. Sevgili Başak, Güneş, haritanızın en dip noktasına, yani dördüncü evinize giriş yaptı ve 21 Aralık'a kadar burada kalacak.",
+    "para": "Para: Maddi olarak rahatlama geliyor. Akrep burcundaki Venüs'ün dönüştürücü ve sezgisel etkisi, maddi konularda özellikle yakın çevreniz, kardeşleriniz veya ticari anlaşmalarınız aracılığıyla yeni kazanç fırsatları yakalayabileceğinizi vurguluyor. Emek harcamadan gelen tatminin geçici olduğunu bilerek, kendinize olan saygınızı derinleştirin.",
+    "sağlık": "Sağlık: Baş ağrısı veya omuz ağrısı olabilir. Yeni bir projeye enerjik bir başlangıç yapman ya da uzun süredir bekleyen bir görevi sonuçlandırman için kusursuz bir zaman dilimi. Sağlık durumuna da özen göster, bedenine iyi bakmayı ihmal etme, zihinsel dinginliğin için doğada vakit geçirebilirsin."
+  },
+  "Terazi": {
+    "genel": "İş: Bugün üretmekten çok dinlenmek iyi gelir. Para: Küçük bir gelir ya da hediye moral verebilir. Kariyer: Yeni bir fikir ilham getirebilir. Sağlık: Kas ağrıları olabilir.",
+    "aşk": "Aşk: Sevgilinizle keyifli bir gün geçirme potansiyeli yüksek. Akrep burcundaki Venüs'ün yoğun ve değer odaklı etkisi, aşk hayatınızda sahip olduğunuz değerleri ve partnerinizden beklentilerinizi sorgulamanıza neden muhtemeldir. Bekarsanız, bugünlerde, size sadece duygusal olarak değil, aynı zamanda maddi olarak da güvende hissettirecek, sadık ve tutkulu bir partnere ilgi duyabilirsiniz.",
+    "para": "Para: Küçük bir gelir ya da hediye moral verebilir. Oğlak burcundaki Ay'ın temkinli ve yapılandırıcı etkisi, maddi konularda özellikle ev ve aileyle ilgili harcamalara odaklanmanız gerektiğini vurguluyor. Bugünlerde, aile bütçesini düzenlemek, ev için bir yatırım yapmak veya uzun vadeli birikim hedefleri belirlemek için harekete geçebilirsiniz.",
+    "sağlık": "İş: Bugün üretmekten çok dinlenmek iyi gelir. Sağlık: Kas ağrıları olabilir. Birçok farklı alanda ilerleme kaydedebilirsin, ancak enerjini istediğin gibi odaklama fırsatını her zaman bulamayabilirsin."
+  },
+  "Akrep": {
+    "genel": "İş: Bugün içsel olarak kuvvetli hissediyorsunuz, işleri yavaş da olsa tamamlayın. Para: Beklediğiniz bir ödeme gelebilir. Kariyer: Yeni planlara açık olun. Sağlık: Stres kaynaklı yorgunluk mümkündür.",
+    "aşk": "İlişkisi olan Akrepler, bugün partnerinize olan sevginizi ve tutkunuzu derin bir şekilde hissedebilir ve bu hislerinizi kolay bir şekilde partnerinize aktarabilirsiniz. Aşk: Kalbiniz daha sakin; geçmişteki duygular kapanıyor. Sevgili Akrep, Güneş, artık burcundan çıktı ve kaynaklar evinde bir aylık seyahatine başladı.",
+    "para": "Gelirlerinizi artırmak için yeni yollar arayabilir veya sahip olduğunuz bir yeteneği kullanarak ek kazanç elde etme fırsatları yakalayabilirsiniz. Para: Beklediğiniz bir ödeme gelebilir. Finansal konularda ve iş alanında beklenmedik fırsatlar hızla karşına çıkabilir.",
+    "sağlık": "Sağlık: Stres kaynaklı yorgunluk olabilir. Bu enerji, karmaşık projeleri çözme, uzun vadeli planlarını netleştirme ve kritik toplantılarda fikirlerini sağlam ve etkileyici bir şekilde sunma konusunda sana yardımcı olacak. Enerji seviyen yüksek, ancak bu enerjiyi nasıl yönlendireceğin önemli."
+  },
+  "Yay": {
+    "genel": "İş: Günün ilk yarısında yavaşlayın, sonrasında toparlanıyorsunuz. Para: Küçük bir maddi fırsat gündeme gelebilir. Kariyer: Bugün içsel motivasyonunuzu tazeleyin. Sağlık: Uykusuzluk ve halsizlik olabilir.",
+    "aşk": "İlişkisi olan Yaylar, ilişkinizle ilgili bazı konuları kendi başınıza değerlendirme ve partnerinizden bir süre uzaklaşarak düşünme ihtiyacı duyabilirsiniz. Aşk: Duygularınız netleşiyor, iç huzur geliyor. Sevgili Yay, Güneş, artık burcunda başlayan yıllık bir aylık geçişine başladı ve önümüzdeki haftalarda girişim gücünü yeniden kazanacaksın.",
+    "para": "Oğlak burcundaki Ay'ın somut ve güvence arayan etkisi, maddi konularda gelirlerinizi ve harcamalarınızı dikkatli bir şekilde planlamanız gerektiğini vurguluyor. Para: Küçük bir maddi fırsat gündeme gelebilir. Bütçenizi gözden geçirmek ve uzun vadeli finansal hedefler belirlemek için uygun bir dönemdesiniz.",
+    "sağlık": "Sağlık: Uykusuzluk ve halsizlik olabilir. Kişisel enerjiniz ve özgüveniniz zirvede! Gelecek haftaya güçlü bir enerjiyle girebilirsin."
+  },
+  "Oğlak": {
+    "genel": "İş: Bugün plan yapmak, strateji belirlemek için uygun. Para: Parasal konularda istikrar sağlanıyor. Kariyer: Yavaş ama emin adımlarla ilerliyorsunuz. Sağlık: Diz ve kemik ağrısı olabilir.",
+    "aşk": "Aşk: Partnerinizle geçmişi değil geleceği konuşun. Akrep burcundaki Venüs'ün sosyal ve çekici etkisi, aşk hayatınızda arkadaş çevreniz aracılığıyla yeni romantik fırsatlarla karşılaşabileceğinize işaret ediyor. İlişkisi olan Oğlaklar, partnerinizle birlikte sosyal etkinliklere katılmak ve ortak arkadaşlarınızla vakit geçirmek ilişkinize yeni bir soluk getirebilir.",
+    "para": "Burcunuzdaki Ay'ın kontrollü ve gerçekçi etkisi, maddi konularda harcamalarınızı disiplin altına almanız ve bütçenizi dikkatle yönetmeniz gerektiğini vurguluyor. Bu dönemde, finansal durumunuzu ciddiyetle ele alarak, gereksiz masrafları kısmak ve birikim yapmaya odaklanmak önceliğiniz mümkündür. Ayrıca bu süreçte somut ve güvenilir yatırım araçlarına yönelmek, geleceğe yönelik finansal güvencenizi artırabilir.",
+    "sağlık": "Sağlık: Diz ve kemik ağrısı olabilir. Bu dönem, daha fazla \"yalnız zaman\" ve dinlenme ile düşünce için alan ihtiyacı yaratıyor. Şu sıralar gözlerden uzak çalışıyor olabilir veya birkaç hafta boyunca arka planda kalmayı tercih edebilirsin; böylece daha görünür olacağın doğum günü ayına enerji toplamak için kendini hazırlarsın."
+  },
+  "Kova": {
+    "genel": "İş: Bugün ilham dolusunuz, fikirlerinizi not alın. Para: Gereksiz alışverişten kaçının. Kariyer: Yeni bir iş bağlantısı yaklaşıyor. Sağlık: Dolaşım sorunları veya halsizlik olabilir.",
+    "aşk": "Duygusal ilişkilerde karşılıklı anlayışa yönelirsen, güçlü bağlar kurabilirsin. Akrep burcundaki Venüs'ün tutkulu ve göz önünde olma arzusu yaratan etkisi, aşk hayatınızda ilişkinizi toplum önünde daha görünür kılma veya statü sahibi biriyle bir ilişki yaşama isteğinize işaret ediyor. Aşk: Yeni biri sizi etkileyebilir ama temkinli olun.",
+    "para": "Yay burcundaki Mars'ın cömert ve harcamaya yönelik etkisi, maddi konularda özellikle sosyal çevreniz ve arkadaşlarınız için para harcama eğiliminizi vurguluyor. Para: Gereksiz alışverişten kaçının. Önceden dış dünyaya karşı sorumluluklara daha fazla odaklanmıştın; şimdi ise \"mutluluk\" hedeflerine daha çok yatırım yapıyorsun.",
+    "sağlık": "Sağlık: Dolaşım sorunları veya halsizlik olabilir. Özellikle teknolojik alanlarda çalışıyorsan, yazılım geliştirme, yazı yazma ya da medya projeleri üzerinde çalışıyorsan, bugün enerjini bu yöne kanalize etmek için mükemmel bir gün. Enerjiniz yükseliyor."
+  },
+  "Balık": {
+    "genel": "İş: Gün boyunca odaklanmak zor ama ilhamınız yüksek. Para: Küçük bir hasılat moral verebilir. Kariyer: Sessiz ama verimli bir kapanış günü. Sağlık: Ruhsal olarak hassassınız, müzik iyi gelir.",
+    "aşk": "Son ilişkisi bitmiş bir Balık burcuysan eski partnerinden bir şans daha talep geldiğini duyabilirsin. İlişkisi olan Balıklar, bugünlerde, partnerinizle birlikte yeni yerler keşfetmek, felsefi veya spiritüel konular üzerine sohbetler etmek ilişkinize entelektüel bir derinlik katabilir. Aşk: Geçmişle bağ kesiliyor, kalbiniz hafifliyor.",
+    "para": "Para: Küçük bir hasılat moral verebilir. Sağlık: Ruhsal olarak hassassınız, müzik iyi gelir. Yatırımlar, anlaşmalar veya ödeme planları konusunda karar verirken, sezgilerin seni doğru yöne yönlendirebilir.",
+    "sağlık": "Sağlık: Ruhsal olarak hassassınız, müzik iyi gelir. Bu enerji ise iş hayatında seni yeni ve heyecan verici rotalara yönlendiriyor. Haftanın yorgunluğunu atarken, motivasyonun artıyor ve iş hayatında elde ettiğin başarıların verdiği tatmin duygusuyla doluyorsun."
+  }
+}

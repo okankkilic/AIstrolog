@@ -8,6 +8,7 @@ Günlük burç yorumlarını toplayan, kategorize eden, puanlayan ve modern bir 
 - **Çoklu Kaynak:** 10 farklı kaynaktan (Milliyet, Hürriyet, Onedio vb.) burç yorumu toplama
 - **Akıllı Kategorizasyon:** Yorumları otomatik olarak Aşk, Para ve Sağlık kategorilerine ayırma
 - **Sentiment Analizi & Puanlama:** Burçları kategorilere göre puanlayıp (0-100) sıralama (En Şanslı, En Aşık vb.)
+- **Günlük Ranking Sistemi:** Her gün için otomatik sıralama oluşturma ve geçmiş verilerle karşılaştırma
 - **AI Özetleme:** Farklı kaynaklardan gelen yorumları tek bir tutarlı metin haline getirme
 - **Otomatik Test:** Veri kalitesini ve bütünlüğünü koruyan kapsamlı test sistemi
 
@@ -35,18 +36,35 @@ npm install
 
 ## Kullanım
 
-### Backend Komutları
+### Backend API Sunucusu
+
+```bash
+# API sunucusunu başlat
+python main.py
+
+# API dokümantasyonu için
+# http://localhost:8000/docs (Swagger UI)
+# http://localhost:8000/redoc (ReDoc)
+```
+
+API detayları için: [API_README.md](API_README.md)
+
+### Backend Veri İşleme Komutları
 
 #### Temel Kullanım
 
 ```bash
 # 🚀 TAM OTOMASYON (Önerilen)
-# Veri çeker, kategorize eder, özetler ve test eder
+# Veri çeker, kategorize eder, özetler, puanlar ve sıralar
 python run_full_pipeline.py
 
-# 📊 Puanlama ve Sıralama
+# 📊 Manuel Puanlama ve Sıralama
 # İşlenmiş verileri analiz eder ve puanlar
 python scorer.py
+
+# 📈 Ranking Oluşturma
+# Puanlanmış verilerden günlük ranking oluşturur
+python ranker.py
 ```
 
 #### Modüler Kullanım
@@ -102,6 +120,7 @@ python categorize_horoscopes.py input.json output.json
 
 ```
 AIstrolog/
+├── main.py                       # FastAPI Backend Server
 ├── frontend/                     # Next.js Web Uygulaması
 │   ├── app/                      # Sayfalar ve Routing
 │   ├── components/               # React Bileşenleri
@@ -110,15 +129,20 @@ AIstrolog/
 │   ├── daily_raw_*.json          # Ham veriler
 │   ├── processed_*.json          # Kategorize edilmiş veriler
 │   ├── summarized_*.json         # Özetlenmiş veriler
-│   └── scored_*.json             # Puanlanmış veriler
+│   ├── scored_*.json             # Puanlanmış veriler
+│   └── rankings_history.json     # Günlük sıralamalar tarihi
 ├── scraper.py                    # Veri toplama motoru
 ├── categorize_horoscopes.py      # NLP tabanlı kategorizasyon
 ├── scorer.py                     # Sentiment analizi ve puanlama
+├── ranker.py                     # Günlük ranking oluşturma
 ├── summarizer.py                 # Yorum özetleme motoru
 ├── run_full_pipeline.py          # Ana orkestrasyon scripti
 ├── test_workflow.py              # Test otomasyonu
 ├── verify_categorization.py      # Detaylı inceleme aracı
 ├── TEST_GUIDE.md                 # Test kılavuzu
+├── SCORER_GUIDE.md               # Puanlama sistemi kılavuzu
+├── RANKER_GUIDE.md               # Ranking sistemi kılavuzu
+├── API_README.md                 # API dokümantasyonu
 └── requirements.txt              # Python bağımlılıkları
 ```
 
@@ -144,6 +168,19 @@ Script, "genel" anahtarındaki metni cümlelere ayırır ve her cümleyi analiz 
 - **Kategori Bazlı:** Aşk, Para ve Sağlık için özel kelime setleri.
 
 Sonuçta "Günün En Şanslısı", "En Aşık Burcu" gibi liderler belirlenir ve `scored_processed_daily_raw_YYYY-MM-DD.json` dosyasına kaydedilir.
+
+Detaylı puanlama kılavuzu için: [SCORER_GUIDE.md](SCORER_GUIDE.md)
+
+### Ranking Sistemi (Ranker)
+
+`ranker.py` scripti, puanlanmış verileri kullanarak günlük sıralamalar oluşturur:
+- **Tarih Bazlı:** Her gün için ayrı ranking
+- **4 Kategori:** Genel, Aşk, Para, Sağlık
+- **Geçmiş Takibi:** `rankings_history.json` ile geçmiş veriler
+
+Ranking sistemi sayesinde burçların günlük performansı takip edilir ve karşılaştırmalar yapılır.
+
+Detaylı ranking kılavuzu için: [RANKER_GUIDE.md](RANKER_GUIDE.md)
 
 ### Test Sistemi
 
@@ -221,6 +258,48 @@ Puanlanmış veri:
 }
 ```
 
+Ranking verisi:
+```json
+{
+  "2025-11-23": {
+    "genel_ranking": [
+      { "burc": "Yengeç", "score": 98.2 },
+      { "burc": "Terazi", "score": 96.5 }
+    ],
+    "aşk_ranking": [...],
+    "para_ranking": [...],
+    "sağlık_ranking": [...]
+  }
+}
+```
+
+## Veri Akışı Pipeline
+
+```
+1. SCRAPER (scraper.py)
+   ↓ Ham veri toplar (11 kaynak)
+   ↓ daily_raw_YYYY-MM-DD.json
+   ↓
+2. CATEGORIZER (categorize_horoscopes.py)
+   ↓ NLP ile kategorilere ayırır
+   ↓ processed_daily_raw_YYYY-MM-DD.json
+   ↓
+3. SUMMARIZER (summarizer.py)
+   ↓ AI ile özetler
+   ↓ summarized_processed_daily_raw_YYYY-MM-DD.json
+   ↓
+4. SCORER (scorer.py)
+   ↓ Sentiment analizi ve puanlama
+   ↓ scored_processed_daily_raw_YYYY-MM-DD.json
+   ↓
+5. RANKER (ranker.py)
+   ↓ Günlük ranking oluşturur
+   ↓ rankings_history.json (güncellenir)
+   ↓
+6. API (main.py)
+   → Frontend'e veri sağlar
+```
+
 ## Desteklenen Kaynaklar
 
 Milliyet, Hürriyet, Habertürk, Elele, Onedio, Mynet, TwitBurc, Vogue, GünlükBurç, MyBurç
@@ -263,8 +342,10 @@ Detaylı sorun giderme için: [TEST_GUIDE.md](TEST_GUIDE.md)
 - Node.js 18+
 
 ### Veri İşleme ve Backend (Python)
+- **API Framework:** fastapi>=0.104.0, uvicorn[standard]>=0.24.0
 - **Veri Analizi & Manipülasyon:** pandas>=2.0.0
 - **Web Scraping:** requests>=2.31.0, beautifulsoup4>=4.12.0, selenium>=4.0.0, lxml>=4.9.0
+- **AI/ML:** sentence-transformers>=2.2.0, torch>=2.0.0, numpy>=1.24.0
 
 ### Frontend (Node.js)
 - **Framework:** Next.js 16.0.3, React 19.2.0
