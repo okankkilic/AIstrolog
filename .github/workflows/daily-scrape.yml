@@ -37,6 +37,9 @@ jobs:
     - name: Run scorer
       run: python scorer.py
     
+    - name: Run ranker
+      run: python ranker.py
+    
     - name: Run summarizer
       run: python summarizer.py
     
