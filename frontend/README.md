@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AIstrolog Frontend
 
-## Getting Started
+Modern, minimalist Türkçe astroloji platformu. Next.js 16 ve Tailwind CSS ile geliştirilmiştir.
 
-First, run the development server:
+## 🎨 Tasarım Özellikleri
+
+### Tipografi
+- **Başlıklar**: Khand (Regular) - Hint kökenli, modern ve okunaklı
+- **Metinler**: Lora - Serif font, okuma rahatlığı için optimize edilmiş
+
+### Renk Paleti
+- **Arkaplan**: `#fdfbf7` (Kırık beyaz, göz yormayan ton)
+- **Vurgular**: Siyah/gri tonları (minimalist estetik)
+
+## 🚀 Kurulum ve Çalıştırma
+
+### Kurulum
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### Geliştirme
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tarayıcıda [http://localhost:3000](http://localhost:3000) adresini açın.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 📱 Sayfalar
 
-To learn more about Next.js, take a look at the following resources:
+- **Ana Sayfa** (`/`): Otomatik yönlendirme `/burclar`
+- **Burç Seçimi** (`/burclar`): 12 burç kartı grid görünümü
+- **Burç Detay** (`/burclar/[sign]/[date]`): 4 kategori (Genel, Aşk, Para, Sağlık)
+- **Sıralamalar** (`/siralama`): Backend'den skorlara göre dinamik sıralama
+- **Kaynaklar** (`/kaynaklar`): 10 astroloji kaynağı
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔌 API Entegrasyonu
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Frontend, `http://localhost:8000` adresindeki FastAPI backend ile iletişim kurar.
 
-## Deploy on Vercel
+```typescript
+// Burç detay
+GET /api/gunluk/{sign}/{date}
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+// Sıralamalar
+GET /api/rankings/{date}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎯 Teknoloji Stack
+
+- **Next.js 16**: React framework (App Router)
+- **React 19**: UI library
+- **TypeScript**: Type safety
+- **Tailwind CSS v4**: Utility-first CSS
+- **Framer Motion**: Smooth animations
+- **Lucide React**: Modern ikon seti
+
+## 📐 Responsive Design
+
+Tüm sayfalar mobil-first yaklaşımla tasarlanmıştır:
+- **Mobile**: 320px - 767px
+- **Tablet**: 768px - 1023px
+- **Desktop**: 1024px+
+
+## 🌐 Deploy on Vercel
+
+En kolay deployment yöntemi [Vercel Platform](https://vercel.com/new) kullanmaktır.
+
+Detaylar için: [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)
+
+## 📚 Daha Fazla Bilgi
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Framer Motion Documentation](https://www.framer.com/motion/)
+

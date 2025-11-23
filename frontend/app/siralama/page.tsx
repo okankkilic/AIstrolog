@@ -5,28 +5,18 @@ import { Trophy, Heart, Coins, Activity } from 'lucide-react';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
-// Mock Data Generator
-const generateData = (period: string) => {
-  const signs = ['Koç', 'Boğa', 'İkizler', 'Yengeç', 'Aslan', 'Başak', 'Terazi', 'Akrep', 'Yay', 'Oğlak', 'Kova', 'Balık'];
-  return signs.map(sign => ({
-    sign,
-    general: Math.floor(Math.random() * 40) + 60,
-    love: Math.floor(Math.random() * 40) + 60,
-    money: Math.floor(Math.random() * 40) + 60,
-    health: Math.floor(Math.random() * 40) + 60,
-  }));
-};
+interface SignRanking {
+  sign: string;
+  slug: string;
+  score: number;
+}
 
-const initialData = () => {
-  const signs = ['Koç', 'Boğa', 'İkizler', 'Yengeç', 'Aslan', 'Başak', 'Terazi', 'Akrep', 'Yay', 'Oğlak', 'Kova', 'Balık'];
-  return signs.map(sign => ({
-    sign,
-    general: 0,
-    love: 0,
-    money: 0,
-    health: 0,
-  }));
-};
+interface RankingsData {
+  general: SignRanking[];
+  love: SignRanking[];
+  money: SignRanking[];
+  health: SignRanking[];
+}
 
 type SortKey = 'general' | 'love' | 'money' | 'health';
 type Period = 'daily' | 'weekly' | 'yearly';
@@ -34,18 +24,74 @@ type Period = 'daily' | 'weekly' | 'yearly';
 export default function RankingsPage() {
   const [period, setPeriod] = useState<Period>('daily');
   const [selectedCategory, setSelectedCategory] = useState<SortKey>('general');
-  const [data, setData] = useState(initialData());
+  const [rankingsData, setRankingsData] = useState<RankingsData | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  // Get today's date in DD-MM-YYYY format
+  const getTodayDate = () => {
+    const today = new Date();
+    return `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
+  };
+
+  // Get date in DD-MM-YYYY format from Date object
+  const formatDate = (date: Date) => {
+    return `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`;
+  };
 
   useEffect(() => {
-    setData(generateData('daily'));
-  }, []);
+    const fetchRankings = async () => {
+      try {
+        setLoading(true);
+        
+        // Try to get data starting from today, going back up to 7 days
+        let dataFound = false;
+        let currentDate = new Date();
+        let attempts = 0;
+        const maxAttempts = 7;
+        
+        while (!dataFound && attempts < maxAttempts) {
+          const dateStr = formatDate(currentDate);
+          
+          try {
+            // Add period query parameter
+            const response = await fetch(`http://localhost:8000/api/rankings/${dateStr}?period=${period}`);
+            
+            if (response.ok) {
+              const data = await response.json();
+              setRankingsData(data.rankings);
+              dataFound = true;
+            } else {
+              // Go back one day
+              currentDate.setDate(currentDate.getDate() - 1);
+              attempts++;
+            }
+          } catch (err) {
+            // Go back one day
+            currentDate.setDate(currentDate.getDate() - 1);
+            attempts++;
+          }
+        }
+        
+        if (!dataFound) {
+          console.error('No ranking data found in the last 7 days');
+          setRankingsData(null);
+        }
+      } catch (error) {
+        console.error('Error fetching rankings:', error);
+        setRankingsData(null);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  // Sorting Logic
-  const sortedData = [...data].sort((a, b) => b[selectedCategory] - a[selectedCategory]);
+    fetchRankings();
+  }, [period]);
+
+  // Get current category data
+  const currentData = rankingsData ? rankingsData[selectedCategory] : [];
 
   const handlePeriodChange = (p: Period) => {
     setPeriod(p);
-    setData(generateData(p)); // Refresh mock data
   };
 
   const categories = [
@@ -119,16 +165,28 @@ export default function RankingsPage() {
 
         {/* List */}
         <div className="flex flex-col">
-          {sortedData.map((row, index) => (
-            <div key={row.sign} className="flex items-center p-4 hover:bg-gray-50 transition-colors group border-b border-gray-100 last:border-none">
-              <div className="w-16 text-center font-khand font-bold text-2xl text-gray-300 group-hover:text-gray-900 transition-colors">
-                {index + 1}
+          {loading ? (
+            <div className="flex items-center justify-center py-12">
+              <div className="animate-pulse text-gray-400 font-lora">Yükleniyor...</div>
+            </div>
+          ) : currentData.length > 0 ? (
+            currentData.map((row, index) => (
+              <div key={row.sign} className="flex items-center p-4 hover:bg-gray-50 transition-colors group border-b border-gray-100 last:border-none">
+                <div className="w-16 text-center font-khand font-bold text-2xl text-gray-300 group-hover:text-gray-900 transition-colors">
+                  {index + 1}
+                </div>
+                <div className="flex-1 font-khand font-normal text-xl">
+                  {row.sign}
+                </div>
               </div>
-              <div className="flex-1 font-khand font-normal text-xl">
-                {row.sign}
+            ))
+          ) : (
+            <div className="flex items-center justify-center py-12">
+              <div className="text-gray-500 font-lora">
+                Sıralama verisi bulunamadı.
               </div>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>

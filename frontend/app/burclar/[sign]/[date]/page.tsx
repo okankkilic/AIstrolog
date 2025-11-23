@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, use } from 'react';
+import { useState, use, useEffect } from 'react';
 import { Heart, Coins, Activity, Star } from 'lucide-react';
 import clsx from 'clsx';
 import { notFound } from 'next/navigation';
@@ -22,16 +22,89 @@ const ZODIAC_SIGNS = {
 
 type Category = 'general' | 'love' | 'money' | 'health';
 
+interface HoroscopeData {
+  general: string;
+  love: string;
+  money: string;
+  health: string;
+}
+
 export default function ZodiacDetailPage({ params }: { params: Promise<{ sign: string; date: string }> }) {
   const resolvedParams = use(params);
   const { sign, date } = resolvedParams;
   const [activeTab, setActiveTab] = useState<Category>('general');
+  const [horoscopeData, setHoroscopeData] = useState<HoroscopeData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [actualDate, setActualDate] = useState<string>(date); // Track the actual date of the data
 
   const zodiac = ZODIAC_SIGNS[sign as keyof typeof ZODIAC_SIGNS];
 
   if (!zodiac) {
     notFound();
   }
+
+  // Helper function to parse date and go back one day
+  const parseDateAndGoBack = (dateStr: string, daysBack: number): string => {
+    const parts = dateStr.split('-');
+    if (parts.length === 3) {
+      const day = parseInt(parts[0]);
+      const month = parseInt(parts[1]) - 1; // JS months are 0-indexed
+      const year = parseInt(parts[2]);
+      const dateObj = new Date(year, month, day);
+      dateObj.setDate(dateObj.getDate() - daysBack);
+      
+      const newDay = String(dateObj.getDate()).padStart(2, '0');
+      const newMonth = String(dateObj.getMonth() + 1).padStart(2, '0');
+      const newYear = dateObj.getFullYear();
+      return `${newDay}-${newMonth}-${newYear}`;
+    }
+    return dateStr;
+  };
+
+  // Fetch horoscope data from backend
+  useEffect(() => {
+    const fetchHoroscope = async () => {
+      try {
+        setLoading(true);
+        
+        // Try to get data starting from the requested date, going back up to 7 days
+        let dataFound = false;
+        let attempts = 0;
+        const maxAttempts = 7;
+        
+        while (!dataFound && attempts < maxAttempts) {
+          const targetDate = parseDateAndGoBack(date, attempts);
+          
+          try {
+            const response = await fetch(`http://localhost:8000/api/gunluk/${sign}/${targetDate}`);
+            
+            if (response.ok) {
+              const data = await response.json();
+              setHoroscopeData(data.horoscope);
+              setActualDate(targetDate); // Set the actual date of the fetched data
+              dataFound = true;
+            } else {
+              attempts++;
+            }
+          } catch (err) {
+            attempts++;
+          }
+        }
+        
+        if (!dataFound) {
+          console.error('No horoscope data found in the last 7 days');
+          setHoroscopeData(null);
+        }
+      } catch (error) {
+        console.error('Error fetching horoscope:', error);
+        setHoroscopeData(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchHoroscope();
+  }, [sign, date]);
 
   // Format date to "22 Kasım 2025" format
   const formatDate = (dateStr: string) => {
@@ -111,38 +184,50 @@ export default function ZodiacDetailPage({ params }: { params: Promise<{ sign: s
             <div className="p-8 md:p-10 flex-1 flex flex-col">
               <div className="flex justify-start mb-6">
                 <span className="text-2xl font-khand text-gray-400 uppercase tracking-tighter">
-                  {formatDate(date)}
+                  {formatDate(actualDate)}
                 </span>
               </div>
-              {activeTab === 'general' && (
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                  <p className="text-gray-700 leading-relaxed text-xl font-lora">
-                    Bugün yıldızlar sizin için oldukça parlak. Enerjiniz yüksek ve çevrenizdeki insanları etkileme potansiyeliniz var. 
-                    Yeni başlangıçlar için harika bir gün olabilir. Kendinize güvenin ve içgüdülerinizi takip edin.
-                    (Bu bir örnek metindir. Gerçek veriler daha sonra eklenecektir.)
-                  </p>
+              
+              {loading ? (
+                <div className="flex items-center justify-center py-12">
+                  <div className="animate-pulse text-gray-400 font-lora">Yükleniyor...</div>
                 </div>
-              )}
-              {activeTab === 'love' && (
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                  <p className="text-gray-700 leading-relaxed text-xl font-lora">
-                    Partnerinizle romantik anlar yaşayabilirsiniz. Bekar {zodiac.name} burçları için bugün sürpriz bir tanışma olabilir.
-                    Duygularınızı ifade etmekten çekinmeyin.
-                  </p>
-                </div>
-              )}
-              {activeTab === 'money' && (
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                  <p className="text-gray-700 leading-relaxed text-xl font-lora">
-                    Maddi konularda dikkatli olmanız gereken bir gün. Beklenmedik harcamalar çıkabilir ancak uzun vadeli yatırımlar için fırsatlar da var.
-                  </p>
-                </div>
-              )}
-              {activeTab === 'health' && (
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                  <p className="text-gray-700 leading-relaxed text-xl font-lora">
-                    Enerjiniz yüksek olsa da dinlenmeyi ihmal etmeyin. Bol su içmek ve kısa yürüyüşler yapmak size iyi gelecektir.
-                  </p>
+              ) : horoscopeData ? (
+                <>
+                  {activeTab === 'general' && (
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                      <p className="text-gray-700 leading-relaxed text-xl font-lora">
+                        {horoscopeData.general || 'Bugün için yorum bulunamadı.'}
+                      </p>
+                    </div>
+                  )}
+                  {activeTab === 'love' && (
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                      <p className="text-gray-700 leading-relaxed text-xl font-lora">
+                        {horoscopeData.love || 'Bugün için aşk yorumu bulunamadı.'}
+                      </p>
+                    </div>
+                  )}
+                  {activeTab === 'money' && (
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                      <p className="text-gray-700 leading-relaxed text-xl font-lora">
+                        {horoscopeData.money || 'Bugün için para yorumu bulunamadı.'}
+                      </p>
+                    </div>
+                  )}
+                  {activeTab === 'health' && (
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                      <p className="text-gray-700 leading-relaxed text-xl font-lora">
+                        {horoscopeData.health || 'Bugün için sağlık yorumu bulunamadı.'}
+                      </p>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="flex items-center justify-center py-12">
+                  <div className="text-gray-500 font-lora">
+                    Bu tarih için burç yorumu bulunamadı. Lütfen farklı bir tarih seçin.
+                  </div>
                 </div>
               )}
             </div>
