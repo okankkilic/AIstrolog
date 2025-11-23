@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Sun } from 'lucide-react';
 
 export default function Header() {
   return (
@@ -7,8 +6,8 @@ export default function Header() {
       {/* Top Logo Area */}
       <div className="flex flex-col items-center justify-center py-4">
         <div className="flex flex-col items-center gap-2">
-          <Sun className="h-10 w-10 text-black" strokeWidth={1} />
-          <h1 className="text-5xl font-khand tracking-widest text-black uppercase font-normal">AIstrolog</h1>
+          <img src="/logo/logo.png" alt="AIstrolog Logo" className="h-16 w-16 object-contain" />
+          <h1 className="text-5xl font-khand tracking-widest text-black uppercase font-light">AIstrolog</h1>
         </div>
       </div>
 
