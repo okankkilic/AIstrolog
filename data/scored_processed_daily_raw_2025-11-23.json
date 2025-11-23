@@ -2,47 +2,103 @@
   "metadata": {
     "date": "2025-11-23",
     "total_burcs": 12,
-    "scored_at": "2025-11-23T00:55:25.500569"
+    "scored_at": "2025-11-23T06:37:38.482711"
   },
   "scores": {
     "Koç": {
       "genel": {
-        "score": 95.0,
+        "score": 100,
         "sentiment": "positive",
-        "source_count": 9,
+        "source_count": 10,
         "details": {
-          "positive_count": 32,
-          "negative_count": 19,
-          "positive_score": 51.5,
-          "negative_score": 33.5,
+          "positive_count": 33,
+          "negative_count": 16,
+          "positive_score": 56.5,
+          "negative_score": 25.5,
           "category_boost": 0,
-          "net_score": 18.0
+          "net_score": 31.0
         }
       },
       "aşk": {
-        "score": 93.8,
+        "score": 90.0,
         "sentiment": "positive",
         "source_count": 7,
         "details": {
-          "positive_count": 14,
+          "positive_count": 13,
           "negative_count": 8,
-          "positive_score": 22.5,
-          "negative_score": 15.0,
+          "positive_score": 20.5,
+          "negative_score": 14.5,
           "category_boost": 10,
-          "net_score": 17.5
+          "net_score": 16.0
         }
       },
       "para": {
-        "score": 35.0,
-        "sentiment": "negative",
+        "score": 48.8,
+        "sentiment": "neutral",
         "source_count": 8,
         "details": {
-          "positive_count": 9,
-          "negative_count": 11,
-          "positive_score": 13,
-          "negative_score": 19.0,
+          "positive_count": 8,
+          "negative_count": 8,
+          "positive_score": 12.5,
+          "negative_score": 13.0,
           "category_boost": 0,
-          "net_score": -6.0
+          "net_score": -0.5
+        }
+      },
+      "sağlık": {
+        "score": 57.5,
+        "sentiment": "neutral",
+        "source_count": 6,
+        "details": {
+          "positive_count": 10,
+          "negative_count": 6,
+          "positive_score": 18.5,
+          "negative_score": 10.5,
+          "category_boost": -5,
+          "net_score": 3.0
+        }
+      },
+      "toplam": 76.2,
+      "issues": []
+    },
+    "Boğa": {
+      "genel": {
+        "score": 88.8,
+        "sentiment": "positive",
+        "source_count": 10,
+        "details": {
+          "positive_count": 33,
+          "negative_count": 28,
+          "positive_score": 64.0,
+          "negative_score": 48.5,
+          "category_boost": 0,
+          "net_score": 15.5
+        }
+      },
+      "aşk": {
+        "score": 76.2,
+        "sentiment": "positive",
+        "source_count": 8,
+        "details": {
+          "positive_count": 10,
+          "negative_count": 11,
+          "positive_score": 23.0,
+          "negative_score": 22.5,
+          "category_boost": 10,
+          "net_score": 10.5
+        }
+      },
+      "para": {
+        "score": 100,
+        "sentiment": "positive",
+        "source_count": 10,
+        "details": {
+          "positive_count": 20,
+          "negative_count": 16,
+          "positive_score": 36.5,
+          "negative_score": 26.0,
+          "category_boost": 10,
+          "net_score": 20.5
         }
       },
       "sağlık": {
@@ -50,85 +106,29 @@
         "sentiment": "neutral",
         "source_count": 7,
         "details": {
-          "positive_count": 11,
+          "positive_count": 7,
           "negative_count": 7,
-          "positive_score": 20.5,
-          "negative_score": 13.0,
-          "category_boost": -10,
+          "positive_score": 14,
+          "negative_score": 11.5,
+          "category_boost": -5,
           "net_score": -2.5
         }
       },
-      "toplam": 69.5,
-      "issues": []
-    },
-    "Boğa": {
-      "genel": {
-        "score": 100,
-        "sentiment": "positive",
-        "source_count": 9,
-        "details": {
-          "positive_count": 43,
-          "negative_count": 16,
-          "positive_score": 78.0,
-          "negative_score": 27.0,
-          "category_boost": 0,
-          "net_score": 51.0
-        }
-      },
-      "aşk": {
-        "score": 100,
-        "sentiment": "positive",
-        "source_count": 7,
-        "details": {
-          "positive_count": 10,
-          "negative_count": 4,
-          "positive_score": 19.5,
-          "negative_score": 8.5,
-          "category_boost": 10,
-          "net_score": 21.0
-        }
-      },
-      "para": {
-        "score": 100,
-        "sentiment": "positive",
-        "source_count": 9,
-        "details": {
-          "positive_count": 17,
-          "negative_count": 9,
-          "positive_score": 32.5,
-          "negative_score": 15.5,
-          "category_boost": 15,
-          "net_score": 32.0
-        }
-      },
-      "sağlık": {
-        "score": 42.5,
-        "sentiment": "neutral",
-        "source_count": 5,
-        "details": {
-          "positive_count": 6,
-          "negative_count": 2,
-          "positive_score": 10,
-          "negative_score": 3.0,
-          "category_boost": -10,
-          "net_score": -3.0
-        }
-      },
-      "toplam": 88.5,
+      "toplam": 79.5,
       "issues": []
     },
     "İkizler": {
       "genel": {
-        "score": 70.0,
+        "score": 100,
         "sentiment": "positive",
-        "source_count": 8,
+        "source_count": 9,
         "details": {
-          "positive_count": 35,
-          "negative_count": 29,
-          "positive_score": 56.5,
-          "negative_score": 48.5,
+          "positive_count": 42,
+          "negative_count": 26,
+          "positive_score": 68.0,
+          "negative_score": 42.5,
           "category_boost": 0,
-          "net_score": 8.0
+          "net_score": 25.5
         }
       },
       "aşk": {
@@ -136,68 +136,68 @@
         "sentiment": "positive",
         "source_count": 7,
         "details": {
-          "positive_count": 16,
-          "negative_count": 6,
-          "positive_score": 25.5,
-          "negative_score": 10.0,
-          "category_boost": 5,
-          "net_score": 20.5
+          "positive_count": 21,
+          "negative_count": 9,
+          "positive_score": 34.0,
+          "negative_score": 14.5,
+          "category_boost": 10,
+          "net_score": 29.5
         }
       },
       "para": {
-        "score": 66.2,
-        "sentiment": "neutral",
-        "source_count": 7,
+        "score": 87.5,
+        "sentiment": "positive",
+        "source_count": 8,
         "details": {
-          "positive_count": 14,
-          "negative_count": 9,
-          "positive_score": 23.5,
-          "negative_score": 17.0,
-          "category_boost": 0,
-          "net_score": 6.5
+          "positive_count": 13,
+          "negative_count": 1,
+          "positive_score": 22.5,
+          "negative_score": 2.5,
+          "category_boost": -5,
+          "net_score": 15.0
         }
       },
       "sağlık": {
-        "score": 77.5,
+        "score": 100,
         "sentiment": "positive",
         "source_count": 6,
         "details": {
-          "positive_count": 9,
-          "negative_count": 9,
-          "positive_score": 15.0,
-          "negative_score": 14.0,
-          "category_boost": 10,
-          "net_score": 11.0
+          "positive_count": 12,
+          "negative_count": 8,
+          "positive_score": 19.5,
+          "negative_score": 13.5,
+          "category_boost": 15,
+          "net_score": 21.0
         }
       },
-      "toplam": 78.0,
+      "toplam": 96.9,
       "issues": []
     },
     "Yengeç": {
       "genel": {
         "score": 100,
         "sentiment": "positive",
-        "source_count": 9,
+        "source_count": 10,
         "details": {
-          "positive_count": 36,
-          "negative_count": 17,
-          "positive_score": 60.0,
-          "negative_score": 29.5,
+          "positive_count": 32,
+          "negative_count": 20,
+          "positive_score": 52.0,
+          "negative_score": 32.0,
           "category_boost": 0,
-          "net_score": 30.5
+          "net_score": 20.0
         }
       },
       "aşk": {
         "score": 100,
         "sentiment": "positive",
-        "source_count": 6,
+        "source_count": 7,
         "details": {
-          "positive_count": 17,
-          "negative_count": 9,
-          "positive_score": 35.0,
-          "negative_score": 16.0,
+          "positive_count": 12,
+          "negative_count": 6,
+          "positive_score": 27.0,
+          "negative_score": 10.0,
           "category_boost": 10,
-          "net_score": 29.0
+          "net_score": 27.0
         }
       },
       "para": {
@@ -206,209 +206,209 @@
         "source_count": 6,
         "details": {
           "positive_count": 15,
-          "negative_count": 5,
-          "positive_score": 28.0,
-          "negative_score": 8.5,
-          "category_boost": 10,
-          "net_score": 29.5
-        }
-      },
-      "sağlık": {
-        "score": 97.5,
-        "sentiment": "positive",
-        "source_count": 8,
-        "details": {
-          "positive_count": 16,
-          "negative_count": 4,
-          "positive_score": 25.0,
-          "negative_score": 6.0,
-          "category_boost": 0,
-          "net_score": 19.0
-        }
-      },
-      "toplam": 99.5,
-      "issues": []
-    },
-    "Aslan": {
-      "genel": {
-        "score": 100,
-        "sentiment": "positive",
-        "source_count": 9,
-        "details": {
-          "positive_count": 38,
-          "negative_count": 13,
-          "positive_score": 67.5,
-          "negative_score": 23.0,
-          "category_boost": 0,
-          "net_score": 44.5
-        }
-      },
-      "aşk": {
-        "score": 100,
-        "sentiment": "positive",
-        "source_count": 8,
-        "details": {
-          "positive_count": 21,
-          "negative_count": 7,
-          "positive_score": 32.5,
+          "negative_count": 8,
+          "positive_score": 27.5,
           "negative_score": 11.5,
-          "category_boost": 0,
+          "category_boost": 5,
           "net_score": 21.0
-        }
-      },
-      "para": {
-        "score": 100,
-        "sentiment": "positive",
-        "source_count": 8,
-        "details": {
-          "positive_count": 14,
-          "negative_count": 3,
-          "positive_score": 26.0,
-          "negative_score": 6.0,
-          "category_boost": 5,
-          "net_score": 25.0
-        }
-      },
-      "sağlık": {
-        "score": 81.2,
-        "sentiment": "positive",
-        "source_count": 4,
-        "details": {
-          "positive_count": 13,
-          "negative_count": 3,
-          "positive_score": 22.5,
-          "negative_score": 5.0,
-          "category_boost": -5,
-          "net_score": 12.5
-        }
-      },
-      "toplam": 96.2,
-      "issues": []
-    },
-    "Başak": {
-      "genel": {
-        "score": 100,
-        "sentiment": "positive",
-        "source_count": 9,
-        "details": {
-          "positive_count": 45,
-          "negative_count": 17,
-          "positive_score": 76.0,
-          "negative_score": 26.5,
-          "category_boost": 0,
-          "net_score": 49.5
-        }
-      },
-      "aşk": {
-        "score": 57.5,
-        "sentiment": "neutral",
-        "source_count": 7,
-        "details": {
-          "positive_count": 9,
-          "negative_count": 7,
-          "positive_score": 13.5,
-          "negative_score": 10.5,
-          "category_boost": 0,
-          "net_score": 3.0
-        }
-      },
-      "para": {
-        "score": 100,
-        "sentiment": "positive",
-        "source_count": 9,
-        "details": {
-          "positive_count": 27,
-          "negative_count": 14,
-          "positive_score": 44.5,
-          "negative_score": 23.0,
-          "category_boost": 10,
-          "net_score": 31.5
-        }
-      },
-      "sağlık": {
-        "score": 55.0,
-        "sentiment": "neutral",
-        "source_count": 7,
-        "details": {
-          "positive_count": 12,
-          "negative_count": 4,
-          "positive_score": 19,
-          "negative_score": 7.0,
-          "category_boost": -10,
-          "net_score": 2.0
-        }
-      },
-      "toplam": 80.4,
-      "issues": []
-    },
-    "Terazi": {
-      "genel": {
-        "score": 100,
-        "sentiment": "positive",
-        "source_count": 9,
-        "details": {
-          "positive_count": 39,
-          "negative_count": 17,
-          "positive_score": 70.5,
-          "negative_score": 29.0,
-          "category_boost": 0,
-          "net_score": 41.5
-        }
-      },
-      "aşk": {
-        "score": 100,
-        "sentiment": "positive",
-        "source_count": 7,
-        "details": {
-          "positive_count": 14,
-          "negative_count": 5,
-          "positive_score": 26.0,
-          "negative_score": 7.5,
-          "category_boost": 5,
-          "net_score": 23.5
-        }
-      },
-      "para": {
-        "score": 100,
-        "sentiment": "positive",
-        "source_count": 7,
-        "details": {
-          "positive_count": 17,
-          "negative_count": 10,
-          "positive_score": 31.0,
-          "negative_score": 16.0,
-          "category_boost": 10,
-          "net_score": 25.0
         }
       },
       "sağlık": {
         "score": 91.2,
         "sentiment": "positive",
-        "source_count": 8,
+        "source_count": 7,
         "details": {
-          "positive_count": 17,
+          "positive_count": 13,
           "negative_count": 5,
-          "positive_score": 29.5,
-          "negative_score": 8.0,
-          "category_boost": -5,
+          "positive_score": 23.5,
+          "negative_score": 7.0,
+          "category_boost": 0,
           "net_score": 16.5
         }
       },
       "toplam": 98.2,
       "issues": []
     },
+    "Aslan": {
+      "genel": {
+        "score": 100,
+        "sentiment": "positive",
+        "source_count": 10,
+        "details": {
+          "positive_count": 50,
+          "negative_count": 20,
+          "positive_score": 93.0,
+          "negative_score": 31.5,
+          "category_boost": 0,
+          "net_score": 61.5
+        }
+      },
+      "aşk": {
+        "score": 85.0,
+        "sentiment": "positive",
+        "source_count": 8,
+        "details": {
+          "positive_count": 19,
+          "negative_count": 10,
+          "positive_score": 29.5,
+          "negative_score": 15.5,
+          "category_boost": 0,
+          "net_score": 14.0
+        }
+      },
+      "para": {
+        "score": 100,
+        "sentiment": "positive",
+        "source_count": 7,
+        "details": {
+          "positive_count": 20,
+          "negative_count": 3,
+          "positive_score": 36.5,
+          "negative_score": 6.0,
+          "category_boost": 5,
+          "net_score": 35.5
+        }
+      },
+      "sağlık": {
+        "score": 95.0,
+        "sentiment": "positive",
+        "source_count": 5,
+        "details": {
+          "positive_count": 15,
+          "negative_count": 3,
+          "positive_score": 28.0,
+          "negative_score": 5.0,
+          "category_boost": -5,
+          "net_score": 18.0
+        }
+      },
+      "toplam": 95.2,
+      "issues": []
+    },
+    "Başak": {
+      "genel": {
+        "score": 100,
+        "sentiment": "positive",
+        "source_count": 10,
+        "details": {
+          "positive_count": 34,
+          "negative_count": 19,
+          "positive_score": 56.5,
+          "negative_score": 30.0,
+          "category_boost": 0,
+          "net_score": 26.5
+        }
+      },
+      "aşk": {
+        "score": 36.2,
+        "sentiment": "negative",
+        "source_count": 7,
+        "details": {
+          "positive_count": 6,
+          "negative_count": 9,
+          "positive_score": 8.0,
+          "negative_score": 13.5,
+          "category_boost": 0,
+          "net_score": -5.5
+        }
+      },
+      "para": {
+        "score": 100,
+        "sentiment": "positive",
+        "source_count": 8,
+        "details": {
+          "positive_count": 27,
+          "negative_count": 16,
+          "positive_score": 47.5,
+          "negative_score": 26.5,
+          "category_boost": 10,
+          "net_score": 31.0
+        }
+      },
+      "sağlık": {
+        "score": 43.8,
+        "sentiment": "neutral",
+        "source_count": 7,
+        "details": {
+          "positive_count": 7,
+          "negative_count": 3,
+          "positive_score": 12,
+          "negative_score": 4.5,
+          "category_boost": -10,
+          "net_score": -2.5
+        }
+      },
+      "toplam": 72.8,
+      "issues": []
+    },
+    "Terazi": {
+      "genel": {
+        "score": 100,
+        "sentiment": "positive",
+        "source_count": 10,
+        "details": {
+          "positive_count": 37,
+          "negative_count": 16,
+          "positive_score": 68.5,
+          "negative_score": 28.5,
+          "category_boost": 0,
+          "net_score": 40.0
+        }
+      },
+      "aşk": {
+        "score": 86.2,
+        "sentiment": "positive",
+        "source_count": 7,
+        "details": {
+          "positive_count": 13,
+          "negative_count": 11,
+          "positive_score": 26.5,
+          "negative_score": 17.0,
+          "category_boost": 5,
+          "net_score": 14.5
+        }
+      },
+      "para": {
+        "score": 100,
+        "sentiment": "positive",
+        "source_count": 8,
+        "details": {
+          "positive_count": 20,
+          "negative_count": 6,
+          "positive_score": 36.0,
+          "negative_score": 9.0,
+          "category_boost": 15,
+          "net_score": 42.0
+        }
+      },
+      "sağlık": {
+        "score": 100,
+        "sentiment": "positive",
+        "source_count": 7,
+        "details": {
+          "positive_count": 18,
+          "negative_count": 4,
+          "positive_score": 34.0,
+          "negative_score": 6.5,
+          "category_boost": 5,
+          "net_score": 32.5
+        }
+      },
+      "toplam": 96.5,
+      "issues": []
+    },
     "Akrep": {
       "genel": {
         "score": 100,
         "sentiment": "positive",
-        "source_count": 9,
+        "source_count": 10,
         "details": {
-          "positive_count": 42,
+          "positive_count": 35,
           "negative_count": 23,
-          "positive_score": 70.0,
-          "negative_score": 40.5,
+          "positive_score": 60.0,
+          "negative_score": 37.0,
           "category_boost": 0,
-          "net_score": 29.5
+          "net_score": 23.0
         }
       },
       "aşk": {
@@ -416,12 +416,12 @@
         "sentiment": "positive",
         "source_count": 7,
         "details": {
-          "positive_count": 20,
+          "positive_count": 24,
           "negative_count": 11,
-          "positive_score": 34.5,
-          "negative_score": 19.5,
-          "category_boost": 20,
-          "net_score": 35.0
+          "positive_score": 40.0,
+          "negative_score": 19.0,
+          "category_boost": 10,
+          "net_score": 31.0
         }
       },
       "para": {
@@ -430,166 +430,166 @@
         "source_count": 8,
         "details": {
           "positive_count": 19,
-          "negative_count": 10,
-          "positive_score": 32.0,
-          "negative_score": 17.0,
-          "category_boost": 10,
-          "net_score": 25.0
+          "negative_count": 9,
+          "positive_score": 31.5,
+          "negative_score": 14.5,
+          "category_boost": 5,
+          "net_score": 22.0
         }
       },
       "sağlık": {
-        "score": 40.0,
+        "score": 62.5,
         "sentiment": "neutral",
-        "source_count": 5,
+        "source_count": 6,
         "details": {
-          "positive_count": 6,
-          "negative_count": 5,
-          "positive_score": 9.5,
-          "negative_score": 8.5,
+          "positive_count": 7,
+          "negative_count": 2,
+          "positive_score": 13.5,
+          "negative_score": 3.5,
           "category_boost": -5,
-          "net_score": -4.0
+          "net_score": 5.0
         }
       },
-      "toplam": 88.0,
+      "toplam": 92.5,
       "issues": []
     },
     "Yay": {
       "genel": {
         "score": 100,
         "sentiment": "positive",
-        "source_count": 9,
+        "source_count": 10,
         "details": {
-          "positive_count": 45,
-          "negative_count": 15,
-          "positive_score": 79.0,
-          "negative_score": 24.5,
+          "positive_count": 43,
+          "negative_count": 20,
+          "positive_score": 72.0,
+          "negative_score": 30.5,
           "category_boost": 0,
-          "net_score": 54.5
+          "net_score": 41.5
         }
       },
       "aşk": {
-        "score": 61.2,
+        "score": 51.2,
         "sentiment": "neutral",
-        "source_count": 6,
+        "source_count": 5,
         "details": {
-          "positive_count": 9,
-          "negative_count": 7,
-          "positive_score": 15.5,
-          "negative_score": 11.0,
+          "positive_count": 6,
+          "negative_count": 5,
+          "positive_score": 8.5,
+          "negative_score": 8.0,
           "category_boost": 0,
-          "net_score": 4.5
+          "net_score": 0.5
         }
       },
       "para": {
-        "score": 100,
+        "score": 93.8,
         "sentiment": "positive",
         "source_count": 7,
         "details": {
-          "positive_count": 19,
-          "negative_count": 10,
-          "positive_score": 34.0,
-          "negative_score": 16.5,
+          "positive_count": 17,
+          "negative_count": 13,
+          "positive_score": 28.5,
+          "negative_score": 21.0,
           "category_boost": 10,
-          "net_score": 27.5
+          "net_score": 17.5
         }
       },
       "sağlık": {
-        "score": 71.2,
-        "sentiment": "positive",
-        "source_count": 8,
-        "details": {
-          "positive_count": 10,
-          "negative_count": 4,
-          "positive_score": 15.5,
-          "negative_score": 7.0,
-          "category_boost": 0,
-          "net_score": 8.5
-        }
-      },
-      "toplam": 84.5,
-      "issues": []
-    },
-    "Oğlak": {
-      "genel": {
-        "score": 92.5,
-        "sentiment": "positive",
-        "source_count": 9,
-        "details": {
-          "positive_count": 30,
-          "negative_count": 20,
-          "positive_score": 51.5,
-          "negative_score": 34.5,
-          "category_boost": 0,
-          "net_score": 17.0
-        }
-      },
-      "aşk": {
-        "score": 90.0,
-        "sentiment": "positive",
-        "source_count": 6,
-        "details": {
-          "positive_count": 13,
-          "negative_count": 6,
-          "positive_score": 20.5,
-          "negative_score": 9.5,
-          "category_boost": 5,
-          "net_score": 16.0
-        }
-      },
-      "para": {
         "score": 65.0,
         "sentiment": "neutral",
-        "source_count": 7,
+        "source_count": 8,
         "details": {
-          "positive_count": 9,
-          "negative_count": 7,
-          "positive_score": 17.5,
-          "negative_score": 11.5,
+          "positive_count": 8,
+          "negative_count": 5,
+          "positive_score": 13.5,
+          "negative_score": 7.5,
           "category_boost": 0,
           "net_score": 6.0
         }
       },
-      "sağlık": {
-        "score": 52.5,
-        "sentiment": "neutral",
-        "source_count": 5,
+      "toplam": 79.2,
+      "issues": []
+    },
+    "Oğlak": {
+      "genel": {
+        "score": 100,
+        "sentiment": "positive",
+        "source_count": 10,
         "details": {
-          "positive_count": 7,
-          "negative_count": 4,
-          "positive_score": 13.0,
-          "negative_score": 7.0,
-          "category_boost": -5,
-          "net_score": 1.0
+          "positive_count": 32,
+          "negative_count": 19,
+          "positive_score": 58.0,
+          "negative_score": 28.5,
+          "category_boost": 0,
+          "net_score": 29.5
         }
       },
-      "toplam": 77.0,
+      "aşk": {
+        "score": 82.5,
+        "sentiment": "positive",
+        "source_count": 6,
+        "details": {
+          "positive_count": 11,
+          "negative_count": 7,
+          "positive_score": 18.0,
+          "negative_score": 10.0,
+          "category_boost": 5,
+          "net_score": 13.0
+        }
+      },
+      "para": {
+        "score": 88.8,
+        "sentiment": "positive",
+        "source_count": 8,
+        "details": {
+          "positive_count": 12,
+          "negative_count": 5,
+          "positive_score": 22.5,
+          "negative_score": 7.0,
+          "category_boost": 0,
+          "net_score": 15.5
+        }
+      },
+      "sağlık": {
+        "score": 56.2,
+        "sentiment": "neutral",
+        "source_count": 7,
+        "details": {
+          "positive_count": 8,
+          "negative_count": 8,
+          "positive_score": 15.0,
+          "negative_score": 12.5,
+          "category_boost": 0,
+          "net_score": 2.5
+        }
+      },
+      "toplam": 84.1,
       "issues": []
     },
     "Kova": {
       "genel": {
         "score": 100,
         "sentiment": "positive",
-        "source_count": 9,
+        "source_count": 10,
         "details": {
-          "positive_count": 42,
-          "negative_count": 22,
-          "positive_score": 71.5,
-          "negative_score": 35.5,
+          "positive_count": 43,
+          "negative_count": 23,
+          "positive_score": 72.5,
+          "negative_score": 38.0,
           "category_boost": 0,
-          "net_score": 36.0
+          "net_score": 34.5
         }
       },
       "aşk": {
-        "score": 82.5,
+        "score": 70.0,
         "sentiment": "positive",
-        "source_count": 7,
+        "source_count": 8,
         "details": {
-          "positive_count": 11,
-          "negative_count": 5,
-          "positive_score": 17.0,
-          "negative_score": 9.0,
+          "positive_count": 12,
+          "negative_count": 9,
+          "positive_score": 19.0,
+          "negative_score": 16.0,
           "category_boost": 5,
-          "net_score": 13.0
+          "net_score": 8.0
         }
       },
       "para": {
@@ -597,84 +597,84 @@
         "sentiment": "positive",
         "source_count": 9,
         "details": {
-          "positive_count": 20,
-          "negative_count": 10,
-          "positive_score": 33.5,
-          "negative_score": 15.5,
+          "positive_count": 22,
+          "negative_count": 11,
+          "positive_score": 37.5,
+          "negative_score": 17.0,
           "category_boost": 5,
-          "net_score": 23.0
+          "net_score": 25.5
         }
       },
       "sağlık": {
-        "score": 43.8,
+        "score": 47.5,
         "sentiment": "neutral",
-        "source_count": 4,
+        "source_count": 5,
         "details": {
           "positive_count": 4,
-          "negative_count": 6,
+          "negative_count": 5,
           "positive_score": 7.5,
-          "negative_score": 10.0,
+          "negative_score": 8.5,
           "category_boost": 0,
-          "net_score": -2.5
+          "net_score": -1.0
         }
       },
-      "toplam": 84.4,
+      "toplam": 82.0,
       "issues": []
     },
     "Balık": {
       "genel": {
         "score": 100,
         "sentiment": "positive",
-        "source_count": 9,
+        "source_count": 10,
         "details": {
-          "positive_count": 33,
-          "negative_count": 15,
-          "positive_score": 60.0,
-          "negative_score": 24.0,
+          "positive_count": 34,
+          "negative_count": 21,
+          "positive_score": 63.5,
+          "negative_score": 34.5,
           "category_boost": 0,
-          "net_score": 36.0
+          "net_score": 29.0
         }
       },
       "aşk": {
         "score": 100,
         "sentiment": "positive",
-        "source_count": 7,
+        "source_count": 8,
         "details": {
           "positive_count": 15,
-          "negative_count": 6,
-          "positive_score": 23.0,
-          "negative_score": 9.5,
+          "negative_count": 5,
+          "positive_score": 22.5,
+          "negative_score": 8.5,
           "category_boost": 10,
-          "net_score": 23.5
+          "net_score": 24.0
         }
       },
       "para": {
         "score": 100,
         "sentiment": "positive",
-        "source_count": 6,
+        "source_count": 5,
         "details": {
-          "positive_count": 12,
-          "negative_count": 8,
-          "positive_score": 23.5,
-          "negative_score": 12.0,
+          "positive_count": 11,
+          "negative_count": 6,
+          "positive_score": 21.5,
+          "negative_score": 9.0,
           "category_boost": 15,
-          "net_score": 26.5
+          "net_score": 27.5
         }
       },
       "sağlık": {
-        "score": 43.8,
-        "sentiment": "neutral",
-        "source_count": 4,
+        "score": 26.2,
+        "sentiment": "negative",
+        "source_count": 5,
         "details": {
-          "positive_count": 5,
-          "negative_count": 7,
-          "positive_score": 8.5,
-          "negative_score": 11.0,
-          "category_boost": 0,
-          "net_score": -2.5
+          "positive_count": 6,
+          "negative_count": 9,
+          "positive_score": 10.0,
+          "negative_score": 14.5,
+          "category_boost": -5,
+          "net_score": -9.5
         }
       },
-      "toplam": 88.8,
+      "toplam": 85.2,
       "issues": []
     }
   },
@@ -682,71 +682,66 @@
     "genel_ranking": [
       {
         "burc": "Yengeç",
-        "score": 99.5,
-        "sentiment": null
-      },
-      {
-        "burc": "Terazi",
         "score": 98.2,
         "sentiment": null
       },
       {
+        "burc": "İkizler",
+        "score": 96.9,
+        "sentiment": null
+      },
+      {
+        "burc": "Terazi",
+        "score": 96.5,
+        "sentiment": null
+      },
+      {
         "burc": "Aslan",
-        "score": 96.2,
-        "sentiment": null
-      },
-      {
-        "burc": "Balık",
-        "score": 88.8,
-        "sentiment": null
-      },
-      {
-        "burc": "Boğa",
-        "score": 88.5,
+        "score": 95.2,
         "sentiment": null
       },
       {
         "burc": "Akrep",
-        "score": 88.0,
+        "score": 92.5,
         "sentiment": null
       },
       {
-        "burc": "Yay",
-        "score": 84.5,
-        "sentiment": null
-      },
-      {
-        "burc": "Kova",
-        "score": 84.4,
-        "sentiment": null
-      },
-      {
-        "burc": "Başak",
-        "score": 80.4,
-        "sentiment": null
-      },
-      {
-        "burc": "İkizler",
-        "score": 78.0,
+        "burc": "Balık",
+        "score": 85.2,
         "sentiment": null
       },
       {
         "burc": "Oğlak",
-        "score": 77.0,
+        "score": 84.1,
+        "sentiment": null
+      },
+      {
+        "burc": "Kova",
+        "score": 82.0,
+        "sentiment": null
+      },
+      {
+        "burc": "Boğa",
+        "score": 79.5,
+        "sentiment": null
+      },
+      {
+        "burc": "Yay",
+        "score": 79.2,
         "sentiment": null
       },
       {
         "burc": "Koç",
-        "score": 69.5,
+        "score": 76.2,
+        "sentiment": null
+      },
+      {
+        "burc": "Başak",
+        "score": 72.8,
         "sentiment": null
       }
     ],
     "aşk_ranking": [
-      {
-        "burc": "Boğa",
-        "score": 100,
-        "sentiment": "positive"
-      },
       {
         "burc": "İkizler",
         "score": 100,
@@ -758,16 +753,6 @@
         "sentiment": "positive"
       },
       {
-        "burc": "Aslan",
-        "score": 100,
-        "sentiment": "positive"
-      },
-      {
-        "burc": "Terazi",
-        "score": 100,
-        "sentiment": "positive"
-      },
-      {
         "burc": "Akrep",
         "score": 100,
         "sentiment": "positive"
@@ -779,28 +764,43 @@
       },
       {
         "burc": "Koç",
-        "score": 93.8,
-        "sentiment": "positive"
-      },
-      {
-        "burc": "Oğlak",
         "score": 90.0,
         "sentiment": "positive"
       },
       {
-        "burc": "Kova",
+        "burc": "Terazi",
+        "score": 86.2,
+        "sentiment": "positive"
+      },
+      {
+        "burc": "Aslan",
+        "score": 85.0,
+        "sentiment": "positive"
+      },
+      {
+        "burc": "Oğlak",
         "score": 82.5,
         "sentiment": "positive"
       },
       {
+        "burc": "Boğa",
+        "score": 76.2,
+        "sentiment": "positive"
+      },
+      {
+        "burc": "Kova",
+        "score": 70.0,
+        "sentiment": "positive"
+      },
+      {
         "burc": "Yay",
-        "score": 61.2,
+        "score": 51.2,
         "sentiment": "neutral"
       },
       {
         "burc": "Başak",
-        "score": 57.5,
-        "sentiment": "neutral"
+        "score": 36.2,
+        "sentiment": "negative"
       }
     ],
     "para_ranking": [
@@ -835,11 +835,6 @@
         "sentiment": "positive"
       },
       {
-        "burc": "Yay",
-        "score": 100,
-        "sentiment": "positive"
-      },
-      {
         "burc": "Kova",
         "score": 100,
         "sentiment": "positive"
@@ -850,91 +845,96 @@
         "sentiment": "positive"
       },
       {
-        "burc": "İkizler",
-        "score": 66.2,
-        "sentiment": "neutral"
+        "burc": "Yay",
+        "score": 93.8,
+        "sentiment": "positive"
       },
       {
         "burc": "Oğlak",
-        "score": 65.0,
-        "sentiment": "neutral"
+        "score": 88.8,
+        "sentiment": "positive"
+      },
+      {
+        "burc": "İkizler",
+        "score": 87.5,
+        "sentiment": "positive"
       },
       {
         "burc": "Koç",
-        "score": 35.0,
-        "sentiment": "negative"
+        "score": 48.8,
+        "sentiment": "neutral"
       }
     ],
     "sağlık_ranking": [
       {
-        "burc": "Yengeç",
-        "score": 97.5,
+        "burc": "İkizler",
+        "score": 100,
         "sentiment": "positive"
       },
       {
         "burc": "Terazi",
-        "score": 91.2,
+        "score": 100,
         "sentiment": "positive"
       },
       {
         "burc": "Aslan",
-        "score": 81.2,
+        "score": 95.0,
         "sentiment": "positive"
       },
       {
-        "burc": "İkizler",
-        "score": 77.5,
+        "burc": "Yengeç",
+        "score": 91.2,
         "sentiment": "positive"
       },
       {
         "burc": "Yay",
-        "score": 71.2,
-        "sentiment": "positive"
-      },
-      {
-        "burc": "Başak",
-        "score": 55.0,
+        "score": 65.0,
         "sentiment": "neutral"
       },
       {
-        "burc": "Oğlak",
-        "score": 52.5,
+        "burc": "Akrep",
+        "score": 62.5,
         "sentiment": "neutral"
       },
       {
         "burc": "Koç",
-        "score": 43.8,
+        "score": 57.5,
+        "sentiment": "neutral"
+      },
+      {
+        "burc": "Oğlak",
+        "score": 56.2,
         "sentiment": "neutral"
       },
       {
         "burc": "Kova",
+        "score": 47.5,
+        "sentiment": "neutral"
+      },
+      {
+        "burc": "Boğa",
+        "score": 43.8,
+        "sentiment": "neutral"
+      },
+      {
+        "burc": "Başak",
         "score": 43.8,
         "sentiment": "neutral"
       },
       {
         "burc": "Balık",
-        "score": 43.8,
-        "sentiment": "neutral"
-      },
-      {
-        "burc": "Boğa",
-        "score": 42.5,
-        "sentiment": "neutral"
-      },
-      {
-        "burc": "Akrep",
-        "score": 40.0,
-        "sentiment": "neutral"
+        "score": 26.2,
+        "sentiment": "negative"
       }
     ],
     "leaders": {
       "en_şanslı": {
         "burc": "Yengeç",
-        "score": 99.5,
+        "score": 98.2,
         "sentiment": null
       },
       "en_aşık": {
-        "burc": "Boğa",
+        "burc": "İkizler",
         "score": 100,
         "sentiment": "positive"
       },
@@ -944,13 +944,13 @@
         "sentiment": "positive"
       },
       "en_sağlıklı": {
-        "burc": "Yengeç",
-        "score": 97.5,
+        "burc": "İkizler",
+        "score": 100,
         "sentiment": "positive"
       },
       "en_şanssız": {
-        "burc": "Koç",
-        "score": 69.5,
+        "burc": "Başak",
+        "score": 72.8,
         "sentiment": null
       }
     }
