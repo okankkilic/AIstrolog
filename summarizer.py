@@ -16,6 +16,15 @@ import re
 from typing import Dict, List, Optional, Tuple
 from collections import defaultdict
 import logging
+import numpy as np
+
+# Try to import ML libraries (optional)
+try:
+    from sentence_transformers import SentenceTransformer
+    ML_AVAILABLE = True
+except ImportError:
+    ML_AVAILABLE = False
+    logging.warning("⚠️  sentence-transformers not available. Using basic similarity.")
 
 # Setup logging
 logging.basicConfig(
@@ -49,14 +58,64 @@ class TurkishHoroscopeSummarizer:
         'sağlık': ['sağlık', 'enerji', 'stres', 'egzersiz', 'spor', 'beslenme', 'uyku', 'yorgun', 'dinlen']
     }
     
-    def __init__(self, similarity_threshold: float = 0.7):
+    # Safe synonyms for word variation (Turkish horoscope context)
+    SYNONYMS = {
+        'şanslı': ['avantajlı', 'iyi durumda'],
+        'şans': ['fırsat'],
+        'şanslısınız': ['avantajlısınız', 'iyi bir konumdasınız'],
+        'partner': ['sevgili'],
+        'partneriniz': ['sevgiliniz'],
+        'partnerinizle': ['sevgilinizle'],
+        'dikkatli': ['özenli'],
+        'güçlü': ['sağlam'],
+        'güçlenecek': ['güç kazanacak', 'daha da iyi hale gelecek'],
+        'enerji': ['motivasyon'],
+        'iletişim': ['konuşma', 'diyalog'],
+        'ilişki': ['yakınlık'],
+        'önemli': ['belirleyici'],
+        'harcama': ['gider'],
+        'kazanç': ['gelir'],
+        'yatırım': ['birikim'],
+        'pozitif': ['olumlu'],
+        'negatif': ['olumsuz'],
+        'fırsat': ['imkan'],
+        'gelişme': ['ilerleme'],
+        'dönüşüm': ['değişim'],
+        'karşılaşabilirsiniz': ['denk gelebilirsiniz'],
+        'yaşayabilirsiniz': ['deneyimleyebilirsiniz'],
+        'yapabilirsiniz': ['gerçekleştirebilirsiniz'],
+        'olabilir': ['mümkün'],
+        'zaman': ['dönem'],
+        'sorun': ['problem'],
+        'çözüm': ['çıkış yolu'],
+    }
+    
+    def __init__(self, similarity_threshold: float = 0.7, use_ml: bool = True, synonym_ratio: float = 0.0):
         """
         Initialize the summarizer.
         
         Args:
             similarity_threshold: Threshold for considering sentences as duplicates (0.0-1.0)
+            use_ml: Whether to use ML-based semantic similarity (requires sentence-transformers)
+            synonym_ratio: Ratio of words to replace with synonyms (0.0=no changes, 0.3=recommended, 1.0=max)
         """
         self.similarity_threshold = similarity_threshold
+        self.use_ml = use_ml and ML_AVAILABLE
+        self.synonym_ratio = max(0.0, min(1.0, synonym_ratio))  # Clamp between 0.0 and 1.0
+        self.model = None
+        
+        # Load ML model if requested and available
+        if self.use_ml:
+            try:
+                logger.info("🤖 Loading ML model (paraphrase-multilingual-MiniLM-L12-v2)...")
+                self.model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+                logger.info("✅ ML model loaded successfully")
+            except Exception as e:
+                logger.warning(f"⚠️  Could not load ML model: {e}. Falling back to basic similarity.")
+                self.use_ml = False
+                self.model = None
+        else:
+            logger.info("📊 Using basic word-overlap similarity (fast mode)")
         
     def load_data(self, json_path: str) -> Dict:
         """Load horoscope data from JSON file."""
@@ -95,6 +154,8 @@ class TurkishHoroscopeSummarizer:
             return ""
         
         discourse_markers = [
+            r'^Peki ya aşk\??\.?\s*',
+            r'^Peki ya\s+\w+\??\.?\s*',
             r'^Ayrıca,?\s+',
             r'^Aynı zamanda,?\s+',
             r'^Bunun yanında,?\s+',
@@ -114,6 +175,55 @@ class TurkishHoroscopeSummarizer:
             text = re.sub(marker, '', text, flags=re.IGNORECASE)
         
         return text.strip()
+    
+    def apply_synonyms(self, text: str) -> str:
+        """
+        Apply synonym replacement to text based on synonym_ratio.
+        Replaces words with safe synonyms to add variation while preserving meaning.
+        """
+        if not text or self.synonym_ratio == 0.0:
+            return text
+        
+        import random
+        random.seed(hash(text) % 2**32)  # Deterministic randomness based on text
+        
+        words = text.split()
+        modified_words = []
+        
+        # Collect all replaceable words with their indices
+        replaceable = []
+        for i, word in enumerate(words):
+            word_lower = word.lower().rstrip('.,!?;:')  # Remove punctuation for matching
+            if word_lower in self.SYNONYMS:
+                replaceable.append(i)
+        
+        # Determine how many words to replace
+        if len(replaceable) > 0:
+            num_to_replace = max(1, int(len(replaceable) * self.synonym_ratio))
+            # Select random indices to replace
+            indices_to_replace = set(random.sample(replaceable, min(num_to_replace, len(replaceable))))
+        else:
+            indices_to_replace = set()
+        
+        # Build the modified text
+        for i, word in enumerate(words):
+            if i in indices_to_replace:
+                # Extract punctuation
+                word_clean = word.rstrip('.,!?;:')
+                punctuation = word[len(word_clean):]
+                
+                word_lower = word_clean.lower()
+                synonym = random.choice(self.SYNONYMS[word_lower])
+                
+                # Preserve capitalization
+                if word_clean and word_clean[0].isupper():
+                    synonym = synonym.capitalize()
+                
+                modified_words.append(synonym + punctuation)
+            else:
+                modified_words.append(word)
+        
+        return ' '.join(modified_words)
     
     def split_sentences(self, text: str) -> List[str]:
         """Split text into sentences (Turkish-aware)."""
@@ -137,12 +247,27 @@ class TurkishHoroscopeSummarizer:
     
     def calculate_sentence_similarity(self, sent1: str, sent2: str) -> float:
         """
-        Calculate similarity between two sentences using word overlap.
+        Calculate similarity between two sentences.
+        Uses semantic similarity (ML) or word overlap (basic) based on configuration.
         Returns value between 0.0 (no similarity) and 1.0 (identical).
         """
         if not sent1 or not sent2:
             return 0.0
         
+        # Use ML-based semantic similarity if available
+        if self.use_ml and self.model is not None:
+            try:
+                embeddings = self.model.encode([sent1, sent2])
+                # Cosine similarity
+                similarity = np.dot(embeddings[0], embeddings[1]) / (
+                    np.linalg.norm(embeddings[0]) * np.linalg.norm(embeddings[1])
+                )
+                return float(similarity)
+            except Exception as e:
+                logger.warning(f"⚠️  ML similarity failed: {e}. Using fallback.")
+                # Fall through to basic similarity
+        
+        # Basic word overlap (fallback or default)
         # Normalize and tokenize
         words1 = set(sent1.lower().split()) - self.TURKISH_STOPWORDS
         words2 = set(sent2.lower().split()) - self.TURKISH_STOPWORDS
@@ -192,8 +317,77 @@ class TurkishHoroscopeSummarizer:
         
         return score
     
-    def extract_top_sentences(self, sentences: List[str], category: str, max_sentences: int = 3) -> List[str]:
-        """Extract top N most important sentences for a category."""
+    def extract_top_sentences_mmr(self, sentences: List[str], category: str, max_sentences: int = 3, lambda_param: float = 0.7) -> List[str]:
+        """Extract top N sentences using MMR (Maximal Marginal Relevance) for diversity."""
+        if not sentences or not self.use_ml or self.model is None:
+            # Fallback to basic extraction
+            return self.extract_top_sentences_basic(sentences, category, max_sentences)
+        
+        try:
+            # Encode all sentences
+            embeddings = self.model.encode(sentences)
+            
+            # Score each sentence for category relevance
+            relevance_scores = np.array([
+                self.score_sentence_importance(sent, category)
+                for sent in sentences
+            ])
+            
+            # Normalize relevance scores to 0-1
+            if relevance_scores.max() > 0:
+                relevance_scores = relevance_scores / relevance_scores.max()
+            
+            # MMR algorithm
+            selected_indices = []
+            selected_embeddings = []
+            
+            # Select first sentence (highest relevance)
+            if len(relevance_scores) > 0:
+                first_idx = int(np.argmax(relevance_scores))
+                selected_indices.append(first_idx)
+                selected_embeddings.append(embeddings[first_idx])
+            
+            # Select remaining sentences
+            while len(selected_indices) < max_sentences and len(selected_indices) < len(sentences):
+                remaining_indices = [i for i in range(len(sentences)) if i not in selected_indices]
+                
+                if not remaining_indices:
+                    break
+                
+                mmr_scores = []
+                for idx in remaining_indices:
+                    # Relevance component
+                    relevance = relevance_scores[idx]
+                    
+                    # Diversity component (max similarity to already selected)
+                    if selected_embeddings:
+                        similarities = [
+                            np.dot(embeddings[idx], sel_emb) / (
+                                np.linalg.norm(embeddings[idx]) * np.linalg.norm(sel_emb)
+                            )
+                            for sel_emb in selected_embeddings
+                        ]
+                        max_similarity = max(similarities)
+                    else:
+                        max_similarity = 0
+                    
+                    # MMR score: balance relevance and diversity
+                    mmr_score = lambda_param * relevance - (1 - lambda_param) * max_similarity
+                    mmr_scores.append((idx, mmr_score))
+                
+                # Select sentence with highest MMR score
+                best_idx = max(mmr_scores, key=lambda x: x[1])[0]
+                selected_indices.append(best_idx)
+                selected_embeddings.append(embeddings[best_idx])
+            
+            return [sentences[i] for i in selected_indices]
+            
+        except Exception as e:
+            logger.warning(f"⚠️  MMR extraction failed: {e}. Using fallback.")
+            return self.extract_top_sentences_basic(sentences, category, max_sentences)
+    
+    def extract_top_sentences_basic(self, sentences: List[str], category: str, max_sentences: int = 3) -> List[str]:
+        """Extract top N most important sentences for a category (basic method)."""
         if not sentences:
             return []
         
@@ -210,6 +404,13 @@ class TurkishHoroscopeSummarizer:
         top_sentences = [sent for sent, score in scored_sentences[:max_sentences]]
         
         return top_sentences
+    
+    def extract_top_sentences(self, sentences: List[str], category: str, max_sentences: int = 3) -> List[str]:
+        """Extract top N most important sentences (uses MMR if ML available, else basic)."""
+        if self.use_ml and self.model is not None:
+            return self.extract_top_sentences_mmr(sentences, category, max_sentences)
+        else:
+            return self.extract_top_sentences_basic(sentences, category, max_sentences)
     
     def summarize_category(self, 
                           zodiac_sign: str, 
@@ -268,19 +469,26 @@ class TurkishHoroscopeSummarizer:
         # Join into coherent summary - ensure proper punctuation
         # Add period to sentences that don't end with punctuation
         # Capitalize first letter of each sentence
-        # Remove discourse markers ONLY from first sentence
+        # Remove discourse markers and filter "Peki ya" sentences
         formatted_sentences = []
         for i, sentence in enumerate(top_sentences):
             sentence = sentence.strip()
             if sentence:
-                # Remove discourse marker from FIRST sentence only
-                if i == 0:
-                    sentence = self.remove_discourse_marker(sentence)
-                    if not sentence:  # If entire sentence was just a marker, skip
-                        continue
+                # Remove discourse marker from ALL sentences
+                sentence = self.remove_discourse_marker(sentence)
+                if not sentence:  # If entire sentence was just a marker, skip
+                    continue
                 
-                # Capitalize first letter
-                sentence = sentence[0].upper() + sentence[1:] if len(sentence) > 1 else sentence.upper()
+                # Filter out "Peki ya" sentences completely
+                if re.match(r'^peki\s+ya\b', sentence, re.IGNORECASE):
+                    continue
+                
+                # Apply synonym replacement if enabled
+                if self.synonym_ratio > 0.0:
+                    sentence = self.apply_synonyms(sentence)
+                
+                # Normalize case - only first letter uppercase, rest lowercase
+                sentence = sentence[0].upper() + sentence[1:].lower() if len(sentence) > 1 else sentence.upper()
                 # Add period if missing
                 if not sentence[-1] in '.!?':
                     sentence += '.'
@@ -312,6 +520,8 @@ class TurkishHoroscopeSummarizer:
         stats = defaultdict(int)
         
         logger.info("🔄 Starting summarization...")
+        logger.info(f"🤖 Mode: {'ML-based (Sentence Transformers + MMR)' if self.use_ml else 'Basic (Word Overlap)'}")
+        logger.info(f"📝 Synonym variation: {self.synonym_ratio:.0%} ({['disabled', 'light', 'moderate', 'heavy'][min(3, int(self.synonym_ratio * 4))]})")
         logger.info(f"📊 Processing {len(zodiac_signs)} zodiac signs × {len(categories)} categories")
         
         for sign in zodiac_signs:
@@ -412,8 +622,12 @@ def main():
     print(f"💾 Output: {output_path}")
     print("="*60 + "\n")
     
-    # Initialize summarizer
-    summarizer = TurkishHoroscopeSummarizer(similarity_threshold=0.7)
+    # Initialize summarizer (use synonym_ratio=0.2 for light variation)
+    summarizer = TurkishHoroscopeSummarizer(
+        similarity_threshold=0.7,
+        use_ml=True,
+        synonym_ratio=0.2  # 20% word variation for uniqueness
+    )
     
     # Load data
     data = summarizer.load_data(input_path)

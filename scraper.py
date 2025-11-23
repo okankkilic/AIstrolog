@@ -9,6 +9,7 @@ import json
 import logging
 import os
 import random
+import re
 import time
 from datetime import datetime
 from typing import Dict, Optional
@@ -152,13 +153,26 @@ def scrape_milliyet() -> Optional[Dict]:
                     
                     yorum_dict = {"genel": None, "aşk": None, "para": None, "sağlık": None}
                     
-                    # Tüm paragrafları birleştir - hepsini genel'e ekle
+                    # Tüm paragrafları birleştir - hepsini genel'e ekle (etiketleri temizleyerek)
                     all_texts = []
+                    
+                    # Kategori etiketleri (temizlemek için)
+                    category_labels = ['iş:', 'aşk:', 'para:', 'kariyer:', 'sağlık:', 'ilişkiler:']
                     
                     for p in paragraphs:
                         text = clean_text(p.get_text())
                         if text and len(text) > 5:
-                            all_texts.append(text)
+                            # Kategori etiketlerini temizle
+                            text_clean = text
+                            for label in category_labels:
+                                # Case-insensitive replace
+                                if text_clean.lower().startswith(label):
+                                    text_clean = text_clean[len(label):].strip()
+                                    break
+                                # Etiket cümle içinde de olabilir
+                                text_clean = re.sub(rf'\b{label}\s*', '', text_clean, flags=re.IGNORECASE)
+                            
+                            all_texts.append(text_clean)
                         
                         text_lower = text.lower()
                         
@@ -170,7 +184,7 @@ def scrape_milliyet() -> Optional[Dict]:
                         elif 'aşk' in text_lower and ('ilişki' in text_lower or 'i̇lişki' in text_lower):
                             yorum_dict["aşk"] = text.split(':', 1)[1].strip() if ':' in text else text
                     
-                    # Tüm metni genel'e ekle
+                    # Tüm metni genel'e ekle (etiketler temizlenmiş haliyle)
                     if all_texts:
                         yorum_dict["genel"] = ' '.join(all_texts)
                     

@@ -621,23 +621,23 @@ def print_rankings_summary(rankings: Dict):
         
         print(f"{medal} {item['burc']:12} → {item['score']:5.1f}/100 {stars}")
     
-    # Kategori sıralamaları (Top 3)
-    print("\n❤️  AŞK SIRALAMASI (Top 3):")
+    # Kategori sıralamaları (Tüm 12 Burç)
+    print("\n❤️  AŞK SIRALAMASI:")
     print("-" * 80)
-    for i, item in enumerate(rankings['aşk_ranking'][:3]):
-        medal = medals.get(i, f"{i+1}.")
+    for i, item in enumerate(rankings['aşk_ranking']):
+        medal = medals.get(i, f"{i+1:2d}.")
         print(f"{medal} {item['burc']:12} → {item['score']:5.1f}/100")
     
-    print("\n💰 PARA SIRALAMASI (Top 3):")
+    print("\n💰 PARA SIRALAMASI:")
     print("-" * 80)
-    for i, item in enumerate(rankings['para_ranking'][:3]):
-        medal = medals.get(i, f"{i+1}.")
+    for i, item in enumerate(rankings['para_ranking']):
+        medal = medals.get(i, f"{i+1:2d}.")
         print(f"{medal} {item['burc']:12} → {item['score']:5.1f}/100")
     
-    print("\n🏃 SAĞLIK SIRALAMASI (Top 3):")
+    print("\n🏃 SAĞLIK SIRALAMASI:")
     print("-" * 80)
-    for i, item in enumerate(rankings['sağlık_ranking'][:3]):
-        medal = medals.get(i, f"{i+1}.")
+    for i, item in enumerate(rankings['sağlık_ranking']):
+        medal = medals.get(i, f"{i+1:2d}.")
         print(f"{medal} {item['burc']:12} → {item['score']:5.1f}/100")
     
     print("\n" + "=" * 80)
