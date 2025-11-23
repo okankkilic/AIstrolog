@@ -1,12 +1,14 @@
 """
-Complete Pipeline: Scrape → Categorize → Summarize
-==================================================
+Complete Pipeline: Scrape → Categorize → Summarize → Score → Rank
+==================================================================
 
 This script runs the complete horoscope data pipeline:
 1. Scrapes data from 11 sources
 2. Categorizes into love, money, health
 3. Summarizes predictions from all sources
-4. Tests the workflow
+4. Scores predictions with sentiment analysis
+5. Creates rankings and updates history
+6. Tests the workflow
 """
 
 import subprocess
@@ -35,7 +37,7 @@ def main():
     """Run complete pipeline."""
     print("🌟 Complete Horoscope Data Pipeline")
     print("="*60)
-    print("Steps: Scrape → Categorize → Summarize → Test")
+    print("Steps: Scrape → Categorize → Summarize → Score → Rank → Test")
     print("="*60)
     
     # Get today's date for filenames
@@ -44,6 +46,7 @@ def main():
     raw_file = f"data/daily_raw_{today}.json"
     processed_file = f"data/processed_daily_raw_{today}.json"
     summary_file = f"data/summarized_processed_daily_raw_{today}.json"
+    scored_file = f"data/scored_processed_daily_raw_{today}.json"
     
     # Step 1: Scrape
     if not run_command("python scraper.py", "STEP 1: Scraping horoscope data"):
@@ -75,7 +78,22 @@ def main():
         print(f"\n❌ Expected file not found: {summary_file}")
         return 1
     
-    # Step 4: Test (optional)
+    # Step 4: Score
+    if not run_command(f"python scorer.py {processed_file}", "STEP 4: Scoring predictions"):
+        print("\n❌ Scoring failed!")
+        return 1
+    
+    # Check if scored file exists
+    if not os.path.exists(scored_file):
+        print(f"\n❌ Expected file not found: {scored_file}")
+        return 1
+    
+    # Step 5: Rank
+    if not run_command(f"python ranker.py {scored_file}", "STEP 5: Creating rankings"):
+        print("\n❌ Ranking failed!")
+        return 1
+    
+    # Step 6: Test (optional)
     print(f"\n{'='*60}")
     print("✅ STEP 4: Testing workflow (optional)")
     print('='*60)
@@ -93,12 +111,14 @@ def main():
     print(f"   Raw data:        {raw_file}")
     print(f"   Categorized:     {processed_file}")
     print(f"   Summarized:      {summary_file}")
+    print(f"   Scored:          {scored_file}")
+    print(f"   Rankings:        data/rankings_history.json")
     
     # Show file sizes
     if os.path.exists(raw_file):
         size = os.path.getsize(raw_file) / 1024
         print(f"\n📊 File sizes:")
-        print(f"   Raw:        {size:.1f} KB")
+        print(f"   Raw:         {size:.1f} KB")
     
     if os.path.exists(processed_file):
         size = os.path.getsize(processed_file) / 1024
@@ -107,6 +127,10 @@ def main():
     if os.path.exists(summary_file):
         size = os.path.getsize(summary_file) / 1024
         print(f"   Summarized:  {size:.1f} KB")
+    
+    if os.path.exists(scored_file):
+        size = os.path.getsize(scored_file) / 1024
+        print(f"   Scored:      {size:.1f} KB")
     
     print("\n✨ All done! Your horoscope data is ready to use.")
     

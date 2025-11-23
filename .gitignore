@@ -23,6 +23,9 @@ ENV/
 *.log
 scraper_test.log
 
+# Test files
+test_synonym*.py
+
 # OS
 .DS_Store
 Thumbs.db
