@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Trophy, Heart, Coins, Activity } from 'lucide-react';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
+import { fetchRankings } from '@/utils/calculateRankings';
 
 interface SignRanking {
   sign: string;
@@ -27,64 +28,23 @@ export default function RankingsPage() {
   const [rankingsData, setRankingsData] = useState<RankingsData | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Get today's date in DD-MM-YYYY format
-  const getTodayDate = () => {
-    const today = new Date();
-    return `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
-  };
-
-  // Get date in DD-MM-YYYY format from Date object
-  const formatDate = (date: Date) => {
-    return `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`;
-  };
-
   useEffect(() => {
-    const fetchRankings = async () => {
+    const loadRankings = async () => {
       try {
         setLoading(true);
         
-        // Try to get data starting from today, going back up to 7 days
-        let dataFound = false;
-        let currentDate = new Date();
-        let attempts = 0;
-        const maxAttempts = 7;
-        
-        while (!dataFound && attempts < maxAttempts) {
-          const dateStr = formatDate(currentDate);
-          
-          try {
-            // Add period query parameter
-            const response = await fetch(`http://localhost:8000/api/rankings/${dateStr}?period=${period}`);
-            
-            if (response.ok) {
-              const data = await response.json();
-              setRankingsData(data.rankings);
-              dataFound = true;
-            } else {
-              // Go back one day
-              currentDate.setDate(currentDate.getDate() - 1);
-              attempts++;
-            }
-          } catch (err) {
-            // Go back one day
-            currentDate.setDate(currentDate.getDate() - 1);
-            attempts++;
-          }
-        }
-        
-        if (!dataFound) {
-          console.error('No ranking data found in the last 7 days');
-          setRankingsData(null);
-        }
+        // Try backend first (localhost), fallback to client-side calculation
+        const data = await fetchRankings(period, 'http://localhost:8000');
+        setRankingsData(data);
       } catch (error) {
-        console.error('Error fetching rankings:', error);
+        console.error('Error loading rankings:', error);
         setRankingsData(null);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchRankings();
+    loadRankings();
   }, [period]);
 
   // Get current category data
