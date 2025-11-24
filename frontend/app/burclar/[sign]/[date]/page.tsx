@@ -4,6 +4,7 @@ import { useState, use, useEffect } from 'react';
 import { Heart, Coins, Activity, Star } from 'lucide-react';
 import clsx from 'clsx';
 import { notFound } from 'next/navigation';
+import { fetchHoroscopeWithFallback } from '@/utils/fetchHoroscope';
 
 const ZODIAC_SIGNS = {
   koc: { name: 'Koç', symbol: '♈', date: '21 Mart - 19 Nisan' },
@@ -43,67 +44,35 @@ export default function ZodiacDetailPage({ params }: { params: Promise<{ sign: s
     notFound();
   }
 
-  // Helper function to parse date and go back one day
-  const parseDateAndGoBack = (dateStr: string, daysBack: number): string => {
-    const parts = dateStr.split('-');
-    if (parts.length === 3) {
-      const day = parseInt(parts[0]);
-      const month = parseInt(parts[1]) - 1; // JS months are 0-indexed
-      const year = parseInt(parts[2]);
-      const dateObj = new Date(year, month, day);
-      dateObj.setDate(dateObj.getDate() - daysBack);
-      
-      const newDay = String(dateObj.getDate()).padStart(2, '0');
-      const newMonth = String(dateObj.getMonth() + 1).padStart(2, '0');
-      const newYear = dateObj.getFullYear();
-      return `${newDay}-${newMonth}-${newYear}`;
-    }
-    return dateStr;
-  };
-
-  // Fetch horoscope data from backend
+  // Fetch horoscope data with backend fallback
   useEffect(() => {
-    const fetchHoroscope = async () => {
+    const loadHoroscope = async () => {
       try {
         setLoading(true);
         
-        // Try to get data starting from the requested date, going back up to 7 days
-        let dataFound = false;
-        let attempts = 0;
-        const maxAttempts = 7;
+        // Try backend first (localhost), fallback to JSON
+        const result = await fetchHoroscopeWithFallback(
+          sign,
+          date,
+          7,
+          'http://localhost:8000'
+        );
         
-        while (!dataFound && attempts < maxAttempts) {
-          const targetDate = parseDateAndGoBack(date, attempts);
-          
-          try {
-            const response = await fetch(`http://localhost:8000/api/gunluk/${sign}/${targetDate}`);
-            
-            if (response.ok) {
-              const data = await response.json();
-              setHoroscopeData(data.horoscope);
-              setActualDate(targetDate); // Set the actual date of the fetched data
-              dataFound = true;
-            } else {
-              attempts++;
-            }
-          } catch (err) {
-            attempts++;
-          }
-        }
-        
-        if (!dataFound) {
-          console.error('No horoscope data found in the last 7 days');
+        if (result) {
+          setHoroscopeData(result.data);
+          setActualDate(result.actualDate);
+        } else {
           setHoroscopeData(null);
         }
       } catch (error) {
-        console.error('Error fetching horoscope:', error);
+        console.error('Error loading horoscope:', error);
         setHoroscopeData(null);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchHoroscope();
+    loadHoroscope();
   }, [sign, date]);
 
   // Format date to "22 Kasım 2025" format
