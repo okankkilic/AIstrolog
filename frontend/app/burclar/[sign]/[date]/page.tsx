@@ -30,31 +30,6 @@ interface HoroscopeData {
   health: string;
 }
 
-// Generate static paths for last 7 days × 12 signs = 84 pages
-export async function generateStaticParams() {
-  const signs = ['koc', 'boga', 'ikizler', 'yengec', 'aslan', 'basak', 'terazi', 'akrep', 'yay', 'oglak', 'kova', 'balik'];
-  const dates: string[] = [];
-  
-  // Generate last 7 days in DD-MM-YYYY format
-  const today = new Date();
-  for (let i = 0; i < 7; i++) {
-    const date = new Date(today);
-    date.setDate(date.getDate() - i);
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    dates.push(`${day}-${month}-${year}`);
-  }
-  
-  // Generate all combinations
-  return signs.flatMap(sign => 
-    dates.map(date => ({
-      sign,
-      date
-    }))
-  );
-}
-
 export default function ZodiacDetailPage({ params }: { params: Promise<{ sign: string; date: string }> }) {
   const resolvedParams = use(params);
   const { sign, date } = resolvedParams;
