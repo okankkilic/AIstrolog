@@ -154,6 +154,8 @@ class TurkishHoroscopeSummarizer:
             return ""
         
         discourse_markers = [
+            r'^(Aşk|Para|Sağlık|Genel)[–-]\s*',
+            r'^Sevgili\s+\w+,?\s+',  # "Sevgili Koç,", "Sevgili kova," etc.
             r'^Peki ya aşk\??\.?\s*',
             r'^Peki ya\s+\w+\??\.?\s*',
             r'^Ayrıca,?\s+',
