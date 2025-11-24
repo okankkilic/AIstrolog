@@ -18,6 +18,9 @@ const lora = Lora({
 export const metadata: Metadata = {
   title: "AIstrolog - Günlük Burç Yorumları",
   description: "Yapay zeka destekli günlük burç yorumları ve analizleri.",
+  icons: {
+    icon: '/logo/tab.png',
+  },
 };
 
 export default function RootLayout({
