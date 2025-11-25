@@ -33,7 +33,7 @@ export default function Home() {
             Günlük yorumunuzu okumak için burcunuza tıklayın.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-1 md:gap-8">
           {ZODIAC_SIGNS.map((sign) => (
             <Link
               key={sign.name}
