@@ -165,28 +165,32 @@ export default function ZodiacDetailPage({ params }: { params: Promise<{ sign: s
                 <>
                   {activeTab === 'general' && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                      <p className="text-gray-700 leading-relaxed text-xl font-lora">
+                      {/* GÜNCELLENDİ: text-base (mobil) md:text-xl (masaüstü) */}
+                      <p className="text-gray-700 leading-relaxed text-base md:text-xl font-lora">
                         {horoscopeData.general || 'Bugün için yorum bulunamadı.'}
                       </p>
                     </div>
                   )}
                   {activeTab === 'love' && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                      <p className="text-gray-700 leading-relaxed text-xl font-lora">
+                      {/* GÜNCELLENDİ: text-base (mobil) md:text-xl (masaüstü) */}
+                      <p className="text-gray-700 leading-relaxed text-base md:text-xl font-lora">
                         {horoscopeData.love || 'Bugün için aşk yorumu bulunamadı.'}
                       </p>
                     </div>
                   )}
                   {activeTab === 'money' && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                      <p className="text-gray-700 leading-relaxed text-xl font-lora">
+                       {/* GÜNCELLENDİ: text-base (mobil) md:text-xl (masaüstü) */}
+                      <p className="text-gray-700 leading-relaxed text-base md:text-xl font-lora">
                         {horoscopeData.money || 'Bugün için para yorumu bulunamadı.'}
                       </p>
                     </div>
                   )}
                   {activeTab === 'health' && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                      <p className="text-gray-700 leading-relaxed text-xl font-lora">
+                       {/* GÜNCELLENDİ: text-base (mobil) md:text-xl (masaüstü) */}
+                      <p className="text-gray-700 leading-relaxed text-base md:text-xl font-lora">
                         {horoscopeData.health || 'Bugün için sağlık yorumu bulunamadı.'}
                       </p>
                     </div>
