@@ -57,49 +57,44 @@ export async function fetchHoroscope(
     return null;
   }
 
-  // Try backend first (if URL provided)
+  // First, try to load from JSON summary file
+  try {
+    const jsonDate = convertDateFormat(date);
+    const response = await fetch(`/data/summarized_processed_daily_raw_${jsonDate}.json`);
+    if (response.ok) {
+      const data: DailySummaryData = await response.json();
+      const signData = data[signName];
+      if (signData) {
+        // Map Turkish keys to English
+        return {
+          general: signData.genel || '',
+          love: signData.aşk || '',
+          money: signData.para || '',
+          health: signData.sağlık || ''
+        };
+      }
+    }
+    // If file not found or sign not found, fall through to API
+  } catch (error) {
+    // If fetch fails (e.g. file not found), try API
+  }
+
+  // Fallback: Try backend API if URL provided
   if (backendUrl) {
     try {
       const response = await fetch(`${backendUrl}/api/gunluk/${signSlug}/${date}`, {
         signal: AbortSignal.timeout(3000) // 3 second timeout
       });
-
       if (response.ok) {
         const data = await response.json();
         return data.horoscope;
       }
     } catch (error) {
-      console.log('Backend unavailable, using JSON data');
+      console.log('Backend unavailable, no horoscope data found');
     }
   }
-
-  // Fallback: Load from JSON file
-  try {
-    const jsonDate = convertDateFormat(date);
-    const response = await fetch(`/data/summarized_processed_daily_raw_${jsonDate}.json`);
-    
-    if (!response.ok) {
-      return null;
-    }
-
-    const data: DailySummaryData = await response.json();
-    const signData = data[signName];
-
-    if (!signData) {
-      return null;
-    }
-
-    // Map Turkish keys to English
-    return {
-      general: signData.genel || '',
-      love: signData.aşk || '',
-      money: signData.para || '',
-      health: signData.sağlık || ''
-    };
-  } catch (error) {
-    console.error('Error loading horoscope from JSON:', error);
-    return null;
-  }
+  // If neither source works, return null
+  return null;
 }
 
 /**
