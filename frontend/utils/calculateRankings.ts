@@ -53,7 +53,8 @@ export function calculateRankings(
   period: 'daily' | 'weekly' | 'yearly',
   historyData: RankingsHistory
 ): RankingsData | null {
-  const dates = Object.keys(historyData).sort().reverse(); // Most recent first
+  const dates = Object.keys(historyData)
+    .sort((a, b) => new Date(b).getTime() - new Date(a).getTime()); // Most recent first (chronological)
   
   if (dates.length === 0) {
     return null;
@@ -158,34 +159,36 @@ export async function fetchRankings(
   period: 'daily' | 'weekly' | 'yearly',
   backendUrl?: string
 ): Promise<RankingsData | null> {
-  // Try backend first (if URL provided)
+  // First, try to load from /data/rankings_history.json and calculate locally
+  try {
+    const response = await fetch('/data/rankings_history.json');
+    if (response.ok) {
+      const historyData: RankingsHistory = await response.json();
+      return calculateRankings(period, historyData);
+    }
+    // If file not found or not ok, fall through to API
+  } catch (error) {
+    // If fetch fails (e.g. file not found), try API
+  }
+
+  // Fallback: Try backend API if URL provided
   if (backendUrl) {
     try {
       const getTodayDate = () => {
         const today = new Date();
         return `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
       };
-
       const response = await fetch(`${backendUrl}/api/rankings/${getTodayDate()}?period=${period}`, {
         signal: AbortSignal.timeout(3000) // 3 second timeout
       });
-
       if (response.ok) {
         const data = await response.json();
         return data.rankings;
       }
     } catch (error) {
-      console.log('Backend unavailable, using client-side calculation');
+      console.log('Backend unavailable, no rankings data found');
     }
   }
-
-  // Fallback: Load rankings_history.json and calculate
-  try {
-    const response = await fetch('/data/rankings_history.json');
-    const historyData: RankingsHistory = await response.json();
-    return calculateRankings(period, historyData);
-  } catch (error) {
-    console.error('Error loading rankings history:', error);
-    return null;
-  }
+  // If neither source works, return null
+  return null;
 }
