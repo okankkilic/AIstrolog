@@ -146,6 +146,20 @@ class TurkishHoroscopeSummarizer:
         for prefix in prefixes_to_remove:
             text = re.sub(prefix, '', text, flags=re.IGNORECASE)
         
+        # Remove closing phrases (anywhere in text, not just at the end)
+        closing_patterns = [
+            r'Yarın görüşmek üzere,?\s*sağlıkla kal[.…]*',
+            r'Yarın görüşmek üzere,?\s*sevgiyle kal[.…]*',
+            r'Sevgiyle kal[.…]*',
+            r'Sağlıkla kal[.…]*',
+            r'Hoşça kal[.…]*',
+            r'Görüşmek üzere[.…]*'
+        ]
+        for pattern in closing_patterns:
+            text = re.sub(pattern, '', text, flags=re.IGNORECASE)
+        # Remove extra spaces and dots left after removal
+        text = re.sub(r'\s{2,}', ' ', text)
+        text = re.sub(r'([.!?])\s*([.!?])+', r'\1 ', text)  # Remove repeated dots
         return text.strip()
     
     def remove_discourse_marker(self, text: str) -> str:
@@ -154,8 +168,14 @@ class TurkishHoroscopeSummarizer:
             return ""
         
         discourse_markers = [
+            r'^(Aşk|Para|Sağlık|Genel)[–-]\s*',
+            r'^Sevgili\s+\w+,?\s+',  # "Sevgili Koç,", "Sevgili kova," etc.
             r'^Peki ya aşk\??\.?\s*',
             r'^Peki ya\s+\w+\??\.?\s*',
+            r'^Bakalım,?\s+',  # "Bakalım, bu birliktelik..."
+            r'^Bu\s+(birliktelik|durum|konu|ilişki|olay)\b',  # "Bu birliktelik", "Bu durum" etc.
+            r'^O\s+(kişi|an|dönem)\b',  # "O kişi", "O an" etc.
+            r'^Bunlar\b',  # "Bunlar..."
             r'^Ayrıca,?\s+',
             r'^Aynı zamanda,?\s+',
             r'^Bunun yanında,?\s+',
@@ -412,6 +432,26 @@ class TurkishHoroscopeSummarizer:
         else:
             return self.extract_top_sentences_basic(sentences, category, max_sentences)
     
+    def _replace_transit_variations(self, text: str) -> str:
+        """
+        Replace all occurrences of 'transit' and its variations with 'hareket'.
+        Variations:
+        - transit → hareket
+        - transiti → hareketi
+        - transitin → hareketin
+        """
+        if not text:
+            return text
+        # Order matters: replace longer variations first
+        replacements = [
+            (r"transitin", "hareketin"),
+            (r"transiti", "hareketi"),
+            (r"transit", "hareket"),
+        ]
+        for pattern, repl in replacements:
+            text = re.sub(pattern, repl, text, flags=re.IGNORECASE)
+        return text
+
     def summarize_category(self, 
                           zodiac_sign: str, 
                           category: str, 
@@ -495,6 +535,25 @@ class TurkishHoroscopeSummarizer:
                 formatted_sentences.append(sentence)
         
         summary = ' '.join(formatted_sentences)
+        
+        # Final cleanup: remove any closing phrases that might have survived
+        closing_phrases = [
+            r'Yarın görüşmek üzere,?\s*sevgiyle kal[.…]*\s*',
+            r'Sevgiyle kal[.…]*\s*',
+            r'Hoşça kal[.…]*\s*',
+            r'Görüşmek üzere[.…]*\s*'
+        ]
+        for phrase in closing_phrases:
+            summary = re.sub(phrase, '', summary, flags=re.IGNORECASE)
+        
+        summary = summary.strip()
+        
+        # Apply 'transit' → 'hareket' replacement (and variations)
+        summary = self._replace_transit_variations(summary)
+        
+        # If summary became empty after cleanup, return None
+        if not summary:
+            return None
         
         return summary
     

@@ -42,11 +42,24 @@ jobs:
     
     - name: Run summarizer
       run: python summarizer.py
-    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies (frontend)
+      working-directory: frontend
+      run: npm install
+
+    - name: Copy data to frontend
+      working-directory: frontend
+      run: node scripts/copy-data.js
+
     - name: Commit and push results
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add data/
+        git add frontend/public/data/
         git commit -m "Daily horoscope data - $(date +'%Y-%m-%d')" || echo "No changes to commit"
         git push
