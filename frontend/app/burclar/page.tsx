@@ -24,7 +24,13 @@ export default function Home() {
   const dateSlug = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <>
+      <head>
+        <title>Burçlar - AIstrolog | Günlük Burç Yorumları</title>
+        <meta name="description" content="Burcunuzu seçin ve AIstrolog ile günlük burç yorumunuzu öğrenin. Astrolojiye dair en güncel ve güvenilir analizler burada." />
+        <meta name="keywords" content="burçlar, astroloji, günlük burç, burç yorumları, AIstrolog" />
+      </head>
+      <div className="max-w-5xl mx-auto">
       {/* Zodiac Grid */}
       <section>
         <div className="text-center mb-12">
@@ -54,5 +60,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </>
   );
 }

@@ -62,7 +62,13 @@ export default function RankingsPage() {
   ] as const;
 
   return (
-    <div className="max-w-xl mx-auto">
+    <>
+      <head>
+        <title>Burç Sıralamaları - AIstrolog | Astroloji Avantajları</title>
+        <meta name="description" content="Yapay zeka analizleriyle oluşturulan burç sıralamaları. Genel, aşk, para ve sağlık kategorilerinde burçların avantaj durumunu keşfedin." />
+        <meta name="keywords" content="burç sıralamaları, astroloji, burç avantajları, AIstrolog, genel, aşk, para, sağlık" />
+      </head>
+      <div className="max-w-xl mx-auto">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-khand font-normal mb-4 uppercase">Burç Sıralamaları</h1>
         <p className="text-gray-600 font-lora">
@@ -150,5 +156,6 @@ export default function RankingsPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

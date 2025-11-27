@@ -15,7 +15,13 @@ const SOURCES = [
 
 export default function SourcesPage() {
   return (
-    <div className="max-w-5xl mx-auto">
+    <>
+      <head>
+        <title>Astroloji Kaynakları - AIstrolog</title>
+        <meta name="description" content="AIstrolog, günlük burç yorumlarını Türkiye'nin en güvenilir astroloji kaynaklarından derler. Milliyet, Hürriyet, Habertürk ve daha fazlası." />
+        <meta name="keywords" content="astroloji kaynakları, burç yorumları, milliyet, hürriyet, habertürk, elele, AIstrolog" />
+      </head>
+      <div className="max-w-5xl mx-auto">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-khand font-normal mb-4 uppercase">Kaynaklar</h1>
         <p className="text-gray-600 font-lora">
@@ -59,5 +65,6 @@ export default function SourcesPage() {
         ))}
       </div>
     </div>
+    </>
   );
 }
