@@ -84,7 +84,6 @@ class TurkishHoroscopeSummarizer:
         'karşılaşabilirsiniz': ['denk gelebilirsiniz'],
         'yaşayabilirsiniz': ['deneyimleyebilirsiniz'],
         'yapabilirsiniz': ['gerçekleştirebilirsiniz'],
-        'olabilir': ['mümkün'],
         'zaman': ['dönem'],
         'sorun': ['problem'],
         'çözüm': ['çıkış yolu'],
@@ -173,9 +172,9 @@ class TurkishHoroscopeSummarizer:
             r'^Peki ya aşk\??\.?\s*',
             r'^Peki ya\s+\w+\??\.?\s*',
             r'^Bakalım,?\s+',  # "Bakalım, bu birliktelik..."
-            r'^Bu\s+(birliktelik|durum|konu|ilişki|olay)\b',  # "Bu birliktelik", "Bu durum" etc.
-            r'^O\s+(kişi|an|dönem)\b',  # "O kişi", "O an" etc.
-            r'^Bunlar\b',  # "Bunlar..."
+            r'^Bu\s+(birliktelik|durum|konu|ilişki|olay),?\s+',  # "Bu birliktelik", "Bu durum" etc.
+            r'^O\s+(kişi|an|dönem),?\s+',  # "O kişi", "O an" etc.
+            r'^Bunlar,?\s+',  # "Bunlar..."
             r'^Ayrıca,?\s+',
             r'^Aynı zamanda,?\s+',
             r'^Bunun yanında,?\s+',
