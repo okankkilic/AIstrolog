@@ -89,7 +89,13 @@ export default function ZodiacDetailPage({ params }: { params: Promise<{ sign: s
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4">
+    <>
+      <head>
+        <title>{`${zodiac.name} Burcu ${formatDate(actualDate)} - AIstrolog`}</title>
+        <meta name="description" content={`${zodiac.name} burcu için ${formatDate(actualDate)} tarihli günlük burç yorumu ve astrolojik analizler. AIstrolog ile en güncel burç yorumları.`} />
+        <meta name="keywords" content={`${zodiac.name}, ${zodiac.name} burcu, ${formatDate(actualDate)}, burç yorumları, astroloji, AIstrolog`} />
+      </head>
+      <div className="max-w-6xl mx-auto px-4">
       <div className="flex flex-col md:flex-row gap-6">
         {/* Left Side: Profile */}
         <div className="w-full md:w-1/3">
@@ -208,5 +214,6 @@ export default function ZodiacDetailPage({ params }: { params: Promise<{ sign: s
         </div>
       </div>
     </div>
+    </>
   );
 }

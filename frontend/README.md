@@ -1,24 +1,25 @@
+
 # AIstrolog Frontend
 
-Modern, minimalist Türkçe astroloji platformu. Next.js 16 ve Tailwind CSS ile geliştirilmiştir.
+Modern, minimalist Türkçe astroloji platformu. Next.js 16, React 19 ve Tailwind CSS ile geliştirilmiştir.
 
-## 🎨 Tasarım Özellikleri
+## Tasarım Özellikleri
 
 ### Tipografi
-- **Başlıklar**: Khand (Regular) - Hint kökenli, modern ve okunaklı
-- **Metinler**: Lora - Serif font, okuma rahatlığı için optimize edilmiş
+- Başlıklar: Khand (Regular)
+- Metinler: Lora
 
 ### Renk Paleti
-- **Arkaplan**: `#fdfbf7` (Kırık beyaz, göz yormayan ton)
-- **Vurgular**: Siyah/gri tonları (minimalist estetik)
+- Arkaplan: `#fdfbf7` (Kırık beyaz)
+- Vurgular: Siyah/gri tonları
 
-## 🚀 Kurulum ve Çalıştırma
+## Kurulum ve Çalıştırma
 
 ### Kurulum
 
 ```bash
 npm install
-# or
+# veya
 yarn install
 ```
 
@@ -26,7 +27,7 @@ yarn install
 
 ```bash
 npm run dev
-# or
+# veya
 yarn dev
 ```
 
@@ -39,15 +40,19 @@ npm run build
 npm start
 ```
 
-## 📱 Sayfalar
+## Sayfa Yapısı
 
-- **Ana Sayfa** (`/`): Otomatik yönlendirme `/burclar`
-- **Burç Seçimi** (`/burclar`): 12 burç kartı grid görünümü
-- **Burç Detay** (`/burclar/[sign]/[date]`): 4 kategori (Genel, Aşk, Para, Sağlık)
-- **Sıralamalar** (`/siralama`): Backend'den skorlara göre dinamik sıralama
-- **Kaynaklar** (`/kaynaklar`): 10 astroloji kaynağı
+- Ana Sayfa (`/`): Otomatik olarak `/burclar` sayfasına yönlendirir.
+- Burç Seçimi (`/burclar`): 12 burç kartı grid görünümü, her burç için gün seçimi.
+- Burç Detay (`/burclar/[sign]/[date]`): 4 kategori (Genel, Aşk, Para, Sağlık), SEO uyumlu dinamik başlık ve meta etiketleri.
+- Sıralamalar (`/siralama`): Backend'den alınan skorlara göre dinamik sıralama, kategori ve periyot seçimi.
+- Kaynaklar (`/kaynaklar`): 10 astroloji kaynağı, her biri dış bağlantı ve logo ile.
 
-## 🔌 API Entegrasyonu
+## SEO
+
+Tüm ana sayfalarda dinamik ve SEO uyumlu `<title>` ve `<meta>` etiketleri bulunmaktadır.
+
+## API Entegrasyonu
 
 Frontend, `http://localhost:8000` adresindeki FastAPI backend ile iletişim kurar.
 
@@ -59,29 +64,28 @@ GET /api/gunluk/{sign}/{date}
 GET /api/rankings/{date}
 ```
 
-## 🎯 Teknoloji Stack
+## Teknolojiler
 
-- **Next.js 16**: React framework (App Router)
-- **React 19**: UI library
-- **TypeScript**: Type safety
-- **Tailwind CSS v4**: Utility-first CSS
-- **Framer Motion**: Smooth animations
-- **Lucide React**: Modern ikon seti
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Framer Motion
+- Lucide React
 
-## 📐 Responsive Design
+## Responsive Tasarım
 
-Tüm sayfalar mobil-first yaklaşımla tasarlanmıştır:
-- **Mobile**: 320px - 767px
-- **Tablet**: 768px - 1023px
-- **Desktop**: 1024px+
+Mobil-first yaklaşımla tasarlanmıştır:
+- Mobile: 320px - 767px
+- Tablet: 768px - 1023px
+- Desktop: 1024px+
 
-## 🌐 Deploy on Vercel
+## Deploy
 
-En kolay deployment yöntemi [Vercel Platform](https://vercel.com/new) kullanmaktır.
+En kolay deployment için [Vercel Platformu](https://vercel.com/new) kullanılabilir.
+Detaylar: [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)
 
-Detaylar için: [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)
-
-## 📚 Daha Fazla Bilgi
+## Daha Fazla Bilgi
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
