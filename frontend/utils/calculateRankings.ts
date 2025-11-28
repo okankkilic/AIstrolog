@@ -5,9 +5,9 @@ interface DailyRanking {
 
 interface CategoryRankings {
   genel_ranking: DailyRanking[];
-  ask_ranking: DailyRanking[];
+  aşk_ranking: DailyRanking[];
   para_ranking: DailyRanking[];
-  saglik_ranking: DailyRanking[];
+  sağlık_ranking: DailyRanking[];
 }
 
 interface RankingsHistory {
@@ -106,7 +106,7 @@ export function calculateRankings(
     });
 
     // Love rankings
-    dayData.ask_ranking?.forEach(item => {
+    dayData.aşk_ranking?.forEach(item => {
       if (signScores[item.burc]) {
         signScores[item.burc].love.push(item.score);
       }
@@ -120,7 +120,7 @@ export function calculateRankings(
     });
 
     // Health rankings
-    dayData.saglik_ranking?.forEach(item => {
+    dayData.sağlık_ranking?.forEach(item => {
       if (signScores[item.burc]) {
         signScores[item.burc].health.push(item.score);
       }
