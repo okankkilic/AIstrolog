@@ -35,7 +35,6 @@ export default function RankingsPage() {
         
         // Try backend first (localhost), fallback to client-side calculation
         const data = await fetchRankings(period, 'http://localhost:8000');
-        console.log('Fetched Rankings:', data);
         setRankingsData(data);
       } catch (error) {
         console.error('Error loading rankings:', error);
