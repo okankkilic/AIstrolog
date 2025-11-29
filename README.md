@@ -19,6 +19,11 @@ Günlük burç yorumlarını toplayan, kategorize eden, puanlayan ve modern bir 
 - **Detaylı Görünüm:** Her burç için kategorize edilmiş ve özetlenmiş yorumlar
 - **Mobil Uyumlu:** Her cihazda kusursuz deneyim
 
+### Telegram Bot Entegrasyonu
+- **Anlık Bildirimler:** Günlük burç yorumlarını Telegram üzerinden anlık olarak alın
+- **Bot Linki:** [t.me/aistrolog_daily_bot](https://t.me/aistrolog_daily_bot)
+- **Açık Kaynak:** Bot kodlarına [GitHub](https://github.com/kocerayk/AIstrolog_Bot) üzerinden erişebilirsiniz
+
 ## Kurulum
 
 ### Backend Kurulumu

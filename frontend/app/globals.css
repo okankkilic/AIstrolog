@@ -24,9 +24,29 @@ body {
   font-family: var(--font-lora), serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-khand), sans-serif;
   font-weight: 400;
   text-transform: uppercase;
 }
 
+@keyframes gentle-bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-gentle-bounce {
+  animation: gentle-bounce 3s infinite ease-in-out;
+}
