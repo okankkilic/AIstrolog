@@ -3,6 +3,7 @@ import { Khand, Lora } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import QRButton from "@/components/QRButton";
 
 const khand = Khand({
   variable: "--font-khand",
@@ -38,6 +39,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <QRButton />
       </body>
     </html>
   );
