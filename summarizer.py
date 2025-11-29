@@ -35,6 +35,27 @@ logger = logging.getLogger(__name__)
 
 
 class TurkishHoroscopeSummarizer:
+    # Yasaklı bağlaçları veya konu geçiş ifadelerini içeren cümleler
+    FORBIDDEN_CONNECTORS = [
+        "demişken",
+        "bu arada",
+        "yeri gelmişken",
+        "hazır konu açılmışken",
+        "söz konusu iken",
+        # Benzer ifadeler eklenebilir
+    ]
+
+    def filter_forbidden_sentences(self, sentences: List[str]) -> List[str]:
+        """
+        Yasaklı bağlaçları veya konu geçiş ifadelerini içeren cümleleri tamamen çıkarır.
+        """
+        filtered = []
+        for s in sentences:
+            s_lower = s.lower()
+            if any(connector in s_lower for connector in self.FORBIDDEN_CONNECTORS):
+                continue
+            filtered.append(s)
+        return filtered
     """
     Summarizes Turkish horoscope predictions from multiple sources.
     
@@ -84,7 +105,6 @@ class TurkishHoroscopeSummarizer:
         'karşılaşabilirsiniz': ['denk gelebilirsiniz'],
         'yaşayabilirsiniz': ['deneyimleyebilirsiniz'],
         'yapabilirsiniz': ['gerçekleştirebilirsiniz'],
-        'olabilir': ['mümkün'],
         'zaman': ['dönem'],
         'sorun': ['problem'],
         'çözüm': ['çıkış yolu'],
@@ -173,9 +193,9 @@ class TurkishHoroscopeSummarizer:
             r'^Peki ya aşk\??\.?\s*',
             r'^Peki ya\s+\w+\??\.?\s*',
             r'^Bakalım,?\s+',  # "Bakalım, bu birliktelik..."
-            r'^Bu\s+(birliktelik|durum|konu|ilişki|olay)\b',  # "Bu birliktelik", "Bu durum" etc.
-            r'^O\s+(kişi|an|dönem)\b',  # "O kişi", "O an" etc.
-            r'^Bunlar\b',  # "Bunlar..."
+            r'^Bu\s+(birliktelik|durum|konu|ilişki|olay),?\s+',  # "Bu birliktelik", "Bu durum" etc.
+            r'^O\s+(kişi|an|dönem),?\s+',  # "O kişi", "O an" etc.
+            r'^Bunlar,?\s+',  # "Bunlar..."
             r'^Ayrıca,?\s+',
             r'^Aynı zamanda,?\s+',
             r'^Bunun yanında,?\s+',
@@ -486,6 +506,7 @@ class TurkishHoroscopeSummarizer:
             # Clean and split into sentences
             clean = self.clean_text(text)
             sentences = self.split_sentences(clean)
+            sentences = self.filter_forbidden_sentences(sentences)
             all_sentences.extend(sentences)
         
         if not all_sentences:
