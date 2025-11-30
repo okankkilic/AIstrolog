@@ -1,4 +1,206 @@
 {
+  "2025-11-30": {
+    "genel_ranking": [
+      {
+        "burc": "Yay",
+        "score": 100.0
+      },
+      {
+        "burc": "Kova",
+        "score": 97.3
+      },
+      {
+        "burc": "Balık",
+        "score": 94.6
+      },
+      {
+        "burc": "Oğlak",
+        "score": 94.0
+      },
+      {
+        "burc": "Aslan",
+        "score": 92.2
+      },
+      {
+        "burc": "İkizler",
+        "score": 89.3
+      },
+      {
+        "burc": "Koç",
+        "score": 83.7
+      },
+      {
+        "burc": "Yengeç",
+        "score": 82.4
+      },
+      {
+        "burc": "Başak",
+        "score": 73.5
+      },
+      {
+        "burc": "Akrep",
+        "score": 69.2
+      },
+      {
+        "burc": "Boğa",
+        "score": 60.1
+      },
+      {
+        "burc": "Terazi",
+        "score": 50.5
+      }
+    ],
+    "aşk_ranking": [
+      {
+        "burc": "Yengeç",
+        "score": 100
+      },
+      {
+        "burc": "Aslan",
+        "score": 100
+      },
+      {
+        "burc": "Yay",
+        "score": 100
+      },
+      {
+        "burc": "Oğlak",
+        "score": 100
+      },
+      {
+        "burc": "Balık",
+        "score": 100
+      },
+      {
+        "burc": "Kova",
+        "score": 97.5
+      },
+      {
+        "burc": "İkizler",
+        "score": 91.2
+      },
+      {
+        "burc": "Akrep",
+        "score": 77.5
+      },
+      {
+        "burc": "Boğa",
+        "score": 62.5
+      },
+      {
+        "burc": "Koç",
+        "score": 58.8
+      },
+      {
+        "burc": "Başak",
+        "score": 45.0
+      },
+      {
+        "burc": "Terazi",
+        "score": 28.8
+      }
+    ],
+    "para_ranking": [
+      {
+        "burc": "Koç",
+        "score": 100
+      },
+      {
+        "burc": "İkizler",
+        "score": 100
+      },
+      {
+        "burc": "Aslan",
+        "score": 100
+      },
+      {
+        "burc": "Yay",
+        "score": 100
+      },
+      {
+        "burc": "Oğlak",
+        "score": 100
+      },
+      {
+        "burc": "Kova",
+        "score": 92.5
+      },
+      {
+        "burc": "Balık",
+        "score": 87.5
+      },
+      {
+        "burc": "Başak",
+        "score": 81.2
+      },
+      {
+        "burc": "Boğa",
+        "score": 67.5
+      },
+      {
+        "burc": "Terazi",
+        "score": 66.2
+      },
+      {
+        "burc": "Akrep",
+        "score": 57.5
+      },
+      {
+        "burc": "Yengeç",
+        "score": 42.5
+      }
+    ],
+    "sağlık_ranking": [
+      {
+        "burc": "Yay",
+        "score": 100
+      },
+      {
+        "burc": "Kova",
+        "score": 98.8
+      },
+      {
+        "burc": "Balık",
+        "score": 88.8
+      },
+      {
+        "burc": "Yengeç",
+        "score": 83.8
+      },
+      {
+        "burc": "Koç",
+        "score": 70.0
+      },
+      {
+        "burc": "Oğlak",
+        "score": 70.0
+      },
+      {
+        "burc": "Aslan",
+        "score": 61.2
+      },
+      {
+        "burc": "Başak",
+        "score": 60.0
+      },
+      {
+        "burc": "İkizler",
+        "score": 57.5
+      },
+      {
+        "burc": "Boğa",
+        "score": 53.8
+      },
+      {
+        "burc": "Terazi",
+        "score": 28.8
+      },
+      {
+        "burc": "Akrep",
+        "score": 27.5
+      }
+    ]
+  },
   "2025-11-29": {
     "genel_ranking": [
       {
