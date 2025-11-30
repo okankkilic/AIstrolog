@@ -12,7 +12,7 @@ export default function QRButton() {
             className="fixed bottom-8 right-8 z-50 hidden md:flex items-center justify-center transition-all duration-500 ease-in-out w-16 h-16 hover:w-32 hover:h-32 animate-gentle-bounce hover:animate-none"
             aria-label="Chat with AIstrolog Bot on Telegram"
         >
-            <div className="relative w-full h-full bg-white rounded-lg shadow-xl overflow-hidden border border-gray-100">
+            <div className="relative w-full h-full bg-white rounded-lg overflow-hidden border border-gray-100">
                 <Image
                     src="/qr/qr.png"
                     alt="AIstrolog Telegram Bot QR Code"
