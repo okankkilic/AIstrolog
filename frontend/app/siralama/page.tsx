@@ -20,7 +20,7 @@ interface RankingsData {
 }
 
 type SortKey = 'general' | 'love' | 'money' | 'health';
-type Period = 'daily' | 'weekly' | 'yearly';
+type Period = 'daily' | 'weekly' | 'monthly';
 
 export default function RankingsPage() {
   const [period, setPeriod] = useState<Period>('daily');
@@ -82,7 +82,7 @@ export default function RankingsPage() {
           {/* Period Selector */}
           <div className="flex justify-center">
             <div className="flex p-1 bg-gray-200/50 rounded-lg relative">
-              {['daily', 'weekly', 'yearly'].map((p) => (
+              {['daily', 'weekly', 'monthly'].map((p) => (
                 <button
                   key={p}
                   onClick={() => handlePeriodChange(p as Period)}
