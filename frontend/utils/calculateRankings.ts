@@ -45,12 +45,12 @@ const signToSlug: Record<string, string> = {
 
 /**
  * Calculate rankings from rankings_history.json
- * @param period - 'daily', 'weekly', or 'yearly' (monthly)
+ * @param period - 'daily', 'weekly', or 'monthly'
  * @param historyData - The rankings history JSON data
  * @returns Calculated rankings
  */
 export function calculateRankings(
-  period: 'daily' | 'weekly' | 'yearly',
+  period: 'daily' | 'weekly' | 'monthly',
   historyData: RankingsHistory
 ): RankingsData | null {
   const dates = Object.keys(historyData)
@@ -69,7 +69,7 @@ export function calculateRankings(
     case 'weekly':
       daysToInclude = 7;
       break;
-    case 'yearly': // Actually monthly
+    case 'monthly':
       daysToInclude = 30;
       break;
   }
@@ -156,7 +156,7 @@ export function calculateRankings(
  * Fetch rankings - tries backend first, falls back to client-side calculation
  */
 export async function fetchRankings(
-  period: 'daily' | 'weekly' | 'yearly',
+  period: 'daily' | 'weekly' | 'monthly',
   backendUrl?: string
 ): Promise<RankingsData | null> {
   // First, try to load from /data/rankings_history.json and calculate locally
