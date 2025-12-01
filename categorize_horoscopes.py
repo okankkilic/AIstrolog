@@ -13,37 +13,89 @@ from pathlib import Path
 
 class HoroscopeCategorizer:
     """Burç yorumlarını kategorilere ayıran sınıf"""
+
+    EMOJI_PATTERN = re.compile(
+        "["
+        "\U0001F600-\U0001F64F"
+        "\U0001F300-\U0001F5FF"
+        "\U0001F680-\U0001F6FF"
+        "\U0001F1E0-\U0001F1FF"
+        "\U00002700-\U000027BF"
+        "\U0001F900-\U0001F9FF"
+        "\U00002600-\U000026FF"
+        "\U00002B00-\U00002BFF"
+        "]+",
+        flags=re.UNICODE
+    )
+
+    def remove_emojis(self, text: str) -> str:
+        return self.EMOJI_PATTERN.sub("", text)
+
     
     LOVE_KEYWORDS = {
-        'aşk', 'aşka', 'sevgi', 'sevgili', 'sevgilin', 'partner', 'partnerin', 
-        'flört', 'flörtün', 'ilişki', 'ilişkin', 'kalp', 'kalbini', 'kalbinden',
-        'duygular', 'duyguların', 'itiraf', 'buluşma', 'evlilik', 'evliliğin',
-        'romantik', 'bağ', 'bağlar', 'tutku', 'şehvet', 'yüzleşme', 'çift',
-        'eş', 'eşin', 'karşı taraf', 'bekar', 'bekarsın', 'aşk hayatı',
-        'duygusal bağ', 'duygusal bağlanma', 'çekim', 'ayrılık', 'birlikte'
+        'aşk', 'sevgi', 'sevgili', 'partner', 'flört', 'ilişki', 'kalp',
+        'duygular', 'itiraf', 'buluşma', 'evlilik', 'romantik', 'tutku',
+        'şehvet', 'çift', 'eş', 'bekar', 'çekim', 'ayrılık', 'birlikte'
     }
     
     MONEY_KEYWORDS = {
-        'para', 'maddi', 'harcama', 'harcamalar', 'birikim', 'yatırım',
-        'kazanç', 'finans', 'finansal', 'sermaye', 'iş kurmak', 'maaş',
-        'bütçe', 'fiyat', 'alışveriş', 'gelir', 'gider', 'borç', 'ödeme',
-        'ekonomik', 'mali', 'vadesiz', 'hesap', 'kredi', 'zenginlik',
-        'kazanma', 'kazandır', 'kayıp', 'kaybı', 'kar', 'zarar', 'ticaret',
-        'alım', 'satım', 'yatırım', 'tasarruf', 'tüketim', 'ücret', 'kariyer',
-        'kariyerinde', 'iş', 'işyeri', 'proje', 'görev'
+        'para', 'maddi', 'harcama', 'birik', 'yatır', 'kazanç', 'kazan',
+        'finans', 'finansal', 'maaş', 'bütçe', 'gelir', 'gider', 'borç',
+        'ödeme', 'ekonomik', 'mali', 'hesap', 'kredi', 'kar', 'zarar',
+        'ticaret', 'alım', 'satım', 'tasarruf', 'ücret', 'kariyer', 'iş',
+        'proje', 'görev', 'fırsat', 'terfi', 'yatırım'
     }
     
     HEALTH_KEYWORDS = {
-        'sağlık', 'sağlıklı', 'hastalık', 'egzersiz', 'spor', 'beslenme',
-        'uyku', 'stres', 'enerji', 'enerjin', 'yorgunluk', 'fiziksel',
-        'ruhsal', 'zihin', 'zihinsel', 'rahatlama', 'dinlenme', 'hisset',
-        'dikkat et', 'soğuk algınlığı', 'yorgun', 'sağlam', 'dinç',
-        'aktivite', 'hareket', 'gevşeme', 'meditasyon', 'nefes', 'beden',
-        'vücut', 'form', 'kondisyon', 'hastalıklar', 'ağrı', 'acı', 'doktor',
-        'baş ağrısı', 'boyun', 'omuz', 'bel', 'mide', 'kas', 'eklem', 'diz'
+        'sağlık', 'sağlık', 'hastalık', 'egzersiz', 'spor', 'beslen', 'uyku',
+        'stres', 'enerji', 'yorgunluk', 'fiziksel', 'ruhsal', 'zihin', 'rahatla',
+        'dinlen', 'yorgun', 'sağlam', 'dinç', 'aktivite', 'hareket', 'gevşe',
+        'meditasyon', 'nefes', 'beden', 'vücut', 'form', 'kondisyon', 'hastalık',
+        'ağrı', 'acı', 'doktor', 'boyun', 'omuz', 'bel', 'mide', 'kas', 'eklem', 'diz',
+        'zihinsel'
     }
     
+    
     def __init__(self, input_file: str, output_file: str = None):
+        from TurkishStemmer import TurkishStemmer
+        self.stemmer = TurkishStemmer()
+
+        # Keywordleri köke çeviriyoruz (bir kez)
+        self.LOVE_STEMS = {self.stemmer.stem(x) for x in self.LOVE_KEYWORDS}
+        self.MONEY_STEMS = {self.stemmer.stem(x) for x in self.MONEY_KEYWORDS}
+        self.HEALTH_STEMS = {self.stemmer.stem(x) for x in self.HEALTH_KEYWORDS}
+
+        # PHRASES (sadece tek kelimeyle yakalanamayanlar)
+        self.LOVE_PHRASES = [
+            "duygusal bağ",
+            "duygusal bağlanma",
+            "duygusal yakınlık",
+            "duygusal destek",
+            "duygusal bir konuşma",
+            "duygusal bir buluşma",
+            "ilişki adımı",
+            "ilişkide adım"
+        ]
+        self.MONEY_PHRASES = [
+            "ek gelir",
+            "ek kazanç",
+            "gelir artışı",
+            "iş fırsatı",
+            "kariyer fırsatı",
+            "iş kurmak"
+        ]
+        self.HEALTH_PHRASES = [
+            "dikkat et",
+            "soğuk algınlığı",
+            "baş ağrısı",
+            "ruh sağlığı",
+            "zihinsel yorgunluk",
+            "zihinsel olarak",
+            "psikolojik olarak",
+            "fiziksel yorgunluk"
+        ]
+
+
         self.input_file = Path(input_file)
         
         if output_file:
@@ -62,40 +114,45 @@ class HoroscopeCategorizer:
         cleaned_sentences = []
         for sentence in sentences:
             sentence = sentence.strip()
+
+            sentence = self.remove_emojis(sentence)
+
             if sentence and len(sentence) > 10:
                 cleaned_sentences.append(sentence)
         
         return cleaned_sentences
     
+    def stem_sentence(self, sentence: str) -> set:
+        """Cümledeki tüm kelimeleri köklerine indirger ve set döner."""
+        words = re.findall(r'\b\w+\b', sentence.lower())
+        return {self.stemmer.stem(w) for w in words}
+    
     def categorize_sentence(self, sentence: str) -> dict:
-        """Bir cümlenin hangi kategorilere ait olduğunu belirler"""
+        """Bir cümleyi PHRASE ve kök tabanlı olarak kategorize eder."""
+
         sentence_lower = sentence.lower()
+    
+        # Önce PHRASE kontrolü (öncelikli)
+        for phrase in self.LOVE_PHRASES:
+            if phrase in sentence_lower:
+                return {'love': True, 'money': False, 'health': False}
+
+        for phrase in self.MONEY_PHRASES:
+            if phrase in sentence_lower:
+                return {'love': False, 'money': True, 'health': False}
+
+        for phrase in self.HEALTH_PHRASES:
+            if phrase in sentence_lower:
+                return {'love': False, 'money': False, 'health': True}
+
+        # Kök tabanlı kontrol
+        sent_stems = self.stem_sentence(sentence)
         
-        categories = {
-            'love': False,
-            'money': False,
-            'health': False
+        return {
+            'love': len(self.LOVE_STEMS & sent_stems) > 0,
+            'money': len(self.MONEY_STEMS & sent_stems) > 0,
+            'health': len(self.HEALTH_STEMS & sent_stems) > 0
         }
-        
-        for keyword in self.LOVE_KEYWORDS:
-            # Word boundary at start to avoid matching inside words
-            if re.search(r'\b' + re.escape(keyword), sentence_lower):
-                categories['love'] = True
-                break
-        
-        for keyword in self.MONEY_KEYWORDS:
-            # Word boundary at start to avoid matching inside words
-            if re.search(r'\b' + re.escape(keyword), sentence_lower):
-                categories['money'] = True
-                break
-        
-        for keyword in self.HEALTH_KEYWORDS:
-            # Word boundary at start to avoid matching inside words
-            if re.search(r'\b' + re.escape(keyword), sentence_lower):
-                categories['health'] = True
-                break
-        
-        return categories
     
     def process_horoscope(self, horoscope_data: dict) -> dict:
         """Bir burç verisini işler ve kategorize eder"""

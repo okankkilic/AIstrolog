@@ -42,6 +42,7 @@ class TurkishHoroscopeSummarizer:
         "yeri gelmişken",
         "hazır konu açılmışken",
         "söz konusu iken",
+        "dönecek olursak"
         # Benzer ifadeler eklenebilir
     ]
 
@@ -109,6 +110,12 @@ class TurkishHoroscopeSummarizer:
         'sorun': ['problem'],
         'çözüm': ['çıkış yolu'],
     }
+
+    PLANETS = [
+        "güneş", "ay", "merkür", "venüs", "dünya",
+        "mars", "jüpiter", "satürn", "uranüs",
+        "neptün", "plüton"
+    ]
     
     def __init__(self, similarity_threshold: float = 0.7, use_ml: bool = True, synonym_ratio: float = 0.0):
         """
@@ -550,6 +557,12 @@ class TurkishHoroscopeSummarizer:
                 
                 # Normalize case - only first letter uppercase, rest lowercase
                 sentence = sentence[0].upper() + sentence[1:].lower() if len(sentence) > 1 else sentence.upper()
+
+                # Capitalize planet names
+                for planet in self.PLANETS:
+                    pattern = r'\b' + planet + r'\b'
+                    sentence = re.sub(pattern, planet.capitalize(), sentence)
+
                 # Add period if missing
                 if not sentence[-1] in '.!?':
                     sentence += '.'
