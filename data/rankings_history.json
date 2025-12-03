@@ -2,61 +2,57 @@
   "2025-12-03": {
     "genel_ranking": [
       {
-        "burc": "Oğlak",
+        "burc": "Kova",
         "score": 100.0
       },
       {
-        "burc": "Koç",
-        "score": 98.0
-      },
-      {
-        "burc": "Yengeç",
-        "score": 95.5
+        "burc": "Balık",
+        "score": 94.9
       },
       {
         "burc": "Aslan",
-        "score": 93.2
-      },
-      {
-        "burc": "Akrep",
-        "score": 92.9
+        "score": 93.7
       },
       {
         "burc": "Yay",
-        "score": 92.6
-      },
-      {
-        "burc": "Kova",
-        "score": 91.7
+        "score": 93.0
       },
       {
         "burc": "Terazi",
-        "score": 91.0
+        "score": 91.8
       },
       {
-        "burc": "Balık",
-        "score": 86.1
+        "burc": "Oğlak",
+        "score": 90.2
       },
       {
         "burc": "Başak",
-        "score": 84.3
+        "score": 89.7
+      },
+      {
+        "burc": "Koç",
+        "score": 86.9
+      },
+      {
+        "burc": "Yengeç",
+        "score": 85.7
+      },
+      {
+        "burc": "Akrep",
+        "score": 76.2
       },
       {
         "burc": "İkizler",
-        "score": 79.5
+        "score": 73.3
       },
       {
         "burc": "Boğa",
-        "score": 76.3
+        "score": 54.8
       }
     ],
     "aşk_ranking": [
       {
-        "burc": "Koç",
-        "score": 100
-      },
-      {
-        "burc": "Yengeç",
+        "burc": "İkizler",
         "score": 100
       },
       {
@@ -81,40 +77,32 @@
       },
       {
         "burc": "Kova",
+        "score": 100
+      },
+      {
+        "burc": "Yengeç",
         "score": 98.8
       },
       {
-        "burc": "İkizler",
-        "score": 92.5
+        "burc": "Balık",
+        "score": 97.5
       },
       {
         "burc": "Başak",
-        "score": 76.2
+        "score": 88.8
       },
       {
-        "burc": "Balık",
-        "score": 75.0
+        "burc": "Koç",
+        "score": 87.5
       },
       {
         "burc": "Boğa",
-        "score": 71.2
+        "score": 52.5
       }
     ],
     "para_ranking": [
       {
-        "burc": "Koç",
-        "score": 100
-      },
-      {
         "burc": "İkizler",
-        "score": 100
-      },
-      {
-        "burc": "Yengeç",
-        "score": 100
-      },
-      {
-        "burc": "Aslan",
         "score": 100
       },
       {
@@ -130,6 +118,10 @@
         "score": 100
       },
       {
+        "burc": "Yay",
+        "score": 100
+      },
+      {
         "burc": "Oğlak",
         "score": 100
       },
@@ -138,12 +130,20 @@
         "score": 100
       },
       {
-        "burc": "Yay",
-        "score": 97.5
+        "burc": "Balık",
+        "score": 100
       },
       {
-        "burc": "Balık",
-        "score": 97.5
+        "burc": "Aslan",
+        "score": 93.8
+      },
+      {
+        "burc": "Koç",
+        "score": 92.5
+      },
+      {
+        "burc": "Yengeç",
+        "score": 91.2
       },
       {
         "burc": "Boğa",
@@ -156,48 +156,48 @@
         "score": 100
       },
       {
-        "burc": "Koç",
-        "score": 90.0
-      },
-      {
-        "burc": "Akrep",
-        "score": 88.8
-      },
-      {
-        "burc": "Yengeç",
-        "score": 77.5
-      },
-      {
-        "burc": "Boğa",
-        "score": 66.2
-      },
-      {
-        "burc": "Aslan",
-        "score": 66.2
-      },
-      {
-        "burc": "Yay",
-        "score": 66.2
+        "burc": "Kova",
+        "score": 100
       },
       {
         "burc": "Balık",
+        "score": 77.5
+      },
+      {
+        "burc": "Aslan",
+        "score": 76.2
+      },
+      {
+        "burc": "Koç",
         "score": 65.0
       },
       {
-        "burc": "Kova",
-        "score": 60.0
-      },
-      {
-        "burc": "Terazi",
-        "score": 55.0
-      },
-      {
-        "burc": "İkizler",
-        "score": 53.8
+        "burc": "Yay",
+        "score": 65.0
       },
       {
         "burc": "Başak",
-        "score": 51.2
+        "score": 62.5
+      },
+      {
+        "burc": "Terazi",
+        "score": 58.8
+      },
+      {
+        "burc": "Akrep",
+        "score": 56.2
+      },
+      {
+        "burc": "Yengeç",
+        "score": 41.2
+      },
+      {
+        "burc": "İkizler",
+        "score": 33.8
+      },
+      {
+        "burc": "Boğa",
+        "score": 28.8
       }
     ]
   },
